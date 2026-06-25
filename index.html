@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Moment | Photography by Yohan</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom Calendar Styles */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        .date-btn {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .date-btn:not(:disabled):hover {
+            background-color: #f1f5f9;
+            cursor: pointer;
+        }
+        .date-btn:disabled {
+            color: #ef4444;
+            text-decoration: line-through;
+            cursor: not-allowed;
+            background-color: #fecaca;
+            opacity: 0.6;
+        }
+        .date-btn.selected {
+            background-color: #0f172a;
+            color: white;
+            text-decoration: none !important;
+        }
+        /* Smooth Fade In */
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0"></div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" onclick="showPage('home')" data-i18n="nav-home" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">Home</a>
+                    <a href="#" onclick="showPage('about')" data-i18n="nav-about" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">About</a>
+                    <a href="#" onclick="showPage('pricing')" data-i18n="nav-pricing" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">Pricing</a>
+                    <a href="#" onclick="showPage('details')" data-i18n="nav-details" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">Details</a>
+                    <a href="https://www.instagram.com/dear_moment88/" target="_blank" data-i18n="nav-portfolio" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">
+                        Portfolio <i class="fas fa-external-link-alt text-[10px] text-gray-400"></i>
+                    </a>
+                    
+                    <!-- Language & Booking Controls -->
+                    <div class="flex items-center gap-4">
+                        <button onclick="toggleLanguage()" class="text-xs font-bold tracking-wider px-2.5 py-1.5 border border-gray-200 hover:border-slate-400 rounded-md transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1 bg-white">
+                            <i class="fas fa-globe text-gray-400"></i>
+                            <span id="active-lang-label">KO</span>
+                        </button>
+                        <a href="#" onclick="showPage('booking')" data-i18n="nav-book" class="bg-slate-900 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-colors shadow-sm">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-3">
+                    <button onclick="toggleLanguage()" class="text-xs font-bold tracking-wider px-2 py-1 border border-gray-200 rounded-md text-slate-600 bg-white">
+                        <span id="active-lang-label-mobile">KO</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-slate-900 focus:outline-none p-2">
+                        <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" onclick="showPage('home')" data-i18n="nav-home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#" onclick="showPage('about')" data-i18n="nav-about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">About</a>
+                <a href="#" onclick="showPage('pricing')" data-i18n="nav-pricing" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Pricing</a>
+                <a href="#" onclick="showPage('details')" data-i18n="nav-details" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Details</a>
+                <a href="https://www.instagram.com/dear_moment88/" target="_blank" data-i18n="nav-portfolio-mob" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Portfolio ↗</a>
+                <a href="#" onclick="showPage('booking')" data-i18n="nav-book" class="block px-3 py-3 text-base font-medium text-white bg-slate-900 text-center rounded-md mt-4">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow flex flex-col bg-white">
+        
+        <!-- HOME PAGE -->
+        <div id="home" class="page-view block flex-grow flex flex-col justify-center py-6 md:py-12">
+            <header class="px-4 text-center fade-in">
+                <div class="max-w-5xl mx-auto">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4 leading-tight" data-i18n="hero-title">
+                        Capturing your day<br>exactly as it feels.
+                    </h1>
+                    
+                    <!-- Direct Navigation Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        <div onclick="showPage('about')" class="group p-5 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
+                            <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-slate-500 mb-3 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
+                                <i class="fas fa-user text-lg"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-slate-900 mb-1" data-i18n="card-about-title">About Me</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed" data-i18n="card-about-desc">Discover my philosophy and approach to photography.</p>
+                        </div>
+
+                        <div onclick="showPage('pricing')" class="group p-5 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
+                            <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-slate-500 mb-3 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
+                                <i class="fas fa-tags text-lg"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-slate-900 mb-1" data-i18n="card-pricing-title">Pricing</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed" data-i18n="card-pricing-desc">Explore packages, inclusions, and special promotions.</p>
+                        </div>
+
+                        <div onclick="showPage('details')" class="group p-5 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
+                            <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-slate-500 mb-3 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
+                                <i class="fas fa-info-circle text-lg"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-slate-900 mb-1" data-i18n="card-details-title">The Details</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed" data-i18n="card-details-desc">Service policies, travel info, and booking guide.</p>
+                        </div>
+
+                        <div onclick="showPage('booking')" class="group p-5 bg-slate-50 border border-slate-200 rounded-2xl shadow-sm hover:shadow-md hover:border-slate-400 transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
+                            <div class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-white mb-3 group-hover:bg-slate-700 transition-colors duration-300">
+                                <i class="fas fa-calendar-check text-lg"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="card-booking-title">Book Now</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed" data-i18n="card-booking-desc">Select date, time and secure your session effortlessly.</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <section id="about" class="page-view hidden flex-grow pt-20 pb-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden shadow-sm relative group">
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+                                <i class="fas fa-image text-5xl"></i>
+                            </div>
+                            <img src="profile.jpeg" alt="Yohan" class="w-full h-full object-cover relative z-10 opacity-95 transition duration-500 group-hover:scale-105" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase mb-3 block" data-i18n="about-badge">Your Photographer</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-i18n="about-title">Hi, I’m Yohan, the photographer behind Dear Moment.</h2>
+                        <div class="space-y-4 text-gray-600 leading-relaxed text-lg">
+                            <p data-i18n="about-p1">I believe the most beautiful photographs come from genuine connections and relaxed atmospheres.</p>
+                            <p data-i18n="about-p2">My goal is to capture your day exactly as it feels—authentic, timeless, and uniquely yours. Let’s create something beautiful together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING PAGE -->
+        <section id="pricing" class="page-view hidden flex-grow pt-20 pb-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="pricing-title">Investment & Packages</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+                        <div class="mb-6">
+                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-standard">Standard</span>
+                            <h3 class="text-4xl font-bold text-slate-900 mt-2">$550</h3>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
+                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-std-time">1.5 Hours</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-std-photos">15 Retouched Photos</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-loc">1 Location</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-fit">Single Outfit</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-std-orig">+500 Originals</span></li>
+                        </ul>
+                        <button onclick="goToBookingAndSelect('Standard')" class="block w-full text-center bg-gray-100 text-slate-800 font-medium py-3 rounded-lg hover:bg-gray-200 transition-colors mt-auto" data-i18n="pkg-std-btn">Book Standard</button>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-8 border border-slate-800 shadow-xl flex flex-col md:-mt-4 md:mb-4 relative">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange-400 to-red-500 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm">
+                            🔥 <span data-i18n="pkg-best">Best Value</span>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-sm font-semibold text-slate-300 tracking-wider uppercase" data-i18n="pkg-premium">Premium</span>
+                            <h3 class="text-4xl font-bold text-white mt-2">$800</h3>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-slate-300 flex-grow text-sm">
+                            <li class="flex items-start gap-3"><i class="far fa-clock text-blue-400 mt-1"></i> <span data-i18n="pkg-prem-time">2.5 Hours</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-blue-400 mt-1"></i> <span data-i18n="pkg-prem-photos">40 Retouched Photos</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-blue-400 mt-1"></i> <span data-i18n="pkg-prem-loc">Up to 3 Locations</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-blue-400 mt-1"></i> <span data-i18n="pkg-prem-fit">Up to 2 Outfits</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-images text-blue-400 mt-1"></i> <span data-i18n="pkg-prem-orig">+800 Originals</span></li>
+                        </ul>
+                        <button onclick="goToBookingAndSelect('Premium')" class="block w-full text-center bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition-colors mt-auto shadow-md" data-i18n="pkg-prem-btn">Book Premium</button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+                        <div class="mb-6">
+                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-deluxe">Deluxe</span>
+                            <h3 class="text-4xl font-bold text-slate-900 mt-2">$1,350</h3>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
+                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-del-time">4 Hours</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-del-photos">60 Retouched Photos</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-del-loc">Up to 4 Locations</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-del-fit">Up to 3 Outfits</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-del-orig">+1500 Originals</span></li>
+                        </ul>
+                        <button onclick="goToBookingAndSelect('Deluxe')" class="block w-full text-center bg-gray-100 text-slate-800 font-medium py-3 rounded-lg hover:bg-gray-200 transition-colors mt-auto" data-i18n="pkg-del-btn">Book Deluxe</button>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <h3 class="text-xl font-bold text-orange-900" data-i18n="promo-header">🎁 LIMITED-TIME PROMOTION</h3>
+                        </div>
+                        <p class="text-orange-800 mb-3 font-medium" data-i18n="promo-body">Book a <span class="font-bold">PREMIUM SESSION</span> or higher and receive:</p>
+                        <ul class="space-y-2 text-orange-700 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-plus text-orange-400"></i> <span data-i18n="promo-li1">Additional Edited Photos (Photographer's choice)</span></li>
+                            <li class="flex items-center gap-2"><i class="fas fa-plus text-orange-400"></i> <span data-i18n="promo-li2"><strong>$100 OFF</strong> (If you agree to allow portfolio usage)</span></li>
+                        </ul>
+                    </div>
+                    <div class="shrink-0 w-full md:w-auto">
+                        <button onclick="goToBookingAndSelect('Premium')" class="w-full md:w-auto bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-sm" data-i18n="promo-claim-btn">Claim Promo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETAILS PAGE -->
+        <section id="details" class="page-view hidden flex-grow pt-20 pb-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="details-title">The Details</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="details-subtitle">Crucial framework guidelines ensuring artistic integrity and travel expectations.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="p-8 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-700">
+                                <i class="fas fa-file-contract text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 tracking-tight" data-i18n="det-policy-title">Service Policy</h3>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow text-sm">
+                            <div class="space-y-4">
+                                <p class="text-gray-600 leading-relaxed font-medium" data-i18n="det-retouch-combined">
+                                    I focus on enhancing your natural beauty through professional color grading and skin texture refinement.
+                                    Notice: To preserve your authentic self, I do not offer structural alterations (such as body slimming or facial reshaping).
+                                </p>
+                                <p class="text-gray-600 leading-relaxed font-medium" data-i18n="det-ref-policy">
+                                    I do not take references from other photographers' work. Every photographer has their own unique shooting and editing style. If you are looking for a style that is different from my portfolio, I would kindly recommend finding a photographer whose work more closely matches what you have in mind.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-map-marked-alt text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 tracking-tight" data-i18n="det-travel-title">Travel</h3>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow text-sm">
+                            <div>
+                                <h4 class="text-base font-semibold text-slate-900 mb-1 flex items-center gap-2" data-i18n="det-loc-header">
+                                    <i class="fas fa-location-dot text-slate-400 text-sm"></i> Base Location
+                                </h4>
+                                <p class="text-gray-600 font-medium pl-6" data-i18n="det-loc-body">North Melbourne (VIC 3051)</p>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 p-4 rounded-xl shadow-xs">
+                                <h4 class="text-sm font-bold text-slate-900 mb-2 border-b border-gray-100 pb-2" data-i18n="det-travel-policy-header">Travel Policy (One-way)</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
+                                        <span data-i18n="det-travel-li1"><strong>Included:</strong> No additional travel fee for locations within a 1-hour public transport commute from North Melbourne.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                                        <span data-i18n="det-travel-li2"><strong>Travel Fee:</strong> A fee starting from $50 applies for locations exceeding 1 hour or with limited public transport access.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-info-circle text-blue-400 mt-0.5"></i>
+                                        <span data-i18n="det-travel-li3">Locations that are difficult to reach by public transport may not be available for shooting. Please contact me in advance to check.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKING PAGE -->
+        <section id="booking" class="page-view hidden flex-grow pt-20 pb-20 bg-slate-900 text-white border-t border-slate-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4" data-i18n="book-title">Book Your Session</h2>
+                    <p class="text-slate-400 text-sm max-w-xl mx-auto" data-i18n="book-subtitle">Please select an available date below to proceed with your booking details.</p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 md:p-10 text-slate-800 shadow-2xl relative">
+                    <div class="w-full h-1.5 bg-slate-100 rounded-full mb-8 overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-slate-400 transition-all duration-500 w-1/3 rounded-full"></div>
+                    </div>
+
+                    <!-- STEP 1: CUSTOM CALENDAR -->
+                    <div id="step-1-calendar" class="fade-in block">
+                        <div class="mb-8 p-5 bg-amber-50 border-l-4 border-amber-500 rounded-r-2xl text-xs text-amber-950 leading-relaxed shadow-xs">
+                            <p class="font-bold text-amber-900 mb-1.5 flex items-center gap-1.5 text-sm" data-i18n="notice-header">
+                                <i class="fas fa-exclamation-circle text-amber-600"></i> IMPORTANT BOOKING NOTICE:
+                            </p>
+                            <p class="mb-2" data-i18n="notice-p1">
+                                Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.
+                            </p>
+                            <p data-i18n="notice-p2">
+                                Furthermore, please note that bookings must be made at least two weeks prior to your desired shoot date. This two-week lead time is essential for us to plan the shoot concept, contact venues, and scout locations to ensure the highest quality for your photos. We kindly ask for your understanding in this matter.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-slate-900" data-i18n="cal-select-date">1. Choose an Available Date</h3>
+                            <div class="flex gap-4 items-center">
+                                <button type="button" onclick="changeMonth(-1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                                    <i class="fas fa-chevron-left text-slate-600"></i>
+                                </button>
+                                <span id="current-month-display" class="font-bold text-slate-800 min-w-[130px] text-center">Month Year</span>
+                                <button type="button" onclick="changeMonth(1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                                    <i class="fas fa-chevron-right text-slate-600"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="calendar-weekdays" class="calendar-grid mb-2 text-center text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                        </div>
+                        <div id="calendar-days" class="calendar-grid"></div>
+
+                        <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-500 border-t border-gray-100 pt-4">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-3.5 h-3.5 bg-gray-100 rounded"></div>
+                                <span data-i18n="cal-avail">Available Days</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-3.5 h-3.5 bg-red-100 border border-red-200 rounded"></div>
+                                <span class="text-red-500 font-semibold" data-i18n="cal-blocked">Fully Booked / Within 2-Week Lead Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: FORM -->
+                    <div id="step-2-form" class="fade-in hidden">
+                        <div class="flex items-center gap-4 mb-6 pb-4 border-b border-gray-100">
+                            <button type="button" onclick="goToStep(1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                                <i class="fas fa-arrow-left text-slate-700"></i>
+                            </button>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900" data-i18n="form-main-header">2. Customer Details & Service Terms</h3>
+                                <p class="text-xs text-slate-500 font-medium"><span data-i18n="form-selected-date">Selected Date:</span> <span id="display-selected-date" class="text-slate-900 font-bold"></span></p>
+                            </div>
+                        </div>
+
+                        <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-fname">First Name *</label>
+                                    <input type="text" id="fname" required class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-lname">Last Name *</label>
+                                    <input type="text" id="lname" required class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-email">Email Address *</label>
+                                    <input type="email" id="email" required class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-phone">Phone Number *</label>
+                                    <input type="tel" id="phone" required placeholder="+61 400 000 000" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-pkg">Selected Package *</label>
+                                    <select id="package-select" required onchange="updateDynamicDepositEstimate()" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
+                                        <option value="" disabled selected data-i18n="opt-choose-pkg">Choose a package</option>
+                                        <option value="Standard">Standard ($550)</option>
+                                        <option value="Premium">Premium ($800)</option>
+                                        <option value="Deluxe">Deluxe ($1,350)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-time">Preferred Shooting Time *</label>
+                                    <select id="shooting-time" required class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
+                                        <option value="" disabled selected data-i18n="opt-choose-time">Select preferred time slot</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-amber-50/50 to-orange-50/50 p-5 rounded-2xl border border-orange-100 shadow-xs space-y-3">
+                                <label class="block text-xs font-bold text-orange-950 uppercase tracking-wide flex items-center gap-1.5" data-i18n="promo-card-title">
+                                    <i class="fas fa-gift text-orange-500"></i> Special Promotion Offer
+                                </label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <label class="relative flex flex-col p-4 bg-white border border-orange-200 rounded-xl cursor-pointer hover:border-orange-400 transition-all shadow-xs">
+                                        <input type="radio" name="promo-claim" value="yes" checked onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
+                                        <span class="block text-sm font-bold text-slate-900 pr-6" data-i18n="promo-yes">🎁 Yes, Claim $100 OFF</span>
+                                        <span class="block text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="promo-yes-desc">Agree to allow portfolio usage. Applies to Premium or Deluxe package.</span>
+                                    </label>
+                                    <label class="relative flex flex-col p-4 bg-white border border-gray-200 rounded-xl cursor-pointer hover:border-slate-400 transition-all shadow-xs">
+                                        <input type="radio" name="promo-claim" value="no" onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
+                                        <span class="block text-sm font-bold text-slate-900 pr-6" data-i18n="promo-no">🔒 No, Keep Private</span>
+                                        <span class="block text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="promo-no-desc">Keep photos confidential. Regular package price applies.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-notes">Desired Location / Vibe & Concept Notes</label>
+                                <textarea id="concept-notes" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm resize-none"></textarea>
+                            </div>
+
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-gray-200 space-y-4">
+                                <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2" data-i18n="sig-header">
+                                    <i class="fas fa-file-signature text-slate-600"></i> Terms & Consent Agreement
+                                </h4>
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" id="terms-agree" required class="mt-1 w-4 h-4 text-slate-900 bg-white border-gray-300 rounded focus:ring-slate-900">
+                                    <span class="text-xs text-slate-600 leading-relaxed" data-i18n="sig-agree">
+                                        I have thoroughly read and agree to all the contents shown on this website.
+                                    </span>
+                                </label>
+                                <div class="pt-2">
+                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="sig-label">Digital Signature (Type your full legal name to agree) *</label>
+                                    <input type="text" id="signature" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
+                                </div>
+                            </div>
+
+                            <div class="pt-4">
+                                <button type="submit" id="submit-btn" class="w-full bg-slate-900 text-white font-semibold py-3.5 rounded-xl hover:bg-slate-800 transition-colors shadow-md flex items-center justify-center" data-i18n="btn-confirm-booking">
+                                    Confirm Details & Show Deposit Account
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- STEP 3: DEPOSIT DISPLAY -->
+                    <div id="step-3-deposit" class="fade-in hidden text-center py-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                            <i class="fas fa-check-circle text-3xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2"><span data-i18n="end-locked-in">Details Locked In,</span> <span id="display-fname"></span>!</h3>
+                        <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">
+                            <span data-i18n="end-msg1">To complete and secure your reservation on</span> <span id="final-date" class="font-bold text-slate-800"></span>, <span data-i18n="end-msg2">please make a 50% deposit transfer using the credentials below.</span>
+                        </p>
+
+                        <div class="max-w-md mx-auto bg-amber-50 border border-amber-200 text-amber-900 text-xs rounded-xl p-3.5 mb-6 leading-relaxed flex items-start gap-2.5 text-left">
+                            <i class="fas fa-exclamation-circle text-sm mt-0.5 shrink-0 text-amber-500"></i>
+                            <p data-i18n="end-deposit-notice">Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 max-w-sm mx-auto text-left mb-6 shadow-sm">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2 flex justify-between items-center">
+                                <span data-i18n="end-bank-title">Direct Bank Transfer</span>
+                                <i class="fas fa-university text-slate-400"></i>
+                            </h4>
+                            <div class="space-y-3.5 text-xs text-slate-800">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-500 font-medium" data-i18n="end-bank-name">Bank</span>
+                                    <span class="font-semibold text-slate-900">Commonwealth Bank</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-500 font-medium" data-i18n="end-acc-owner">Account Name</span>
+                                    <span class="font-semibold text-slate-900">YOHAN YUN</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-500 font-medium">BSB</span>
+                                    <span class="font-bold text-slate-900 tracking-wider">063-010</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-500 font-medium" data-i18n="end-acc-num">Account Number</span>
+                                    <span class="font-bold text-slate-900 tracking-widest">1385 7811</span>
+                                </div>
+                                <div class="pt-3.5 border-t border-gray-200 flex justify-between items-center">
+                                    <span class="font-bold text-slate-900 text-sm" data-i18n="end-deposit-due">Required Deposit (50%)</span>
+                                    <span id="display-deposit-amount" class="font-extrabold text-xl text-slate-900">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-slate-500 max-w-sm mx-auto space-y-2 mb-8 leading-relaxed">
+                            <p data-i18n="end-desc-notice">⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.</p>
+                            <p data-i18n="end-desc-confirm">Once you make the transfer, Yohan will confirm upon validation of bank deposits.</p>
+                        </div>
+
+                        <button type="button" onclick="resetBooking()" class="text-slate-500 text-sm font-semibold hover:text-slate-900 transition-colors underline decoration-2 underline-offset-4" data-i18n="end-return">
+                            Return to Homepage
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-xs mb-4">Photography by Yohan. Based in Melbourne, VIC.</p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="https://www.instagram.com/dear_moment88/" target="_blank" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="mailto:dearmoment88@gmail.com" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="far fa-envelope text-lg"></i></a>
+            </div>
+            <p class="text-xs text-slate-400">© 2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* ==========================================================================
+           0. KO / EN DUAL LANGUAGE ENGINE & DICTIONARY
+           ========================================================================== */
+        let currentLang = 'KO';
+
+        const translations = {
+            EN: {
+                "nav-home": "Home", "nav-about": "About", "nav-portfolio": "Portfolio", "nav-portfolio-mob": "Portfolio ↗", "nav-pricing": "Pricing", "nav-details": "Details", "nav-book": "Book Now",
+                "hero-title": "Dear Moment,<br>here to tell your story.",
+                "hero-subtitle": "",
+                "card-about-title": "About Me", "card-about-desc": "Discover my philosophy and approach to photography.",
+                "card-pricing-title": "Pricing", "card-pricing-desc": "Explore packages, inclusions, and special promotions.",
+                "card-details-title": "The Details", "card-details-desc": "Service policies, travel info, and booking guide.",
+                "card-booking-title": "Book Now", "card-booking-desc": "Select date, time and secure your session effortlessly.",
+                "about-badge": "Your Photographer", "about-title": "Hello. I’m Yohan, the photographer behind Dear Moment.",
+                "about-p1": "From the very beginning of my photography journey, I wanted to do more than just take photos. I wanted to tell stories through them. So, how would you like your precious moments to be remembered?",
+                "about-p2": "Beautiful colors and poses matter, but what I think about most is how to capture your true self through a story. Not photos that are consumed in the moment and forgotten, but ones you look back at 10 years from now and smile, remembering exactly how that day felt. That is what I aim for. Why not take a moment to think about your story together with me?",
+                "pricing-title": "Investment & Packages", "pricing-subtitle": "Sleek, transparent rates tailored to preserve your milestone moments.",
+                "pkg-standard": "Standard", "pkg-std-time": "1.5 Hours", "pkg-std-photos": "15 Retouched Photos", "pkg-std-loc": "1 Location", "pkg-std-fit": "Single Outfit", "pkg-std-orig": "+500 Originals", "pkg-std-btn": "Book Standard",
+                "pkg-best": "Best Value", "pkg-premium": "Premium", "pkg-prem-time": "2.5 Hours", "pkg-prem-photos": "40 Retouched Photos", "pkg-prem-loc": "Up to 3 Locations", "pkg-prem-fit": "Up to 2 Outfits", "pkg-prem-orig": "+800 Originals", "pkg-prem-btn": "Book Premium",
+                "pkg-deluxe": "Deluxe", "pkg-del-time": "4 Hours", "pkg-del-photos": "60 Retouched Photos", "pkg-del-loc": "Up to 4 Locations", "pkg-del-fit": "Up to 3 Outfits", "pkg-del-orig": "+1500 Originals", "pkg-del-btn": "Book Deluxe",
+                "promo-header": "🎁 LIMITED-TIME PROMOTION", "promo-body": "Book a Premium Session or higher and receive:",
+                "promo-li1": "Additional Edited Photos (Photographer's choice)", "promo-li2": "<strong>$100 OFF</strong> (If you agree to allow portfolio usage)", "promo-claim-btn": "Claim Promo",
+                "details-title": "The Details", "details-subtitle": "Crucial framework guidelines ensuring artistic integrity and travel expectations.",
+                "det-policy-title": "Service Policy",
+                "det-retouch-combined": "I focus on enhancing your natural beauty through professional color grading and skin texture refinement. Notice: To preserve your authentic self, I do not offer structural alterations (such as body slimming or facial reshaping).",
+                "det-ref-policy": "I do not take references from other photographers' work. Every photographer has their own unique shooting and editing style. If you are looking for a style that is different from my portfolio, I would kindly recommend finding a photographer whose work more closely matches what you have in mind.",
+                "det-travel-title": "Travel", "det-loc-header": "Base Location", "det-loc-body": "North Melbourne (VIC 3051)", "det-travel-policy-header": "Travel Policy (One-way)",
+                "det-travel-li1": "<strong>Included:</strong> No additional travel fee for locations within a 1-hour public transport commute from North Melbourne.",
+                "det-travel-li2": "<strong>Travel Fee:</strong> A fee starting from $50 applies for locations exceeding 1 hour or with limited public transport access.",
+                "det-travel-li3": "Locations that are difficult to reach by public transport may not be available for shooting. Please contact me in advance to check.",
+                "book-title": "Book Your Session", "book-subtitle": "Please select an available date below to proceed with your booking details.",
+                "notice-header": "IMPORTANT BOOKING NOTICE:", 
+                "notice-p1": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
+                "notice-p2": "Furthermore, please note that bookings must be made at least two weeks prior to your desired shoot date. This two-week lead time is essential for us to plan the shoot concept, contact venues, and scout locations to ensure the highest quality for your photos. We kindly ask for your understanding in this matter.",
+                "cal-select-date": "1. Choose an Available Date", "cal-avail": "Available Days", "cal-blocked": "Fully Booked / Within 2-Week Lead Time",
+                "form-main-header": "2. Customer Details & Service Terms", "form-selected-date": "Selected Date:",
+                "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package", "lbl-time": "Preferred Shooting Time *", "opt-choose-time": "Select preferred time slot",
+                "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
+                "lbl-notes": "Desired Location / Vibe & Concept Notes", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have thoroughly read and agree to all the contents shown on this website.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
+                "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please make a 50% deposit transfer using the credentials below.",
+                "end-deposit-notice": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
+                "end-bank-title": "Direct Bank Transfer", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
+                "end-desc-notice": "⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.", "end-desc-confirm": "Once you make the transfer, Yohan will confirm upon validation of bank deposits.", "end-return": "Return to Homepage",
+                "ph-notes": "Describe your dream photoshoot concept, styling ideas, or specific Melbourne landmarks...", "ph-sig": "Type full name here..."
+            },
+            KO: {
+                "nav-home": "홈", "nav-about": "소개", "nav-portfolio": "포트폴리오", "nav-portfolio-mob": "포트폴리오 ↗", "nav-pricing": "패키지 안내", "nav-details": "이용 안내", "nav-book": "예약 신청",
+                "hero-title": "여러분의 이야기를 담고싶은<br>Dear Moment 입니다.",
+                "hero-subtitle": "",
+                "card-about-title": "소개", "card-about-desc": "디어모먼트가 지향하는 따뜻한 시선과 가치관을 만나보세요.",
+                "card-pricing-title": "패키지 안내", "card-pricing-desc": "다양한 구성의 패키지와 특별 혜택을 상세히 확인하세요.",
+                "card-details-title": "이용 안내", "card-details-desc": "예약 전에 꼭 확인해야 할 촬영, 후작업 관련 안내사항들입니다.",
+                "card-booking-title": "실시간 예약", "card-booking-desc": "달력에서 일정을 직접 선택하고 간편하게 예약을 시작하세요.",
+                "about-badge": "포토그래퍼 소개", "about-title": "안녕하세요. 디어모먼트의 포토그래퍼 요한입니다.",
+                "about-p1": "저는 사진을 시작할 때부터 단순히 사진을 찍는 게 아니라 사진에 이야기를 담고 싶었습니다. 여러분은 여러분의 소중한 순간을 어떻게 담고 싶으신가요?",
+                "about-p2": "예쁜 색감, 포즈들도 중요하지만 가장 중요한 건 여러분의 진짜 모습을 어떤 이야기로 담느냐를 항상 생각합니다. 단순히 일시적으로 소비되는 사진이 아닌 10년 그리고 그 이상의 시간이 흐른 후에 여러분이 사진을 다시 보았을 때 웃으며 그 순간을 추억할 수 있는 사진을 담는 게 저의 고민이자 목표입니다. 여러분의 소중한 순간들을 저와 함께 고민해 보시는 건 어떠실까요?",
+                "pricing-title": "패키지 및 구성 안내", "pricing-subtitle": "당신의 찬란한 기록을 빈틈없이 채워줄 직관적이고 완성도 높은 구성입니다.",
+                "pkg-standard": "Standard (스탠다드)", "pkg-std-time": "1.5 시간 촬영", "pkg-std-photos": "정밀 보정본 15장", "pkg-std-loc": "촬영지 1곳 지정", "pkg-std-fit": "단일 의상 구성", "pkg-std-orig": "전체 원본 500장+ 제공", "pkg-std-btn": "스탠다드 신청하기",
+                "pkg-best": "가장 추천하는 구성", "pkg-premium": "Premium (프리미엄)", "pkg-prem-time": "2.5 시간 촬영", "pkg-prem-photos": "정밀 보정본 40장", "pkg-prem-loc": "최대 3개 동선 촬영", "pkg-prem-fit": "의상 2벌 환복 가능", "pkg-prem-orig": "전체 원본 800장+ 제공", "pkg-prem-btn": "프리미엄 신청하기",
+                "pkg-deluxe": "Deluxe (디럭스)", "pkg-del-time": "4 시간 촬영", "pkg-del-photos": "정밀 보정본 60장", "pkg-del-loc": "최대 4개 동선 촬영", "pkg-del-fit": "의상 3벌 환복 가능", "pkg-del-orig": "전체 원본 1500장+ 제공", "pkg-del-btn": "디럭스 신청하기",
+                "promo-header": "🎁 시즌 한정 프로모션 혜택", "promo-body": "프리미엄 세션 이상 예약을 신청하시는 모든 분께:",
+                "promo-li1": "포토그래퍼 추천 베스트 소장용 추가 정밀 보정본 증정", "promo-li2": "<strong>100달러 즉시 할인</strong> (완성본의 홍보용 포트폴리오 활용 동의 시)", "promo-claim-btn": "프로모션 적용하여 예약하기",
+                "details-title": "이용 정책 및 상세 안내", "details-subtitle": "서로의 소중한 시간과 창작의 가치를 지키기 위한 약속입니다.",
+                "det-policy-title": "보정 정책",
+                "det-retouch-combined": "사진을 어색해하지 않는 선에서의 보정을 추구합니다. 정밀보정본은 색감, 밝기, 수평, 피부 잡티, 수염자국, 헤어 등만 하며 얼굴 특정 부위 혹은 신체 특정부위를 줄이거나 키우는 성형보정은 하지 않습니다. 이부분 꼭 유의해주시길 바랍니다.",
+                "det-ref-policy": "제 작업물이 아닌 다른 사진의 레퍼런스는 참고하지 않습니다. 모든 포토그래퍼들은 자신만의 촬영 그리고 후작업 스타일이 있습니다. 제 작업물이 아닌 다른 사진의 스타일로 촬영을 원하신다면 그 사진의 스타일과 비슷하게 촬영하는 포토그래퍼에게 의뢰하시는 걸 정중히 추천드립니다.",
+                "det-travel-title": "Travel", "det-loc-header": "작가 출발 기준지", "det-loc-body": "North Melbourne (멜버른 노스 3051)", "det-travel-policy-header": "출장 및 이동 비용 정책",
+                "det-travel-li1": "<strong>기본 출장 범위:</strong> 노스 멜버른 기점 대중교통 편도 1시간 이내 거리는 추가 출장 비용이 발생하지 않습니다.",
+                "det-travel-li2": "<strong>출장 비용:</strong> 편도 1시간을 초과하거나 대중교통 접근이 어려운 지역은 $50부터 출장 비용이 발생합니다.",
+                "det-travel-li3": "대중교통으로 접근이 어려운 지역은 촬영이 힘들 수 있습니다. 미리 문의해 주시기 바랍니다.",
+                "book-title": "실시간 촬영 예약 신청", "book-subtitle": "아래 달력에서 촬영이 가능한 날짜를 가볍게 터치해 다음 단계를 진행해 주세요.",
+                "notice-header": "⚠️ 예약 신청 전 필독 주의사항:",
+                "notice-p1": "예약 정보 제출 완료 후, 예약금의 50% 입금 확인 순서대로 촬영 일정이 최종 봉인됩니다. 시스템 신청을 올리셨더라도 입금 승인이 늦어지는 경우 타 대기 고객님께 날짜가 양도될 수 있으니 주의해 주시기 바랍니다.",
+                "notice-p2": "최고의 퀄리티의 촬영을 위한 부분이니 양해 부탁드립니다.",
+                "cal-select-date": "1. 원하는 촬영 날짜를 선택해 주세요", "cal-avail": "촬영 가능 일정", "cal-blocked": "마감 일정 및 조율 대기",
+                "form-main-header": "2. 예약 상세 조건 기입 및 동의서 작성", "form-selected-date": "선택하신 일정:",
+                "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요", "lbl-time": "촬영 조율 희망 시간 *", "opt-choose-time": "희망하시는 타임슬롯을 정해주세요",
+                "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "추가 보정 혜택을 수혜받으며, 완성본 사진의 공식 인스타그램 포트폴리오 기재 권한에 동의합니다. (프리미엄, 디럭스 해당)", "promo-no": "🔒 아니오, 비공개 단독 촬영을 진행합니다.", "promo-no-desc": "포트폴리오 등 대외 노출을 일절 금하며, 사적인 단독 보관 요건을 적용합니다. (기본 정상 패키지 단가 적용)",
+                "lbl-notes": "촬영 컨셉 제안, 로케이션 무드 및 기획 특이사항", "sig-header": "최종 이용 약관 승인", "sig-agree": "본 웹사이트에 고지된 디어모먼트 촬영 정책, 환불 규정 및 출장 관련 조항을 온전히 독파하였으며 전적으로 동의합니다.", "sig-label": "전자 자필 서명 (본 조항에 서약하며 실명을 한글/영문 정자로 온전히 적어주세요) *", "btn-confirm-booking": "예약 내역 승인 및 예약금 송금 정보 확인하기",
+                "end-locked-in": "예약 정보가 안전하게 전달되었습니다,", "end-msg1": "선택하신 소중한 날인", "end-msg2": "에 당신을 뵙기 위해 아래 계좌 정보로 패키지 금액의 50%에 해당하는 예약금을 이체해 주시면 최종 승인 메일이 전송됩니다.",
+                "end-deposit-notice": "입금이 확인되기 전까지 예약 날짜는 확정되지 않습니다. 입금 완료 전에 동일한 날짜에 다른 고객의 예약이 먼저 확정될 경우, 원하시는 날짜를 더 이상 이용하지 못하실 수 있습니다.",
+                "end-bank-title": "다이렉트 송금 은행 계좌", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "송금 예약금 (정확히 50% 금액)",
+                "end-desc-notice": "⚠️ 송금 시 타인 확인 오류를 방지하기 위해 보내는 이 표기에 본인 한글 성함을 온전히 입력해 주세요.", 
+                "end-desc-confirm": "실시간 입금 매칭 완료 즉시 고객님의 연락처로 예약을 최종 컨펌후 안내해드립니다", 
+                "end-return": "홈화면으로 돌아가기",
+                "ph-notes": "꿈꾸시는 야외 장소, 분위기, 스타일 가이드라인, 준비 중이신 소품 등이 있다면 작가가 기획할 수 있도록 상세히 적어주세요...", "ph-sig": "한글/영문 정자 실명을 여기에 입력하세요..."
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = (currentLang === 'KO') ? 'EN' : 'KO';
+            document.getElementById('active-lang-label').textContent = currentLang;
+            document.getElementById('active-lang-label-mobile').textContent = currentLang;
+            applyTranslations();
+            updateTimeOptions();
+            renderCalendar(); 
+        }
+
+        function applyTranslations() {
+            const dict = translations[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) { el.innerHTML = dict[key]; }
+            });
+
+            const notesTextarea = document.getElementById('concept-notes');
+            if (notesTextarea) { notesTextarea.placeholder = dict["ph-notes"] || ""; }
+
+            const sigInput = document.getElementById('signature');
+            if (sigInput) { sigInput.placeholder = dict["ph-sig"] || ""; }
+
+            const weekdaysContainer = document.getElementById('calendar-weekdays');
+            if (weekdaysContainer) {
+                if (currentLang === 'KO') { weekdaysContainer.innerHTML = '<div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>'; } 
+                else { weekdaysContainer.innerHTML = '<div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>'; }
+            }
+        }
+    </script>
+
+    <script>
+        /* ==========================================================================
+           1. BOOKED DATES & MONTHS MANAGEMENT (수동 예약 비활성화 리스트)
+           ========================================================================== */
+        const bookedDates = [
+            '2026-06-26', '2026-06-27', '2026-06-28', '2026-06-29', '2026-06-30',
+            '2026-07-04', '2026-07-05', '2026-07-11', '2026-07-18', '2026-07-19', 
+            '2026-07-25', '2026-07-26', '2026-07-27', '2026-07-28', '2026-07-29', '2026-07-30', '2026-07-31',
+            '2026-09-01', '2026-09-02', '2026-10-02'
+        ];
+        const blockedMonths = ['2026-08'];
+
+        /* ==========================================================================
+           2. SPA ROUTING SYSTEM
+           ========================================================================== */
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } 
+            else { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+        });
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => { page.classList.add('hidden'); page.classList.remove('block', 'flex'); });
+
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                if (pageId === 'home') { targetPage.classList.add('flex'); } else { targetPage.classList.add('block'); }
+                targetPage.classList.remove('fade-in'); void targetPage.offsetWidth; targetPage.classList.add('fade-in');
+            }
+            if(!menu.classList.contains('hidden')) { menu.classList.add('hidden'); icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+
+        function goToBookingAndSelect(packageName) {
+            showPage('booking');
+            const selectEl = document.getElementById('package-select');
+            if(selectEl) { selectEl.value = packageName; updateDynamicDepositEstimate(); }
+        }
+
+        /* ==========================================================================
+           3. CALENDAR GENERATOR
+           ========================================================================== */
+        let currentDate = new Date();
+        let selectedDateStr = null;
+        let selectedDayOfWeek = null;
+
+        function renderCalendar() {
+            const daysContainer = document.getElementById('calendar-days');
+            const monthDisplay = document.getElementById('current-month-display');
+            daysContainer.innerHTML = '';
+            
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            
+            if (currentLang === 'KO') { monthDisplay.textContent = `${year}년 ${month + 1}월`; } 
+            else { monthDisplay.textContent = `${monthNames[month]} ${year}`; }
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const today = new Date(); today.setHours(0,0,0,0);
+            const twoWeeksLeadTime = new Date(today); twoWeeksLeadTime.setDate(today.getDate() + 14); 
+
+            for (let i = 0; i < firstDay; i++) { daysContainer.appendChild(document.createElement('div')); }
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayButton = document.createElement('button');
+                dayButton.type = "button"; dayButton.textContent = i;
+                dayButton.className = 'date-btn text-slate-700 font-bold bg-slate-50 border border-gray-100 hover:border-slate-300 shadow-sm';
+                
+                const dayDate = new Date(year, month, i); dayDate.setHours(0,0,0,0);
+                const monthStr = String(month + 1).padStart(2, '0'); const dayStr = String(i).padStart(2, '0');
+                const dateCompareKey = `${year}-${monthStr}-${dayStr}`; const monthCompareKey = `${year}-${monthStr}`;
+
+                if (dayDate < twoWeeksLeadTime || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
+                    dayButton.disabled = true;
+                } else {
+                    dayButton.onclick = () => selectDate(year, month, i, dayButton);
+                    if(selectedDateStr === dateCompareKey) { dayButton.classList.add('selected'); }
+                }
+                daysContainer.appendChild(dayButton);
+            }
+        }
+
+        function changeMonth(delta) { currentDate.setMonth(currentDate.getMonth() + delta); renderCalendar(); }
+
+        function selectDate(year, month, day, buttonElement) {
+            document.querySelectorAll('.date-btn.selected').forEach(el => el.classList.remove('selected'));
+            buttonElement.classList.add('selected');
+            
+            const monthStr = String(month + 1).padStart(2, '0'); const dayStr = String(day).padStart(2, '0');
+            selectedDateStr = `${year}-${monthStr}-${dayStr}`;
+            
+            const dateObj = new Date(year, month, day, 12, 0, 0);
+            selectedDayOfWeek = dateObj.getDay();
+
+            updateTimeOptions(); 
+
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            let prettyDateStr = (currentLang === 'KO') ? `${year}년 ${month + 1}월 ${day}일` : `${monthNames[month]} ${day}, ${year}`;
+            
+            document.getElementById('display-selected-date').textContent = prettyDateStr;
+            document.getElementById('final-date').textContent = prettyDateStr;
+            
+            setTimeout(() => { goToStep(2); }, 250);
+        }
+
+        function updateTimeOptions() {
+            const selectEl = document.getElementById('shooting-time');
+            if (!selectEl) return;
+            selectEl.innerHTML = '';
+            
+            const placeholderOpt = document.createElement('option');
+            placeholderOpt.value = ""; placeholderOpt.disabled = true; placeholderOpt.selected = true;
+            placeholderOpt.textContent = translations[currentLang]["opt-choose-time"];
+            selectEl.appendChild(placeholderOpt);
+            
+            const allSlots = [
+                { val: "10:00 AM", en: "10:00 AM", ko: "오전 10:00" }, { val: "11:00 AM", en: "11:00 AM", ko: "오전 11:00" },
+                { val: "12:00 PM", en: "12:00 PM", ko: "오후 12:00" }, { val: "1:00 PM", en: "1:00 PM", ko: "오후 1:00" },
+                { val: "2:00 PM", en: "2:00 PM", ko: "오후 2:00" }, { val: "3:00 PM", en: "3:00 PM", ko: "오후 3:00" }
+            ];
+            const thursdaySlots = [{ val: "2:00 PM", en: "2:00 PM", ko: "오후 2:00" }, { val: "3:00 PM", en: "3:00 PM", ko: "오후 3:00" }];
+            
+            const activeSlots = (selectedDayOfWeek === 4) ? thursdaySlots : allSlots;
+            activeSlots.forEach(slot => {
+                const opt = document.createElement('option'); opt.value = slot.val;
+                opt.textContent = (currentLang === 'KO') ? slot.ko : slot.en; selectEl.appendChild(opt);
+            });
+        }
+
+        function goToStep(step) {
+            document.getElementById('step-1-calendar').classList.add('hidden');
+            document.getElementById('step-2-form').classList.add('hidden');
+            document.getElementById('step-3-deposit').classList.add('hidden');
+            const progressBar = document.getElementById('progress-bar');
+            if (step === 1) { document.getElementById('step-1-calendar').classList.remove('hidden'); progressBar.style.width = '33%'; } 
+            else if (step === 2) { document.getElementById('step-2-form').classList.remove('hidden'); progressBar.style.width = '66%'; } 
+            else if (step === 3) { document.getElementById('step-3-deposit').classList.remove('hidden'); progressBar.style.width = '100%'; }
+        }
+
+        function updateDynamicDepositEstimate() {
+            const packageVal = document.getElementById('package-select').value;
+            const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
+            let finalPrice = 0;
+            if (packageVal === 'Standard') finalPrice = 550; 
+            else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800; 
+            else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350; 
+
+            document.getElementById('display-deposit-amount').textContent = `$${(finalPrice / 2).toFixed(2)}`;
+        }
+
+        /* ==========================================================================
+           5. AJAX TRANSMISSION ENGINE
+           ========================================================================== */
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('fname').value; const lastName = document.getElementById('lname').value;
+            const email = document.getElementById('email').value; const phone = document.getElementById('phone').value;
+            const packageVal = document.getElementById('package-select').value; const shootingTime = document.getElementById('shooting-time').value;
+            const conceptNotes = document.getElementById('concept-notes').value || "None"; const signature = document.getElementById('signature').value;
+            const selectedDate = document.getElementById('final-date').textContent;
+            const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
+            const promoStatusText = (promoClaim === 'yes') ? 'Yes (Requested $100 Promo Discount)' : 'No (Private Price)';
+
+            let finalPrice = 0;
+            if (packageVal === 'Standard') finalPrice = 550;
+            else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800;
+            else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350;
+
+            const targetEmail = "dearmoment88@gmail.com";
+            const emailSubject = `[Dear Moment Booking] - ${firstName} ${lastName} (${selectedDate})`;
+            
+            const emailBody = `Dear Moment Photography Booking Request Contract Details:
+
+- Client Name: ${firstName} ${lastName}
+- Contact Email: ${email}
+- Contact Phone: ${phone}
+- Requested Shoot Date: ${selectedDate}
+- Preferred Time Slot: ${shootingTime}
+- Chosen Package Grade: ${packageVal}
+- Applied Promotion Offer: ${promoStatusText}
+- Calculated Session Price: $${finalPrice.toFixed(2)}
+- 50% Required Deposit Rate: $${(finalPrice / 2).toFixed(2)}
+- Concept & Landmark Notes: ${conceptNotes}
+- Digital Legal Signature: ${signature}`;
+
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = currentLang === 'KO' ? '전송 중...' : 'Sending...';
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    access_key: '1d5b2ee4-a866-4eee-8df3-224db2d8e2fb',
+                    subject: emailSubject,
+                    from_name: `${firstName} ${lastName}`,
+                    message: emailBody,
+                    replyto: email
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('display-fname').textContent = firstName;
+                    updateDynamicDepositEstimate();
+                    goToStep(3);
+                } else {
+                    throw new Error('failed');
+                }
+            })
+            .catch(() => {
+                alert(currentLang === 'KO' ? '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.' : 'Failed to send. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = translations[currentLang]['btn-confirm-booking'];
+            });
+        }
+
+        function resetBooking() {
+            selectedDateStr = null;
+            selectedDayOfWeek = null;
+            document.getElementById('bookingForm').reset();
+            goToStep(1);
+            renderCalendar();
+            showPage('home');
+        }
+
+        window.onload = function() { applyTranslations(); updateTimeOptions(); renderCalendar(); }
+    </script>
+</body>
+</html>
