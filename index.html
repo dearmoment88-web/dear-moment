@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dear Moment | Photography by Yohan</title>
+    <meta name="description" content="Melbourne-based portrait, couple and wedding photography by Yohan. View packages and book your session online.">
     <meta property="og:title" content="Dear Moment | Photography by Yohan">
     <meta property="og:description" content="Melbourne-based photography by Yohan. Bookings open.">
-    <meta property="og:image" content="https://dearmoment88-web.github.io/dear-moment/og-image.png">
+    <meta property="og:image" content="https://dearmoment.photography/og-image.png">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dearmoment.photography">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -83,7 +87,7 @@
                     <div class="flex items-center gap-4">
                         <button onclick="toggleLanguage()" class="text-xs font-bold tracking-wider px-2.5 py-1.5 border border-gray-200 hover:border-slate-400 rounded-md transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1 bg-white">
                             <i class="fas fa-globe text-gray-400"></i>
-                            <span id="active-lang-label">KO</span>
+                            <span id="active-lang-label">EN</span>
                         </button>
                         <a href="#" onclick="showPage('booking')" data-i18n="nav-book" class="bg-slate-900 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-colors shadow-sm">
                             Book Now
@@ -94,7 +98,7 @@
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center gap-3">
                     <button onclick="toggleLanguage()" class="text-xs font-bold tracking-wider px-2 py-1 border border-gray-200 rounded-md text-slate-600 bg-white">
-                        <span id="active-lang-label-mobile">KO</span>
+                        <span id="active-lang-label-mobile">EN</span>
                     </button>
                     <button id="mobile-menu-btn" class="text-gray-500 hover:text-slate-900 focus:outline-none p-2">
                         <i class="fas fa-bars text-xl" id="menu-icon"></i>
@@ -378,6 +382,58 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- FAQ -->
+                <div class="max-w-3xl mx-auto mt-16">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2" data-i18n="faq-title">Frequently Asked Questions</h3>
+                        <p class="text-sm text-gray-500" data-i18n="faq-subtitle">Quick answers to the questions we hear most often.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
+                                <span data-i18n="faq-q1">How far in advance do I need to book?</span>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a1">Bookings must be made at least one week before your desired shoot date. This lead time is needed to plan the concept, contact venues, and scout locations.</p>
+                        </details>
+                        <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
+                                <span data-i18n="faq-q2">When is my booking confirmed?</span>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a2">Your date is secured only once the 50% deposit is confirmed. Submitting the booking form alone does not hold the date — if another client's deposit clears first, the date may no longer be available.</p>
+                        </details>
+                        <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
+                                <span data-i18n="faq-q3">When will I receive my photos?</span>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a3">Edited photos are delivered via an online gallery within up to 1 month after you select the images for editing. The gallery for original files is deleted after 1 week, so please download them in advance.</p>
+                        </details>
+                        <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
+                                <span data-i18n="faq-q4">What if it rains on the day?</span>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a4">Shoots proceed as scheduled in light rain. In heavy rain, natural disasters, or extreme weather that makes shooting impossible, you may choose either a refund or a reschedule.</p>
+                        </details>
+                        <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
+                                <span data-i18n="faq-q5">Can I cancel or reschedule?</span>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a5">A 100% deposit refund is available if you cancel within 3 days of booking; after that, deposits are non-refundable. Rescheduling is free once (subject to availability), and further changes incur an additional fee.</p>
+                        </details>
+                        <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
+                            <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
+                                <span data-i18n="faq-q6">Can you slim my face or body in retouching?</span>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a6">No. Retouching covers color grading, brightness, skin blemishes, and hair — but not structural alterations such as body slimming or facial reshaping, to preserve your authentic self.</p>
+                        </details>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -451,6 +507,8 @@
                         </div>
 
                         <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                            <!-- Honeypot: hidden from humans, bots auto-fill it and get flagged as spam -->
+                            <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
                                     <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-fname">First Name *</label>
@@ -497,12 +555,12 @@
                                 </label>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <label class="relative flex flex-col p-4 bg-white border border-orange-200 rounded-xl cursor-pointer hover:border-orange-400 transition-all shadow-xs">
-                                        <input type="radio" name="promo-claim" value="yes" checked onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
+                                        <input type="radio" name="promo-claim" value="yes" onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
                                         <span class="block text-sm font-bold text-slate-900 pr-6" data-i18n="promo-yes">🎁 Yes, Claim $100 OFF</span>
                                         <span class="block text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="promo-yes-desc">Agree to allow portfolio usage. Applies to Premium or Deluxe package.</span>
                                     </label>
                                     <label class="relative flex flex-col p-4 bg-white border border-gray-200 rounded-xl cursor-pointer hover:border-slate-400 transition-all shadow-xs">
-                                        <input type="radio" name="promo-claim" value="no" onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
+                                        <input type="radio" name="promo-claim" value="no" checked onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
                                         <span class="block text-sm font-bold text-slate-900 pr-6" data-i18n="promo-no">🔒 No, Keep Private</span>
                                         <span class="block text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="promo-no-desc">Keep photos confidential. Regular package price applies.</span>
                                     </label>
@@ -569,11 +627,15 @@
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="text-slate-500 font-medium">BSB</span>
-                                    <span class="font-bold text-slate-900 tracking-wider">063-010</span>
+                                    <span class="font-bold text-slate-900 tracking-wider flex items-center gap-2">063-010
+                                        <button type="button" onclick="copyText('063010', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy BSB"><i class="far fa-copy"></i></button>
+                                    </span>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="text-slate-500 font-medium" data-i18n="end-acc-num">Account Number</span>
-                                    <span class="font-bold text-slate-900 tracking-widest">1385 7811</span>
+                                    <span class="font-bold text-slate-900 tracking-widest flex items-center gap-2">1385 7811
+                                        <button type="button" onclick="copyText('13857811', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy account number"><i class="far fa-copy"></i></button>
+                                    </span>
                                 </div>
                                 <div class="pt-3.5 border-t border-gray-200 flex justify-between items-center">
                                     <span class="font-bold text-slate-900 text-sm" data-i18n="end-deposit-due">Required Deposit (50%)</span>
@@ -598,7 +660,9 @@
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="text-slate-500 font-medium" data-i18n="end-acc-num">Account Number</span>
-                                    <span class="font-bold text-slate-900 tracking-widest">110-229-411119</span>
+                                    <span class="font-bold text-slate-900 tracking-widest flex items-center gap-2">110-229-411119
+                                        <button type="button" onclick="copyText('110229411119', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy account number"><i class="far fa-copy"></i></button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -611,7 +675,9 @@
                             <div class="space-y-3.5 text-xs text-slate-800">
                                 <div class="flex justify-between items-center">
                                     <span class="text-slate-500 font-medium" data-i18n="end-paypal-email">PayPal Email</span>
-                                    <span class="font-bold text-slate-900">dearmoment88@gmail.com</span>
+                                    <span class="font-bold text-slate-900 flex items-center gap-2">dearmoment88@gmail.com
+                                        <button type="button" onclick="copyText('dearmoment88@gmail.com', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy PayPal email"><i class="far fa-copy"></i></button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -619,6 +685,7 @@
                         <div class="text-xs text-slate-500 max-w-sm mx-auto space-y-2 mb-8 leading-relaxed">
                             <p data-i18n="end-desc-notice">⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.</p>
                             <p data-i18n="end-desc-confirm">Once you make the transfer, Yohan will confirm upon validation of bank deposits.</p>
+                            <p class="font-semibold text-slate-600" data-i18n="end-screenshot-notice">📸 This page will not be shown again — please take a screenshot of the payment details above before leaving.</p>
                         </div>
 
                         <button type="button" onclick="resetBooking()" class="text-slate-500 text-sm font-semibold hover:text-slate-900 transition-colors underline decoration-2 underline-offset-4" data-i18n="end-return">
@@ -691,6 +758,19 @@
                 "det-travel-li1": "<strong>Included:</strong> No additional travel fee for locations within a 1-hour public transport commute from North Melbourne.",
                 "det-travel-li2": "<strong>Travel Fee:</strong> A fee starting from $50 applies for locations exceeding 1 hour or with limited public transport access.",
                 "det-travel-li3": "Locations that are difficult to reach by public transport may not be available for shooting. Please contact me in advance to check.",
+                "faq-title": "Frequently Asked Questions", "faq-subtitle": "Quick answers to the questions we hear most often.",
+                "faq-q1": "How far in advance do I need to book?",
+                "faq-a1": "Bookings must be made at least one week before your desired shoot date. This lead time is needed to plan the concept, contact venues, and scout locations.",
+                "faq-q2": "When is my booking confirmed?",
+                "faq-a2": "Your date is secured only once the 50% deposit is confirmed. Submitting the booking form alone does not hold the date — if another client's deposit clears first, the date may no longer be available.",
+                "faq-q3": "When will I receive my photos?",
+                "faq-a3": "Edited photos are delivered via an online gallery within up to 1 month after you select the images for editing. The gallery for original files is deleted after 1 week, so please download them in advance.",
+                "faq-q4": "What if it rains on the day?",
+                "faq-a4": "Shoots proceed as scheduled in light rain. In heavy rain, natural disasters, or extreme weather that makes shooting impossible, you may choose either a refund or a reschedule.",
+                "faq-q5": "Can I cancel or reschedule?",
+                "faq-a5": "A 100% deposit refund is available if you cancel within 3 days of booking; after that, deposits are non-refundable. Rescheduling is free once (subject to availability), and further changes incur an additional fee.",
+                "faq-q6": "Can you slim my face or body in retouching?",
+                "faq-a6": "No. Retouching covers color grading, brightness, skin blemishes, and hair — but not structural alterations such as body slimming or facial reshaping, to preserve your authentic self.",
                 "book-title": "Book Your Session", "book-subtitle": "Please select an available date below to proceed with your booking details.",
                 "notice-header": "IMPORTANT BOOKING NOTICE:", 
                 "notice-p1": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
@@ -705,6 +785,7 @@
                 "end-bank-title": "Direct Bank Transfer (AUS)", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
                 "end-kr-bank-title": "Korean Bank Transfer", "end-paypal-title": "PayPal", "end-paypal-email": "PayPal Email",
                 "end-desc-notice": "⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.", "end-desc-confirm": "Once you make the transfer, Yohan will confirm upon validation of bank deposits.", "end-return": "Return to Homepage",
+                "end-screenshot-notice": "📸 This page will not be shown again — please take a screenshot of the payment details above before leaving.",
                 "ph-notes": "e.g. Pre-wedding, Engagement, Registry, Couple shoot, etc. / Preferred location (park, beach, city, etc.)", "ph-sig": "Type full name here..."
             },
             KO: {
@@ -730,7 +811,7 @@
                 "promo-release-li3": "게시할 사진의 선택권은 작가에게 있으며, 특정 사진의 업로드 제외를 요청할 수 없습니다.",
                 "promo-release-li4": "사진이 게시된 이후에는 개인적인 사유로 삭제 또는 내림을 요청할 수 없습니다.",
                 "details-title": "이용 정책 및 상세 안내", "details-subtitle": "서로의 소중한 시간과 창작의 가치를 지키기 위한 약속입니다.",
-                "det-policy-title": "보정 정책",
+                "det-policy-title": "서비스 정책",
                 "det-retouch-combined": "사진을 어색해하지 않는 선에서의 보정을 추구합니다. 정밀보정본은 색감, 밝기, 수평, 피부 잡티, 수염자국, 헤어 등만 하며 얼굴 특정 부위 혹은 신체 특정부위를 줄이거나 키우는 성형보정은 하지 않습니다. 이부분 꼭 유의해주시길 바랍니다.",
                 "det-ref-policy": "제 작업물이 아닌 다른 사진의 레퍼런스는 참고하지 않습니다. 모든 포토그래퍼들은 자신만의 촬영 그리고 후작업 스타일이 있습니다. 제 작업물이 아닌 다른 사진의 스타일로 촬영을 원하신다면 그 사진의 스타일과 비슷하게 촬영하는 포토그래퍼에게 의뢰하시는 걸 정중히 추천드립니다.",
                 "det-retouch-title": "보정 정책",
@@ -745,11 +826,24 @@
                 "det-travel-li1": "<strong>기본 출장 범위:</strong> 노스 멜버른 기점 대중교통 편도 1시간 이내 거리는 추가 출장 비용이 발생하지 않습니다.",
                 "det-travel-li2": "<strong>출장 비용:</strong> 편도 1시간을 초과하거나 대중교통 접근이 어려운 지역은 $50부터 출장 비용이 발생합니다.",
                 "det-travel-li3": "대중교통으로 접근이 어려운 지역은 촬영이 힘들 수 있습니다. 미리 문의해 주시기 바랍니다.",
+                "faq-title": "자주 묻는 질문", "faq-subtitle": "고객님들께서 가장 자주 문의하시는 내용을 모았습니다.",
+                "faq-q1": "예약은 얼마나 미리 해야 하나요?",
+                "faq-a1": "모든 예약은 촬영 희망일 기준 최소 1주 전까지만 신청 가능합니다. 촬영 컨셉 기획, 장소 답사 및 준비를 위해 꼭 필요한 기간입니다.",
+                "faq-q2": "예약은 언제 확정되나요?",
+                "faq-a2": "예약금(50%) 입금이 확인된 순간 날짜가 최종 확정됩니다. 예약 신청서 제출만으로는 날짜가 확보되지 않으며, 다른 고객님의 입금이 먼저 확인되면 해당 날짜는 마감될 수 있습니다.",
+                "faq-q3": "사진은 언제 받을 수 있나요?",
+                "faq-a3": "보정할 사진을 선택하신 후 최대 1개월 이내에 온라인 갤러리로 전달됩니다. 원본 파일 갤러리는 1주일 후 삭제되니 미리 다운로드해 주세요.",
+                "faq-q4": "촬영 당일에 비가 오면 어떻게 되나요?",
+                "faq-a4": "가벼운 비에는 예정대로 촬영이 진행됩니다. 폭우, 자연재해 등 촬영이 불가능한 기상 상황에서는 환불 또는 일정 변경 중 선택하실 수 있습니다.",
+                "faq-q5": "취소나 일정 변경이 가능한가요?",
+                "faq-a5": "예약 후 3일 이내 취소 시 예약금 100% 환불이 가능하며, 이후에는 환불이 불가합니다. 일정 변경은 1회에 한해 무료이며(작가 일정과 겹치지 않는 경우), 추가 변경 시 별도 비용이 발생합니다.",
+                "faq-q6": "얼굴이나 몸매 보정(성형 보정)도 가능한가요?",
+                "faq-a6": "아니요. 보정은 색감, 밝기, 피부 잡티, 헤어 정리 등 자연스러운 범위에서만 진행하며, 신체나 얼굴 형태를 바꾸는 성형 보정은 하지 않습니다.",
                 "book-title": "실시간 촬영 예약 신청", "book-subtitle": "아래 달력에서 촬영이 가능한 날짜를 가볍게 터치해 다음 단계를 진행해 주세요.",
                 "notice-header": "⚠️ 예약 신청 전 필독 주의사항:",
                 "notice-p1": "예약 정보 제출 완료 후, 예약금의 50% 입금 확인 순서대로 촬영 일정이 최종 봉인됩니다. 시스템 신청을 올리셨더라도 입금 승인이 늦어지는 경우 타 대기 고객님께 날짜가 양도될 수 있으니 주의해 주시기 바랍니다.",
-                "notice-p2": "최고의 퀄리티의 촬영을 위한 부분이니 양해 부탁드립니다.",
-                "cal-select-date": "1. 원하는 촬영 날짜를 선택해 주세요", "cal-avail": "촬영 가능 일정", "cal-blocked": "마감 일정 및 조율 대기",
+                "notice-p2": "또한, 모든 예약은 촬영 희망일 기준 최소 1주 전까지만 신청하실 수 있습니다. 촬영 컨셉 기획, 장소 사전 답사 및 준비를 위해 꼭 필요한 최소한의 기간이오니, 최고 퀄리티의 촬영을 위한 부분으로 너른 양해 부탁드립니다.",
+                "cal-select-date": "1. 원하는 촬영 날짜를 선택해 주세요", "cal-avail": "촬영 가능 일정", "cal-blocked": "마감 일정 / 1주 이내 임박 일정",
                 "form-main-header": "2. 예약 상세 조건 기입 및 동의서 작성", "form-selected-date": "선택하신 일정:",
                 "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요", "lbl-time": "촬영 조율 희망 시간 *", "opt-choose-time": "희망하시는 타임슬롯을 정해주세요",
                 "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "추가 보정 혜택을 수혜받으며, 완성본 사진의 공식 인스타그램 포트폴리오 기재 권한에 동의합니다. (프리미엄, 디럭스 해당)", "promo-no": "🔒 아니오, 비공개 단독 촬영을 진행합니다.", "promo-no-desc": "포트폴리오 등 대외 노출을 일절 금하며, 사적인 단독 보관 요건을 적용합니다. (기본 정상 패키지 단가 적용)",
@@ -759,19 +853,26 @@
                 "end-bank-title": "호주 계좌 송금", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "송금 예약금 (정확히 50% 금액)",
                 "end-kr-bank-title": "한국 계좌 송금", "end-paypal-title": "페이팔 (PayPal)", "end-paypal-email": "페이팔 이메일",
                 "end-desc-notice": "⚠️ 송금 시 타인 확인 오류를 방지하기 위해 보내는 이 표기에 본인 한글 성함을 온전히 입력해 주세요.", 
-                "end-desc-confirm": "실시간 입금 매칭 완료 즉시 고객님의 연락처로 예약을 최종 컨펌후 안내해드립니다", 
+                "end-desc-confirm": "실시간 입금 매칭 완료 즉시 고객님의 연락처로 예약을 최종 컨펌후 안내해드립니다",
                 "end-return": "홈화면으로 돌아가기",
+                "end-screenshot-notice": "📸 이 화면은 다시 표시되지 않습니다. 페이지를 떠나기 전에 위 입금 정보를 꼭 캡처해 두세요.",
                 "ph-notes": "예) 웨딩 촬영, 결혼 기념, 커플 사진 등 / 원하시는 장소 (공원, 해변, 도심 등)", "ph-sig": "한글/영문 정자 실명을 여기에 입력하세요..."
             }
         };
 
         function toggleLanguage() {
             currentLang = (currentLang === 'KO') ? 'EN' : 'KO';
+            setLanguage(currentLang);
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
             document.getElementById('active-lang-label').textContent = currentLang;
             document.getElementById('active-lang-label-mobile').textContent = currentLang;
+            document.documentElement.lang = (currentLang === 'KO') ? 'ko' : 'en';
             applyTranslations();
             updateTimeOptions();
-            renderCalendar(); 
+            renderCalendar();
         }
 
         function applyTranslations() {
@@ -800,8 +901,7 @@
            1. BOOKED DATES & MONTHS MANAGEMENT (수동 예약 비활성화 리스트)
            ========================================================================== */
         const bookedDates = [
-            '2026-06-26', '2026-06-27', '2026-06-28', '2026-06-29', '2026-06-30',
-            '2026-07-04', '2026-07-05', '2026-07-11', '2026-07-18', '2026-07-19', 
+            '2026-07-04', '2026-07-05', '2026-07-11', '2026-07-18', '2026-07-19',
             '2026-07-25', '2026-07-26', '2026-07-27', '2026-07-28', '2026-07-29', '2026-07-30', '2026-07-31',
             '2026-09-01', '2026-09-02', '2026-09-18', '2026-10-02'
         ];
@@ -862,7 +962,7 @@
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             const today = new Date(); today.setHours(0,0,0,0);
-            const twoWeeksLeadTime = new Date(today); twoWeeksLeadTime.setDate(today.getDate() + 7); 
+            const oneWeekLeadTime = new Date(today); oneWeekLeadTime.setDate(today.getDate() + 7);
 
             for (let i = 0; i < firstDay; i++) { daysContainer.appendChild(document.createElement('div')); }
 
@@ -875,7 +975,7 @@
                 const monthStr = String(month + 1).padStart(2, '0'); const dayStr = String(i).padStart(2, '0');
                 const dateCompareKey = `${year}-${monthStr}-${dayStr}`; const monthCompareKey = `${year}-${monthStr}`;
 
-                if (dayDate < twoWeeksLeadTime || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
+                if (dayDate < oneWeekLeadTime || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
                     dayButton.disabled = true;
                 } else {
                     dayButton.onclick = () => selectDate(year, month, i, dayButton);
@@ -1001,7 +1101,8 @@
                     subject: emailSubject,
                     from_name: `${firstName} ${lastName}`,
                     message: emailBody,
-                    replyto: email
+                    replyto: email,
+                    botcheck: document.getElementById('botcheck').checked
                 })
             })
             .then(res => res.json())
@@ -1021,6 +1122,16 @@
             });
         }
 
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btn.querySelector('i');
+                icon.className = 'fas fa-check text-green-500';
+                setTimeout(() => { icon.className = 'far fa-copy'; }, 1500);
+            }).catch(() => {
+                alert(currentLang === 'KO' ? '복사에 실패했습니다. 직접 입력해 주세요.' : 'Copy failed. Please type it manually.');
+            });
+        }
+
         function resetBooking() {
             selectedDateStr = null;
             selectedDayOfWeek = null;
@@ -1030,7 +1141,10 @@
             showPage('home');
         }
 
-        window.onload = function() { applyTranslations(); updateTimeOptions(); renderCalendar(); }
+        window.onload = function() {
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            setLanguage(browserLang.startsWith('ko') ? 'KO' : 'EN');
+        }
     </script>
 </body>
 </html>
