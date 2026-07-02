@@ -404,7 +404,7 @@
                                 Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.
                             </p>
                             <p data-i18n="notice-p2">
-                                Furthermore, please note that bookings must be made at least two weeks prior to your desired shoot date. This two-week lead time is essential for us to plan the shoot concept, contact venues, and scout locations to ensure the highest quality for your photos. We kindly ask for your understanding in this matter.
+                                Furthermore, please note that bookings must be made at least one week prior to your desired shoot date. This one-week lead time is essential for us to plan the shoot concept, contact venues, and scout locations to ensure the highest quality for your photos. We kindly ask for your understanding in this matter.
                             </p>
                         </div>
 
@@ -433,7 +433,7 @@
                             </div>
                             <div class="flex items-center gap-1.5">
                                 <div class="w-3.5 h-3.5 bg-red-100 border border-red-200 rounded"></div>
-                                <span class="text-red-500 font-semibold" data-i18n="cal-blocked">Fully Booked / Within 2-Week Lead Time</span>
+                                <span class="text-red-500 font-semibold" data-i18n="cal-blocked">Fully Booked / Within 1-Week Lead Time</span>
                             </div>
                         </div>
                     </div>
@@ -694,8 +694,8 @@
                 "book-title": "Book Your Session", "book-subtitle": "Please select an available date below to proceed with your booking details.",
                 "notice-header": "IMPORTANT BOOKING NOTICE:", 
                 "notice-p1": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
-                "notice-p2": "Furthermore, please note that bookings must be made at least two weeks prior to your desired shoot date. This two-week lead time is essential for us to plan the shoot concept, contact venues, and scout locations to ensure the highest quality for your photos. We kindly ask for your understanding in this matter.",
-                "cal-select-date": "1. Choose an Available Date", "cal-avail": "Available Days", "cal-blocked": "Fully Booked / Within 2-Week Lead Time",
+                "notice-p2": "Furthermore, please note that bookings must be made at least one week prior to your desired shoot date. This one-week lead time is essential for us to plan the shoot concept, contact venues, and scout locations to ensure the highest quality for your photos. We kindly ask for your understanding in this matter.",
+                "cal-select-date": "1. Choose an Available Date", "cal-avail": "Available Days", "cal-blocked": "Fully Booked / Within 1-Week Lead Time",
                 "form-main-header": "2. Customer Details & Service Terms", "form-selected-date": "Selected Date:",
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package", "lbl-time": "Preferred Shooting Time *", "opt-choose-time": "Select preferred time slot",
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
@@ -803,7 +803,7 @@
             '2026-06-26', '2026-06-27', '2026-06-28', '2026-06-29', '2026-06-30',
             '2026-07-04', '2026-07-05', '2026-07-11', '2026-07-18', '2026-07-19', 
             '2026-07-25', '2026-07-26', '2026-07-27', '2026-07-28', '2026-07-29', '2026-07-30', '2026-07-31',
-            '2026-09-01', '2026-09-02', '2026-10-02'
+            '2026-09-01', '2026-09-02', '2026-09-18', '2026-10-02'
         ];
         const blockedMonths = ['2026-08'];
 
@@ -862,7 +862,7 @@
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             const today = new Date(); today.setHours(0,0,0,0);
-            const twoWeeksLeadTime = new Date(today); twoWeeksLeadTime.setDate(today.getDate() + 14); 
+            const twoWeeksLeadTime = new Date(today); twoWeeksLeadTime.setDate(today.getDate() + 7); 
 
             for (let i = 0; i < firstDay; i++) { daysContainer.appendChild(document.createElement('div')); }
 
