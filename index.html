@@ -1044,6 +1044,17 @@
 
         function updateDynamicDepositEstimate() {
             const packageVal = document.getElementById('package-select').value;
+
+            const promoYesInput = document.querySelector('input[name="promo-claim"][value="yes"]');
+            const promoNoInput = document.querySelector('input[name="promo-claim"][value="no"]');
+            const promoYesLabel = promoYesInput.closest('label');
+            const isStandard = (packageVal === 'Standard');
+            promoYesInput.disabled = isStandard;
+            if (isStandard && promoYesInput.checked) promoNoInput.checked = true;
+            promoYesLabel.classList.toggle('opacity-40', isStandard);
+            promoYesLabel.classList.toggle('pointer-events-none', isStandard);
+            promoYesLabel.classList.toggle('grayscale', isStandard);
+
             const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
             let finalPrice = 0;
             if (packageVal === 'Standard') finalPrice = 550; 
