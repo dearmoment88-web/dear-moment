@@ -697,6 +697,34 @@
         </section>
     </main>
 
+    <!-- MONGOLIA TRIP NOTICE POPUP (Home page only) -->
+    <div id="notice-popup" class="hidden fixed inset-0 z-[60] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeNoticePopup()"></div>
+        <div class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 fade-in">
+            <button type="button" onclick="closeNoticePopup()" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-900 hover:bg-gray-100 transition-colors" aria-label="Close">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="w-14 h-14 bg-slate-900 rounded-full flex items-center justify-center text-white mb-5 mx-auto">
+                <i class="fas fa-plane text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 text-center mb-1.5" data-i18n="popup-title">Ulaanbaatar, Mongolia — Travel Notice</h3>
+            <p class="text-sm font-semibold text-slate-500 text-center mb-4" data-i18n="popup-dates">1 – 28 August 2026</p>
+            <p class="text-sm text-gray-600 leading-relaxed text-center mb-6" data-i18n="popup-body">
+                I will be traveling to Ulaanbaatar, Mongolia for work from August 1 to August 28. If you would like a photo session in Ulaanbaatar during this period, please contact me by email.
+            </p>
+            <a href="mailto:dearmoment88@gmail.com" class="block w-full text-center bg-slate-900 text-white font-semibold py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-md text-sm" data-i18n="popup-email-btn">
+                Email Inquiry
+            </a>
+            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between gap-3">
+                <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-500 font-medium">
+                    <input type="checkbox" id="popup-hide-today" class="w-4 h-4 rounded border-gray-300 text-slate-900 focus:ring-slate-900">
+                    <span data-i18n="popup-hide-today">Don't show this again today</span>
+                </label>
+                <button type="button" onclick="closeNoticePopup()" class="text-xs font-bold text-slate-700 hover:text-slate-900 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors shrink-0" data-i18n="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-white border-t border-gray-100 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="text-slate-800 font-bold text-sm tracking-widest mb-3">DEAR-MOMENT</p>
@@ -786,7 +814,13 @@
                 "end-kr-bank-title": "Korean Bank Transfer", "end-paypal-title": "PayPal", "end-paypal-email": "PayPal Email",
                 "end-desc-notice": "⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.", "end-desc-confirm": "Once you make the transfer, Yohan will confirm upon validation of bank deposits.", "end-return": "Return to Homepage",
                 "end-screenshot-notice": "📸 This page will not be shown again — please take a screenshot of the payment details above before leaving.",
-                "ph-notes": "e.g. Pre-wedding, Engagement, Registry, Couple shoot, etc. / Preferred location (park, beach, city, etc.)", "ph-sig": "Type full name here..."
+                "ph-notes": "e.g. Pre-wedding, Engagement, Registry, Couple shoot, etc. / Preferred location (park, beach, city, etc.)", "ph-sig": "Type full name here...",
+                "popup-title": "Ulaanbaatar, Mongolia — Travel Notice",
+                "popup-dates": "1 – 28 August 2026",
+                "popup-body": "I will be traveling to Ulaanbaatar, Mongolia for work from August 1 to August 28. If you would like a photo session in Ulaanbaatar during this period, please contact me by email.",
+                "popup-email-btn": "Email Inquiry",
+                "popup-hide-today": "Don't show this again today",
+                "popup-close": "Close"
             },
             KO: {
                 "nav-home": "홈", "nav-about": "소개", "nav-portfolio": "포트폴리오", "nav-portfolio-mob": "포트폴리오 ↗", "nav-pricing": "패키지 안내", "nav-details": "이용 안내", "nav-book": "예약 신청",
@@ -856,7 +890,13 @@
                 "end-desc-confirm": "실시간 입금 매칭 완료 즉시 고객님의 연락처로 예약을 최종 컨펌후 안내해드립니다",
                 "end-return": "홈화면으로 돌아가기",
                 "end-screenshot-notice": "📸 이 화면은 다시 표시되지 않습니다. 페이지를 떠나기 전에 위 입금 정보를 꼭 캡처해 두세요.",
-                "ph-notes": "예) 웨딩 촬영, 결혼 기념, 커플 사진 등 / 원하시는 장소 (공원, 해변, 도심 등)", "ph-sig": "한글/영문 정자 실명을 여기에 입력하세요..."
+                "ph-notes": "예) 웨딩 촬영, 결혼 기념, 커플 사진 등 / 원하시는 장소 (공원, 해변, 도심 등)", "ph-sig": "한글/영문 정자 실명을 여기에 입력하세요...",
+                "popup-title": "몽골 울란바토르 출장 안내",
+                "popup-dates": "2026년 8월 1일 – 8월 28일",
+                "popup-body": "8월 1일부터 8월 28일까지 몽골 울란바토르로 출장을 갑니다. 이 기간 동안 몽골 울란바토르에서 촬영을 원하시는 분은 이메일로 문의 부탁드립니다.",
+                "popup-email-btn": "이메일로 문의하기",
+                "popup-hide-today": "오늘 하루 열지 않기",
+                "popup-close": "닫기"
             }
         };
 
@@ -1152,9 +1192,36 @@
             showPage('home');
         }
 
+        /* ==========================================================================
+           6. HOME PAGE NOTICE POPUP (Mongolia trip)
+           ========================================================================== */
+        const POPUP_EXPIRY_DATE = '2026-08-28'; // 이 날짜가 지나면 팝업이 자동으로 뜨지 않습니다
+        const POPUP_STORAGE_KEY = 'noticePopupHiddenDate';
+
+        function getTodayKey() {
+            const t = new Date();
+            return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
+        }
+
+        function closeNoticePopup() {
+            if (document.getElementById('popup-hide-today').checked) {
+                try { localStorage.setItem(POPUP_STORAGE_KEY, getTodayKey()); } catch (e) {}
+            }
+            document.getElementById('notice-popup').classList.add('hidden');
+        }
+
+        function maybeShowNoticePopup() {
+            if (getTodayKey() > POPUP_EXPIRY_DATE) return;
+            try {
+                if (localStorage.getItem(POPUP_STORAGE_KEY) === getTodayKey()) return;
+            } catch (e) {}
+            document.getElementById('notice-popup').classList.remove('hidden');
+        }
+
         window.onload = function() {
             const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
             setLanguage(browserLang.startsWith('ko') ? 'KO' : 'EN');
+            maybeShowNoticePopup();
         }
     </script>
 </body>
