@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Moment | Gallery</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .photo-card img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .photo-card img.loaded { opacity: 1; }
+        .photo-card:hover img { transform: scale(1.03); }
+        #lightbox { backdrop-filter: blur(6px); }
+        .no-scroll { overflow: hidden; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900">Dear <span class="font-light italic">Moment</span></a>
+            <button id="download-all-btn" onclick="downloadAll()" class="hidden bg-slate-900 text-white text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-slate-700 transition-colors">
+                <i class="fa-solid fa-download mr-2"></i>전체 다운로드 <span class="hidden sm:inline text-gray-300 font-normal">/ Download All</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <!-- Gallery title / notice -->
+        <div id="gallery-header" class="hidden mb-8 fade-in">
+            <h1 id="gallery-title" class="text-2xl md:text-3xl font-bold text-slate-900"></h1>
+            <p id="photo-count" class="text-gray-500 mt-1 text-sm"></p>
+            <div class="mt-4 bg-amber-50 border border-amber-200 text-amber-800 text-sm rounded-lg px-4 py-3">
+                <i class="fa-solid fa-circle-info mr-1.5"></i>
+                이 갤러리는 일정 기간 후 삭제되며 삭제 후에는 복구가 불가능합니다. 미리 다운로드해 주세요.
+                <span class="block text-amber-700/80 mt-0.5">This gallery will be deleted after a set period and cannot be recovered. Please download your photos in advance.</span>
+            </div>
+        </div>
+
+        <!-- Status (loading / error) -->
+        <div id="status" class="text-center py-24 text-gray-500">
+            <i class="fa-solid fa-spinner fa-spin text-2xl mb-3 block"></i>
+            갤러리를 불러오는 중입니다...
+        </div>
+
+        <!-- Photo grid -->
+        <div id="grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
+    </main>
+
+    <footer class="border-t border-gray-100 py-6 text-center text-xs text-gray-400">
+        © Dear Moment Photography — Melbourne
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 flex flex-col" onclick="if (event.target === this) closeLightbox()">
+        <div class="flex items-center justify-between px-4 sm:px-6 py-4 text-white">
+            <span id="lb-filename" class="font-mono text-sm sm:text-base tracking-wide"></span>
+            <div class="flex items-center gap-2">
+                <a id="lb-download" href="#" target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/20 transition-colors rounded-lg px-3 py-2 text-sm">
+                    <i class="fa-solid fa-download mr-1.5"></i>다운로드
+                </a>
+                <button onclick="closeLightbox()" class="bg-white/10 hover:bg-white/20 transition-colors rounded-lg w-9 h-9 text-sm" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+        <div class="flex-grow flex items-center justify-center relative px-2 pb-4 min-h-0">
+            <button onclick="event.stopPropagation(); navLightbox(-1)" class="absolute left-2 sm:left-4 z-10 text-white bg-white/10 hover:bg-white/20 transition-colors rounded-full w-10 h-10" aria-label="Previous">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <img id="lb-img" src="" alt="" class="max-h-full max-w-full object-contain rounded-md select-none" draggable="false">
+            <button onclick="event.stopPropagation(); navLightbox(1)" class="absolute right-2 sm:right-4 z-10 text-white bg-white/10 hover:bg-white/20 transition-colors rounded-full w-10 h-10" aria-label="Next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        <p id="lb-counter" class="text-center text-gray-400 text-xs pb-4"></p>
+    </div>
+
+    <script>
+        // ── Configuration ─────────────────────────────────────────────
+        // Google Drive API key (read-only, referrer-restricted). Set after creating it in Google Cloud Console.
+        const API_KEY = '';
+        // ──────────────────────────────────────────────────────────────
+
+        const params = new URLSearchParams(location.search);
+        const FOLDER_ID = params.get('id');
+        const DEMO = params.has('demo');
+
+        let photos = []; // { id, name, thumbUrl, fullUrl, downloadUrl }
+        let lbIndex = 0;
+
+        const statusEl = document.getElementById('status');
+        const gridEl = document.getElementById('grid');
+
+        function showError(html) {
+            statusEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-2xl mb-3 block text-amber-500"></i>' + html;
+        }
+
+        async function loadDemo() {
+            photos = Array.from({ length: 12 }, (_, i) => {
+                const n = 8100 + i * 7;
+                return {
+                    id: 'demo' + i,
+                    name: `DSCF${n}.jpg`,
+                    thumbUrl: `https://picsum.photos/seed/dm${i}/640/427`,
+                    fullUrl: `https://picsum.photos/seed/dm${i}/1600/1067`,
+                    downloadUrl: '#'
+                };
+            });
+            renderGallery('데모 갤러리 (Demo)');
+        }
+
+        async function loadDrive() {
+            let files = [];
+            let pageToken = '';
+            try {
+                do {
+                    const url = 'https://www.googleapis.com/drive/v3/files'
+                        + `?q='${FOLDER_ID}'+in+parents+and+trashed=false`
+                        + '&fields=nextPageToken,files(id,name,mimeType)'
+                        + '&pageSize=1000&orderBy=name'
+                        + (pageToken ? `&pageToken=${pageToken}` : '')
+                        + `&key=${API_KEY}`;
+                    const res = await fetch(url);
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    const data = await res.json();
+                    files = files.concat(data.files || []);
+                    pageToken = data.nextPageToken || '';
+                } while (pageToken);
+            } catch (e) {
+                showError('갤러리를 불러올 수 없습니다. 링크가 만료되었거나 잘못된 주소일 수 있습니다.<br>문의: <a href="index.html" class="underline">dearmoment.photography</a><br><span class="text-xs text-gray-400 mt-2 block">' + e.message + '</span>');
+                return;
+            }
+
+            photos = files
+                .filter(f => f.mimeType && f.mimeType.startsWith('image/'))
+                .map(f => ({
+                    id: f.id,
+                    name: f.name,
+                    thumbUrl: `https://drive.google.com/thumbnail?id=${f.id}&sz=w640`,
+                    fullUrl: `https://drive.google.com/thumbnail?id=${f.id}&sz=w1920`,
+                    downloadUrl: `https://drive.google.com/uc?export=download&id=${f.id}`
+                }));
+
+            if (photos.length === 0) {
+                showError('이 갤러리에 사진이 없습니다.');
+                return;
+            }
+            renderGallery('Your Gallery');
+        }
+
+        function renderGallery(title) {
+            statusEl.classList.add('hidden');
+            document.getElementById('gallery-header').classList.remove('hidden');
+            document.getElementById('gallery-title').textContent = title;
+            document.getElementById('photo-count').textContent = photos.length + ' photos';
+            if (!DEMO) document.getElementById('download-all-btn').classList.remove('hidden');
+
+            const frag = document.createDocumentFragment();
+            photos.forEach((p, i) => {
+                const card = document.createElement('div');
+                card.className = 'photo-card fade-in cursor-pointer group';
+                card.style.animationDelay = Math.min(i * 30, 600) + 'ms';
+                card.innerHTML =
+                    '<div class="aspect-[3/2] bg-gray-200 rounded-lg overflow-hidden">' +
+                        `<img loading="lazy" alt="${p.name}" class="w-full h-full object-cover" onload="this.classList.add('loaded')">` +
+                    '</div>' +
+                    `<p class="font-mono text-[11px] sm:text-xs text-gray-500 mt-1.5 truncate group-hover:text-slate-900 transition-colors">${p.name}</p>`;
+                card.querySelector('img').src = p.thumbUrl;
+                card.addEventListener('click', () => openLightbox(i));
+                frag.appendChild(card);
+            });
+            gridEl.appendChild(frag);
+        }
+
+        // ── Lightbox ──────────────────────────────────────────────────
+        function openLightbox(i) {
+            lbIndex = i;
+            updateLightbox();
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.body.classList.add('no-scroll');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        }
+        function navLightbox(dir) {
+            lbIndex = (lbIndex + dir + photos.length) % photos.length;
+            updateLightbox();
+        }
+        function updateLightbox() {
+            const p = photos[lbIndex];
+            const img = document.getElementById('lb-img');
+            img.src = p.fullUrl;
+            img.alt = p.name;
+            document.getElementById('lb-filename').textContent = p.name;
+            document.getElementById('lb-download').href = p.downloadUrl;
+            document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + photos.length;
+            // Preload neighbors for snappy navigation
+            [1, -1].forEach(d => {
+                const n = photos[(lbIndex + d + photos.length) % photos.length];
+                new Image().src = n.fullUrl;
+            });
+        }
+        document.addEventListener('keydown', e => {
+            if (document.getElementById('lightbox').classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') navLightbox(1);
+            if (e.key === 'ArrowLeft') navLightbox(-1);
+        });
+
+        function downloadAll() {
+            window.open('https://drive.google.com/drive/folders/' + FOLDER_ID, '_blank');
+        }
+
+        // ── Init ──────────────────────────────────────────────────────
+        if (DEMO) {
+            loadDemo();
+        } else if (!FOLDER_ID) {
+            showError('갤러리 주소가 올바르지 않습니다.<br>전달받은 링크를 다시 확인해 주세요.');
+        } else if (!API_KEY) {
+            showError('갤러리 설정이 완료되지 않았습니다. (API 키 미설정)');
+        } else {
+            loadDrive();
+        }
+    </script>
+</body>
+</html>
