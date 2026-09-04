@@ -490,7 +490,7 @@
                                     <i class="fas fa-chevron-left text-slate-600"></i>
                                 </button>
                                 <span id="current-month-display" class="font-bold text-slate-800 min-w-[130px] text-center">Month Year</span>
-                                <button type="button" onclick="changeMonth(1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                                <button type="button" id="next-month-btn" onclick="changeMonth(1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
                                     <i class="fas fa-chevron-right text-slate-600"></i>
                                 </button>
                             </div>
@@ -1074,8 +1074,11 @@
             const month = currentDate.getMonth();
             const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             
-            if (currentLang === 'KO') { monthDisplay.textContent = `${year}년 ${month + 1}월`; } 
+            if (currentLang === 'KO') { monthDisplay.textContent = `${year}년 ${month + 1}월`; }
             else { monthDisplay.textContent = `${monthNames[month]} ${year}`; }
+
+            const nextMonthBtn = document.getElementById('next-month-btn');
+            if (nextMonthBtn) { nextMonthBtn.disabled = (year === maxCalendarDate.getFullYear() && month >= maxCalendarDate.getMonth()); }
 
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -1103,7 +1106,14 @@
             }
         }
 
-        function changeMonth(delta) { currentDate.setMonth(currentDate.getMonth() + delta); renderCalendar(); }
+        const maxCalendarDate = new Date(2027, 2, 1); // 2027년 3월까지만 표시
+
+        function changeMonth(delta) {
+            const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + delta, 1);
+            if (newDate > maxCalendarDate) { return; }
+            currentDate = newDate;
+            renderCalendar();
+        }
 
         function selectDate(year, month, day, buttonElement) {
             document.querySelectorAll('.date-btn.selected').forEach(el => el.classList.remove('selected'));
