@@ -312,28 +312,10 @@
                 return;
             }
 
-            // Fallback: save each photo one by one (Safari, phones, Firefox).
-            if (!confirm(`${real.length}장의 사진을 한 장씩 저장합니다. 시간이 걸릴 수 있어요.\nSave all ${real.length} photos one by one? This may take a while.`)) return;
-            btn.disabled = true;
-            for (let i = 0; i < real.length; i++) {
-                const p = real[i];
-                setDownloadAllBtn(`<i class="fa-solid fa-spinner fa-spin mr-2"></i>${i + 1}/${real.length}`);
-                try {
-                    const res = await fetch(mediaUrl(p.id));
-                    const blob = await res.blob();
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = p.name;
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                    setTimeout(() => URL.revokeObjectURL(url), 10000);
-                } catch (e) { /* skip a failed file and keep going */ }
-                await new Promise(r => setTimeout(r, 400));
-            }
-            setDownloadAllBtn('<i class="fa-solid fa-check mr-2"></i>완료 / Done');
-            setTimeout(resetDownloadAllBtn, 4000);
+            // Safari / phones don't support saving one combined ZIP file,
+            // and bulk one-by-one saving is unreliable there — so guide the
+            // visitor to a computer for the full download instead.
+            alert('전체 다운로드(ZIP)는 PC의 크롬 또는 엣지 브라우저에서 이용해 주세요.\n휴대폰에서는 사진을 하나씩 눌러 저장할 수 있습니다.\n\nTo download all photos as one ZIP file, please use Chrome or Edge on a computer.\nOn a phone, you can still save photos one at a time.');
         }
 
         // ── Init ──────────────────────────────────────────────────────
