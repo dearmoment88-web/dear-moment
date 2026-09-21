@@ -266,11 +266,25 @@
             updateLightbox();
             document.getElementById('lightbox').classList.remove('hidden');
             document.body.classList.add('no-scroll');
+            // Add a history entry so the phone's Back button just closes the
+            // viewer (instead of leaving the gallery).
+            history.pushState({ lightbox: true }, '');
         }
-        function closeLightbox() {
+        function hideLightbox() {
             document.getElementById('lightbox').classList.add('hidden');
             document.body.classList.remove('no-scroll');
         }
+        function closeLightbox() {
+            hideLightbox();
+            // Consume the history entry we added when opening.
+            if (history.state && history.state.lightbox) history.back();
+        }
+        window.addEventListener('popstate', () => {
+            // Back button pressed while the viewer is open → just close it.
+            if (!document.getElementById('lightbox').classList.contains('hidden')) {
+                hideLightbox();
+            }
+        });
         function navLightbox(dir) {
             lbIndex = (lbIndex + dir + photos.length) % photos.length;
             updateLightbox();
