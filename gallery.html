@@ -96,6 +96,49 @@
         <p id="lb-counter" class="text-center text-gray-400 text-xs pb-4"></p>
     </div>
 
+    <!-- Download help (Safari / mobile) -->
+    <div id="download-help" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onclick="if (event.target === this) closeDownloadHelp()">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-xl">
+            <div class="flex items-start justify-between px-5 sm:px-6 py-4 border-b border-gray-100 sticky top-0 bg-white rounded-t-2xl">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900">전체 다운로드 안내</h2>
+                    <p class="text-xs text-gray-400 mt-0.5">How to download all photos</p>
+                </div>
+                <button onclick="closeDownloadHelp()" class="text-gray-400 hover:text-slate-900 transition-colors w-8 h-8 -mr-1" aria-label="Close">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="px-5 sm:px-6 py-5 space-y-5 text-sm text-slate-700 leading-relaxed">
+                <p class="text-gray-500">
+                    지금 사용 중인 브라우저(사파리 · 모바일 등)에서는 전체 사진을 하나의 압축파일(ZIP)로 한 번에 받을 수 없어요. 아래 두 가지 방법 중 하나로 받아주세요.
+                </p>
+
+                <!-- Method 1 -->
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-4">
+                    <p class="font-semibold text-slate-900 mb-1"><i class="fa-solid fa-desktop text-slate-400 mr-2"></i>방법 1. 크롬 · 엣지에서 받기 <span class="text-gray-400 font-normal text-xs">(가장 간편)</span></p>
+                    <p class="text-slate-600">PC에서 <b>크롬(Chrome)</b> 또는 <b>엣지(Edge)</b> 브라우저로 이 갤러리 페이지를 연 뒤, 우측 상단의 <b>[전체 다운로드]</b> 버튼을 누르면 압축파일(ZIP) 하나로 바로 저장됩니다.</p>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-4">
+                    <p class="font-semibold text-slate-900 mb-2"><i class="fa-brands fa-google-drive text-slate-400 mr-2"></i>방법 2. 구글 드라이브에서 받기</p>
+                    <ol class="list-decimal list-outside pl-5 space-y-1.5 text-slate-600 marker:text-slate-400 marker:font-medium">
+                        <li>아래 <b>[구글 드라이브 열기]</b> 버튼을 누릅니다.</li>
+                        <li>사진 목록에서 사진을 <b>전체 선택</b>합니다.<br><span class="text-xs text-gray-500">— PC: 첫 사진을 클릭한 뒤 키보드 <b>Ctrl+A</b>(맥은 <b>⌘+A</b>)<br>— 또는 첫 사진 클릭 → 맨 마지막 사진을 <b>Shift+클릭</b></span></li>
+                        <li>선택된 사진 위에서 <b>마우스 우클릭</b> (또는 오른쪽 위 <b>⋮ 점 3개</b> 메뉴)을 누릅니다.</li>
+                        <li>메뉴에서 <b>[다운로드]</b>를 선택하면, 구글이 자동으로 압축(ZIP)해서 내려받아 줍니다.</li>
+                    </ol>
+                    <p class="text-xs text-gray-500 mt-2.5"><i class="fa-solid fa-circle-info mr-1"></i>용량이 아주 크면 구글이 여러 개의 ZIP 파일로 나눠서 줄 수 있어요. 휴대폰보다 <b>PC에서</b> 받는 것을 권장합니다.</p>
+                </div>
+
+                <a id="dl-drive-link" href="#" target="_blank" rel="noopener" class="block w-full text-center bg-slate-900 text-white font-medium px-4 py-3 rounded-xl hover:bg-slate-700 transition-colors">
+                    <i class="fa-brands fa-google-drive mr-2"></i>구글 드라이브 열기 / Open Google Drive
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ── Configuration ─────────────────────────────────────────────
         // Google Drive API key (read-only, referrer-restricted). Set after creating it in Google Cloud Console.
@@ -313,47 +356,19 @@
                 return;
             }
 
-            // Safari / Firefox / phones can't stream a ZIP straight to disk,
-            // so build it in memory instead — but only when the gallery is
-            // small enough to fit, otherwise the browser tab would crash.
-            const IN_MEMORY_LIMIT = 2 * 1024 * 1024 * 1024; // ~2 GB
-            const totalBytes = real.reduce((sum, p) => sum + (p.size || 0), 0);
+            // Safari / Firefox / phones can't build a large ZIP in the
+            // browser — guide the visitor to Chrome/Edge or Google Drive.
+            openDownloadHelp();
+        }
 
-            if (!totalBytes || totalBytes > IN_MEMORY_LIMIT) {
-                const gb = totalBytes ? `(${(totalBytes / 1024 / 1024 / 1024).toFixed(1)}GB) ` : '';
-                // Safari etc. can't zip a large gallery in memory. Send the
-                // visitor to Google Drive, which zips server-side at any size.
-                const goDrive = confirm(`이 갤러리는 용량이 커서 ${gb}이 브라우저(예: Safari)에서는 전체를 한 번에 압축해 받을 수 없습니다.\n\n[확인]을 누르면 구글 드라이브가 열립니다. 거기서 전체 선택 후 다운로드하면 압축파일로 받을 수 있어요.\n(크롬 또는 엣지 브라우저에서는 이 페이지에서 바로 ZIP으로 받을 수 있습니다.)\n\nThis gallery is too large to zip in this browser (e.g. Safari).\nClick OK to open Google Drive, where you can download everything as a ZIP.`);
-                if (goDrive) window.open('https://drive.google.com/drive/folders/' + FOLDER_ID, '_blank');
-                return;
-            }
-
-            btn.disabled = true;
-            try {
-                const { downloadZip } = await import('https://cdn.jsdelivr.net/npm/client-zip@2/index.js');
-                let done = 0;
-                async function* iterate() {
-                    for (const p of real) {
-                        const res = await fetch(mediaUrl(p.id));
-                        if (res.ok) yield { name: p.name, input: res };
-                        setDownloadAllBtn(`<i class="fa-solid fa-spinner fa-spin mr-2"></i>압축 중 ${++done}/${real.length}`);
-                    }
-                }
-                const blob = await downloadZip(iterate()).blob();
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'DearMoment-Gallery.zip';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                setTimeout(() => URL.revokeObjectURL(url), 30000);
-                setDownloadAllBtn('<i class="fa-solid fa-check mr-2"></i>완료 / Done');
-                setTimeout(resetDownloadAllBtn, 4000);
-            } catch (e) {
-                alert('다운로드 중 문제가 발생했습니다. 다시 시도해 주세요.\nSomething went wrong — please try again.');
-                resetDownloadAllBtn();
-            }
+        function openDownloadHelp() {
+            document.getElementById('dl-drive-link').href = 'https://drive.google.com/drive/folders/' + FOLDER_ID;
+            document.getElementById('download-help').classList.remove('hidden');
+            document.body.classList.add('no-scroll');
+        }
+        function closeDownloadHelp() {
+            document.getElementById('download-help').classList.add('hidden');
+            document.body.classList.remove('no-scroll');
         }
 
         // ── Init ──────────────────────────────────────────────────────
