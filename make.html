@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Moment | 갤러리 링크 만들기</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: #f8fafc; -webkit-font-smoothing: antialiased; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 py-4">
+            <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900">Dear Moment</a>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-2xl mx-auto px-4 sm:px-6 py-8">
+        <h1 class="text-2xl md:text-3xl font-bold text-slate-900">갤러리 링크 만들기</h1>
+        <p class="text-gray-500 mt-1 text-sm">구글 드라이브 폴더 링크를 붙여넣으면 고객에게 보낼 갤러리 링크가 자동으로 만들어집니다.</p>
+
+        <!-- Step 1: paste -->
+        <div class="mt-6">
+            <label for="drive-input" class="block text-sm font-medium text-slate-700 mb-1.5">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-900 text-white text-xs mr-1.5">1</span>
+                구글 드라이브 폴더 링크 붙여넣기
+            </label>
+            <textarea id="drive-input" rows="3" placeholder="예) https://drive.google.com/drive/folders/1AbCdE...?usp=share_link"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900/70 focus:border-transparent resize-none"></textarea>
+            <p class="text-xs text-gray-400 mt-1.5">드라이브에서 폴더를 <b>"링크가 있는 모든 사용자"(뷰어)</b>로 공유한 뒤, 그 링크를 그대로 붙여넣으세요.</p>
+        </div>
+
+        <!-- Step 2: result -->
+        <div id="result-box" class="mt-6 hidden">
+            <label class="block text-sm font-medium text-slate-700 mb-1.5">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-900 text-white text-xs mr-1.5">2</span>
+                고객에게 보낼 갤러리 링크
+            </label>
+            <div class="flex items-stretch gap-2">
+                <input id="gallery-output" type="text" readonly
+                    class="flex-grow rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-slate-800 font-mono select-all">
+                <button id="copy-btn" onclick="copyLink()"
+                    class="shrink-0 bg-slate-900 text-white text-sm font-medium px-4 rounded-xl hover:bg-slate-700 transition-colors">
+                    <i class="fa-solid fa-copy mr-1.5"></i>복사
+                </button>
+            </div>
+            <div class="flex gap-2 mt-3">
+                <a id="open-btn" href="#" target="_blank" rel="noopener"
+                    class="flex-1 text-center bg-white border border-gray-200 text-slate-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-50 transition-colors">
+                    <i class="fa-solid fa-up-right-from-square mr-1.5"></i>갤러리 미리보기
+                </a>
+            </div>
+        </div>
+
+        <!-- Error -->
+        <div id="error-box" class="mt-6 hidden bg-amber-50 border border-amber-200 text-amber-800 text-sm rounded-xl px-4 py-3">
+            <i class="fa-solid fa-triangle-exclamation mr-1.5"></i><span id="error-msg"></span>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-100 py-6 text-center text-xs text-gray-400">
+        © Dear Moment Photography — Melbourne
+    </footer>
+
+    <script>
+        const GALLERY_BASE = 'https://dearmoment.photography/gallery.html?id=';
+        const input = document.getElementById('drive-input');
+        const resultBox = document.getElementById('result-box');
+        const errorBox = document.getElementById('error-box');
+        const output = document.getElementById('gallery-output');
+        const openBtn = document.getElementById('open-btn');
+        const copyBtn = document.getElementById('copy-btn');
+
+        function extractId(raw) {
+            raw = (raw || '').trim();
+            if (!raw) return null;
+            let m = raw.match(/\/folders\/([a-zA-Z0-9_-]+)/);      // .../folders/ID
+            if (m) return m[1];
+            m = raw.match(/[?&]id=([a-zA-Z0-9_-]+)/);              // ...?id=ID
+            if (m) return m[1];
+            if (/^[a-zA-Z0-9_-]{15,}$/.test(raw)) return raw;      // raw ID pasted alone
+            return null;
+        }
+
+        function update() {
+            const raw = input.value;
+            errorBox.classList.add('hidden');
+            copyBtn.innerHTML = '<i class="fa-solid fa-copy mr-1.5"></i>복사';
+
+            if (!raw.trim()) { resultBox.classList.add('hidden'); return; }
+
+            const id = extractId(raw);
+            if (!id) {
+                resultBox.classList.add('hidden');
+                errorBox.classList.remove('hidden');
+                document.getElementById('error-msg').textContent = '구글 드라이브 폴더 링크를 인식하지 못했습니다. 링크를 다시 확인해 주세요.';
+                return;
+            }
+
+            const link = GALLERY_BASE + id;
+            output.value = link;
+            openBtn.href = link;
+            resultBox.classList.remove('hidden');
+        }
+
+        async function copyLink() {
+            try {
+                await navigator.clipboard.writeText(output.value);
+            } catch (e) {
+                output.select();
+                document.execCommand('copy');
+            }
+            copyBtn.innerHTML = '<i class="fa-solid fa-check mr-1.5"></i>복사됨!';
+            setTimeout(() => { copyBtn.innerHTML = '<i class="fa-solid fa-copy mr-1.5"></i>복사'; }, 2000);
+        }
+
+        input.addEventListener('input', update);
+        input.addEventListener('paste', () => setTimeout(update, 0));
+    </script>
+</body>
+</html>
