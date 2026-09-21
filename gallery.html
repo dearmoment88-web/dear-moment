@@ -228,6 +228,11 @@
             if (e.key === 'ArrowLeft') navLightbox(-1);
         });
 
+        // Google Drive "download the file bytes" endpoint.
+        function mediaUrl(id) {
+            return `https://www.googleapis.com/drive/v3/files/${id}?alt=media&key=${API_KEY}`;
+        }
+
         // Direct in-browser download: fetch the file bytes from the Drive API
         // and save via a blob, so the visitor never leaves the gallery.
         async function downloadPhoto(p, btn) {
@@ -236,7 +241,7 @@
             const icon = btn ? btn.querySelector('i') : null;
             if (btn) { btn.disabled = true; if (icon) icon.className = 'fa-solid fa-spinner fa-spin mr-1.5'; }
             try {
-                const res = await fetch(`https://www.googleapis.com/drive/v3/files/${p.id}?alt=media&key=${API_KEY}`);
+                const res = await fetch(mediaUrl(p.id));
                 if (!res.ok) throw new Error('HTTP ' + res.status);
                 const blob = await res.blob();
                 const url = URL.createObjectURL(blob);
@@ -258,8 +263,77 @@
             downloadPhoto(photos[lbIndex], btn);
         }
 
-        function downloadAll() {
-            window.open('https://drive.google.com/drive/folders/' + FOLDER_ID, '_blank');
+        // ── Download all ──────────────────────────────────────────────
+        function resetDownloadAllBtn() {
+            const btn = document.getElementById('download-all-btn');
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-download mr-2"></i>전체 다운로드 <span class="hidden sm:inline text-gray-300 font-normal">/ Download All</span>';
+        }
+        function setDownloadAllBtn(html) {
+            document.getElementById('download-all-btn').innerHTML = html;
+        }
+
+        async function downloadAll() {
+            const btn = document.getElementById('download-all-btn');
+            const real = photos.filter(p => !String(p.id).startsWith('demo'));
+            if (!real.length) return;
+
+            // Preferred: stream one ZIP straight to disk (Chrome/Edge desktop).
+            // Handles very large galleries without holding files in memory.
+            if (window.showSaveFilePicker) {
+                let handle;
+                try {
+                    handle = await window.showSaveFilePicker({
+                        suggestedName: 'DearMoment-Gallery.zip',
+                        types: [{ description: 'ZIP', accept: { 'application/zip': ['.zip'] } }]
+                    });
+                } catch (e) {
+                    return; // user cancelled the save dialog
+                }
+                btn.disabled = true;
+                try {
+                    const writable = await handle.createWritable();
+                    const { downloadZip } = await import('https://cdn.jsdelivr.net/npm/client-zip@2/index.js');
+                    let done = 0;
+                    async function* iterate() {
+                        for (const p of real) {
+                            const res = await fetch(mediaUrl(p.id));
+                            if (res.ok) yield { name: p.name, input: res };
+                            setDownloadAllBtn(`<i class="fa-solid fa-spinner fa-spin mr-2"></i>압축 중 ${++done}/${real.length}`);
+                        }
+                    }
+                    await downloadZip(iterate()).body.pipeTo(writable);
+                    setDownloadAllBtn('<i class="fa-solid fa-check mr-2"></i>완료 / Done');
+                    setTimeout(resetDownloadAllBtn, 4000);
+                } catch (e) {
+                    alert('다운로드 중 문제가 발생했습니다. 다시 시도해 주세요.\nSomething went wrong — please try again.');
+                    resetDownloadAllBtn();
+                }
+                return;
+            }
+
+            // Fallback: save each photo one by one (Safari, phones, Firefox).
+            if (!confirm(`${real.length}장의 사진을 한 장씩 저장합니다. 시간이 걸릴 수 있어요.\nSave all ${real.length} photos one by one? This may take a while.`)) return;
+            btn.disabled = true;
+            for (let i = 0; i < real.length; i++) {
+                const p = real[i];
+                setDownloadAllBtn(`<i class="fa-solid fa-spinner fa-spin mr-2"></i>${i + 1}/${real.length}`);
+                try {
+                    const res = await fetch(mediaUrl(p.id));
+                    const blob = await res.blob();
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = p.name;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    setTimeout(() => URL.revokeObjectURL(url), 10000);
+                } catch (e) { /* skip a failed file and keep going */ }
+                await new Promise(r => setTimeout(r, 400));
+            }
+            setDownloadAllBtn('<i class="fa-solid fa-check mr-2"></i>완료 / Done');
+            setTimeout(resetDownloadAllBtn, 4000);
         }
 
         // ── Init ──────────────────────────────────────────────────────
