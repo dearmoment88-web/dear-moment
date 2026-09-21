@@ -110,26 +110,49 @@
             </div>
 
             <div class="px-5 sm:px-6 py-5 space-y-5 text-sm text-slate-700 leading-relaxed">
-                <p class="text-gray-500">
+                <p class="text-slate-600">
                     지금 사용 중인 브라우저(사파리 · 모바일 등)에서는 전체 사진을 하나의 압축파일(ZIP)로 한 번에 받을 수 없어요. 아래 두 가지 방법 중 하나로 받아주세요.
+                    <span class="block text-gray-400 text-xs mt-1.5">This browser (Safari, mobile, etc.) can't download all photos as a single ZIP file. Please use one of the two options below.</span>
                 </p>
 
                 <!-- Method 1 -->
                 <div class="bg-slate-50 border border-slate-100 rounded-xl p-4">
                     <p class="font-semibold text-slate-900 mb-1"><i class="fa-solid fa-desktop text-slate-400 mr-2"></i>방법 1. 크롬 · 엣지에서 받기 <span class="text-gray-400 font-normal text-xs">(가장 간편)</span></p>
+                    <p class="text-xs text-gray-400 font-medium mb-2">Option 1. Use Chrome or Edge <span class="font-normal">(easiest)</span></p>
                     <p class="text-slate-600">PC에서 <b>크롬(Chrome)</b> 또는 <b>엣지(Edge)</b> 브라우저로 이 갤러리 페이지를 연 뒤, 우측 상단의 <b>[전체 다운로드]</b> 버튼을 누르면 압축파일(ZIP) 하나로 바로 저장됩니다.</p>
+                    <p class="text-xs text-gray-400 mt-1.5">On a computer, open this gallery page in <b>Chrome</b> or <b>Edge</b>, then click the <b>[Download All]</b> button at the top right — everything saves as a single ZIP file.</p>
                 </div>
 
                 <!-- Method 2 -->
                 <div class="bg-slate-50 border border-slate-100 rounded-xl p-4">
-                    <p class="font-semibold text-slate-900 mb-2"><i class="fa-brands fa-google-drive text-slate-400 mr-2"></i>방법 2. 구글 드라이브에서 받기</p>
-                    <ol class="list-decimal list-outside pl-5 space-y-1.5 text-slate-600 marker:text-slate-400 marker:font-medium">
-                        <li>아래 <b>[구글 드라이브 열기]</b> 버튼을 누릅니다.</li>
-                        <li>사진 목록에서 사진을 <b>전체 선택</b>합니다.<br><span class="text-xs text-gray-500">— PC: 첫 사진을 클릭한 뒤 키보드 <b>Ctrl+A</b>(맥은 <b>⌘+A</b>)<br>— 또는 첫 사진 클릭 → 맨 마지막 사진을 <b>Shift+클릭</b></span></li>
-                        <li>선택된 사진 위에서 <b>마우스 우클릭</b> (또는 오른쪽 위 <b>⋮ 점 3개</b> 메뉴)을 누릅니다.</li>
-                        <li>메뉴에서 <b>[다운로드]</b>를 선택하면, 구글이 자동으로 압축(ZIP)해서 내려받아 줍니다.</li>
+                    <p class="font-semibold text-slate-900 mb-1"><i class="fa-brands fa-google-drive text-slate-400 mr-2"></i>방법 2. 구글 드라이브에서 받기</p>
+                    <p class="text-xs text-gray-400 font-medium mb-3">Option 2. Download from Google Drive</p>
+                    <ol class="list-decimal list-outside pl-5 space-y-3 text-slate-600 marker:text-slate-400 marker:font-medium">
+                        <li>
+                            아래 <b>[구글 드라이브 열기]</b> 버튼을 누릅니다.
+                            <span class="block text-xs text-gray-400 mt-0.5">Click the <b>[Open Google Drive]</b> button below.</span>
+                        </li>
+                        <li>
+                            <b>사진 목록을 맨 아래까지 끝까지 스크롤</b>해서 모든 사진이 나타나게 합니다. <span class="text-rose-500 font-medium">(중요!)</span>
+                            <span class="block text-xs text-gray-500 mt-0.5">— 끝까지 내리지 않으면 처음 몇십 장만 선택돼요.</span>
+                            <span class="block text-xs text-gray-400 mt-1"><b>Scroll all the way down to the very bottom</b> of the photo list so every photo loads. <span class="text-rose-500 font-medium">(Important!)</span> If you don't, only the first few dozen get selected.</span>
+                        </li>
+                        <li>
+                            <b>맨 마지막 사진을 클릭</b>한 뒤, 키보드 <b>⌘+A</b>(윈도우는 <b>Ctrl+A</b>)를 눌러 전체 선택합니다.
+                            <span class="block text-xs text-gray-400 mt-0.5">Click the <b>last photo</b>, then press <b>⌘+A</b> (<b>Ctrl+A</b> on Windows) to select all.</span>
+                        </li>
+                        <li>
+                            선택된 사진 위에서 <b>마우스 우클릭</b>(또는 오른쪽 위 <b>⋮ 점 3개</b> 메뉴)을 누릅니다.
+                            <span class="block text-xs text-gray-400 mt-0.5">Right-click the selected photos (or use the <b>⋮ menu</b> at the top right).</span>
+                        </li>
+                        <li>
+                            메뉴에서 <b>[다운로드]</b>를 선택하면, 구글이 자동으로 압축(ZIP)해서 내려받아 줍니다.
+                            <span class="block text-xs text-gray-400 mt-0.5">Choose <b>[Download]</b> — Google will zip everything and download it automatically.</span>
+                        </li>
                     </ol>
-                    <p class="text-xs text-gray-500 mt-2.5"><i class="fa-solid fa-circle-info mr-1"></i>용량이 아주 크면 구글이 여러 개의 ZIP 파일로 나눠서 줄 수 있어요. 휴대폰보다 <b>PC에서</b> 받는 것을 권장합니다.</p>
+                    <p class="text-xs text-gray-500 mt-3"><i class="fa-solid fa-circle-info mr-1"></i>용량이 아주 크면 구글이 여러 개의 ZIP 파일로 나눠서 줄 수 있어요. 휴대폰보다 <b>PC에서</b> 받는 것을 권장합니다.
+                        <span class="block text-gray-400 mt-1">For very large galleries, Google may split the download into several ZIP files. We recommend downloading on a <b>computer</b> rather than a phone.</span>
+                    </p>
                 </div>
 
                 <a id="dl-drive-link" href="#" target="_blank" rel="noopener" class="block w-full text-center bg-slate-900 text-white font-medium px-4 py-3 rounded-xl hover:bg-slate-700 transition-colors">
