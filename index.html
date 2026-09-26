@@ -415,7 +415,7 @@
                                 <span data-i18n="faq-q1">How far in advance do I need to book?</span>
                                 <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
                             </summary>
-                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a1">There is no minimum notice — any date that is open on the booking calendar can be booked. Popular dates, especially weekends, fill up quickly, so booking early is recommended.</p>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a1">Any date that is open on the booking calendar can be booked, up to the day before your shoot (same-day bookings are not available). Popular dates, especially weekends, fill up quickly, so booking early is recommended.</p>
                         </details>
                         <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
                             <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
@@ -800,7 +800,7 @@
                 "det-travel-li3": "Locations that are difficult to reach by public transport may not be available for shooting. Please contact me in advance to check.",
                 "faq-title": "Frequently Asked Questions", "faq-subtitle": "Quick answers to the questions we hear most often.",
                 "faq-q1": "How far in advance do I need to book?",
-                "faq-a1": "There is no minimum notice — any date that is open on the booking calendar can be booked. Popular dates, especially weekends, fill up quickly, so booking early is recommended.",
+                "faq-a1": "Any date that is open on the booking calendar can be booked, up to the day before your shoot (same-day bookings are not available). Popular dates, especially weekends, fill up quickly, so booking early is recommended.",
                 "faq-q2": "When is my booking confirmed?",
                 "faq-a2": "Your date is secured only once the 50% deposit is confirmed. Submitting the booking form alone does not hold the date — if another client's deposit clears first, the date may no longer be available.",
                 "faq-q3": "When will I receive my photos?",
@@ -872,7 +872,7 @@
                 "det-travel-li3": "대중교통으로 접근이 어려운 지역은 촬영이 힘들 수 있습니다. 미리 문의해 주시기 바랍니다.",
                 "faq-title": "자주 묻는 질문", "faq-subtitle": "고객님들께서 가장 자주 문의하시는 내용을 모았습니다.",
                 "faq-q1": "예약은 얼마나 미리 해야 하나요?",
-                "faq-a1": "최소 예약 기간 제한은 없으며, 예약 캘린더에서 선택 가능한 날짜라면 언제든 신청하실 수 있습니다. 주말 등 인기 날짜는 빨리 마감되니 여유 있게 예약하시길 권장드립니다.",
+                "faq-a1": "예약 캘린더에서 선택 가능한 날짜라면 촬영 전날까지 언제든 신청하실 수 있습니다. (당일 예약은 불가합니다) 주말 등 인기 날짜는 빨리 마감되니 여유 있게 예약하시길 권장드립니다.",
                 "faq-q2": "예약은 언제 확정되나요?",
                 "faq-a2": "예약금(50%) 입금이 확인된 순간 날짜가 최종 확정됩니다. 예약 신청서 제출만으로는 날짜가 확보되지 않으며, 다른 고객님의 입금이 먼저 확인되면 해당 날짜는 마감될 수 있습니다.",
                 "faq-q3": "사진은 언제 받을 수 있나요?",
@@ -1111,7 +1111,7 @@
                 const monthStr = String(month + 1).padStart(2, '0'); const dayStr = String(i).padStart(2, '0');
                 const dateCompareKey = `${year}-${monthStr}-${dayStr}`; const monthCompareKey = `${year}-${monthStr}`;
 
-                if (dayDate < today || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
+                if (dayDate <= today || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
                     dayButton.disabled = true;
                 } else {
                     dayButton.onclick = () => selectDate(year, month, i, dayButton);
