@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dear Moment | Photography by Yohan</title>
-    <meta name="description" content="Melbourne-based portrait, couple and wedding photography by Yohan. View packages and book your session online.">
-    <meta property="og:title" content="Dear Moment | Photography by Yohan">
-    <meta property="og:description" content="Melbourne-based photography by Yohan. Bookings open.">
+    <title>Dear Moment | Melbourne Photographer – Couple, Wedding &amp; Family Photos by Yohan</title>
+    <meta name="description" content="Melbourne photographer Yohan (Dear Moment) – couple, pre-wedding, registry, family and graduation photoshoots. 멜버른 스냅 사진작가 · 커플, 웨딩, 가족, 졸업 촬영. View packages and book online.">
+    <link rel="canonical" href="https://dearmoment.photography/">
+    <meta property="og:title" content="Dear Moment | Melbourne Photographer by Yohan">
+    <meta property="og:description" content="Couple, pre-wedding, family and graduation photoshoots in Melbourne. 멜버른 스냅 촬영 예약.">
     <meta property="og:image" content="https://dearmoment.photography/og-image.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dearmoment.photography">
+    <meta property="og:url" content="https://dearmoment.photography/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Dear Moment",
+      "alternateName": "디어모먼트",
+      "description": "Melbourne photographer offering couple, pre-wedding, registry, family and graduation photoshoots.",
+      "url": "https://dearmoment.photography/",
+      "image": "https://dearmoment.photography/og-image.png",
+      "telephone": "+61 484 873 662",
+      "email": "dearmoment88@gmail.com",
+      "priceRange": "$450–$1,350",
+      "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressRegion": "VIC", "addressCountry": "AU" },
+      "areaServed": "Melbourne",
+      "founder": { "@type": "Person", "name": "Yohan Yun" },
+      "sameAs": ["https://www.instagram.com/dear_moment88/"]
+    }
+    </script>
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
         
         body {
             font-family: 'Inter', 'Noto Sans KR', sans-serif;
@@ -62,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link rel="stylesheet" href="tailwind.css?v=2">
+    <link rel="stylesheet" href="tailwind.css?v=3">
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
 
@@ -79,8 +100,8 @@
                     <a href="javascript:void(0)" onclick="showPage('pricing')" data-i18n="nav-pricing" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">Pricing</a>
                     <a href="javascript:void(0)" onclick="showPage('details')" data-i18n="nav-details" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">Details</a>
                     <a href="javascript:void(0)" onclick="showPage('reviews')" data-i18n="nav-reviews" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors">Reviews</a>
-                    <a href="https://www.instagram.com/dear_moment88/" target="_blank" data-i18n="nav-portfolio" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">
-                        Portfolio <i class="fas fa-external-link-alt text-[10px] text-gray-400"></i>
+                    <a href="https://www.instagram.com/dear_moment88/" target="_blank" rel="noopener" class="text-sm text-gray-600 hover:text-slate-900 font-medium transition-colors flex items-center gap-1">
+                        <span data-i18n="nav-portfolio">Portfolio</span> <i class="fas fa-external-link-alt text-[10px] text-gray-400"></i>
                     </a>
                     
                     <!-- Language & Booking Controls -->
@@ -115,7 +136,7 @@
                 <a href="javascript:void(0)" onclick="showPage('pricing')" data-i18n="nav-pricing" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Pricing</a>
                 <a href="javascript:void(0)" onclick="showPage('details')" data-i18n="nav-details" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Details</a>
                 <a href="javascript:void(0)" onclick="showPage('reviews')" data-i18n="nav-reviews" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Reviews</a>
-                <a href="https://www.instagram.com/dear_moment88/" target="_blank" data-i18n="nav-portfolio-mob" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Portfolio ↗</a>
+                <a href="https://www.instagram.com/dear_moment88/" target="_blank" rel="noopener" data-i18n="nav-portfolio-mob" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-900 hover:bg-gray-50 rounded-md">Portfolio ↗</a>
                 <a href="javascript:void(0)" onclick="showPage('booking')" data-i18n="nav-book" class="block px-3 py-3 text-base font-medium text-white bg-slate-900 text-center rounded-md mt-4">Book Now</a>
             </div>
         </div>
@@ -129,7 +150,7 @@
             <header class="px-4 text-center fade-in">
                 <div class="max-w-5xl mx-auto">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4 leading-tight" data-i18n="hero-title">
-                        Capturing your day<br>exactly as it feels.
+                        Dear Moment,<br>here to tell your story.
                     </h1>
                     
                     <!-- Direct Navigation Cards -->
@@ -179,15 +200,15 @@
                             <div class="absolute inset-0 flex items-center justify-center text-gray-400">
                                 <i class="fas fa-image text-5xl"></i>
                             </div>
-                            <img src="profile.jpeg" alt="Yohan" class="w-full h-full object-cover relative z-10 opacity-95 transition duration-500 group-hover:scale-105" onerror="this.style.display='none'">
+                            <img src="profile.jpeg" alt="Yohan" loading="lazy" decoding="async" class="w-full h-full object-cover relative z-10 opacity-95 transition duration-500 group-hover:scale-105" onerror="this.style.display='none'">
                         </div>
                     </div>
                     <div class="w-full md:w-1/2">
                         <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase mb-3 block" data-i18n="about-badge">Your Photographer</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-i18n="about-title">Hi, I’m Yohan, the photographer behind Dear Moment.</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-i18n="about-title">Hello. I’m Yohan, the photographer behind Dear Moment.</h2>
                         <div class="space-y-4 text-gray-600 leading-relaxed text-lg">
-                            <p data-i18n="about-p1">I believe the most beautiful photographs come from genuine connections and relaxed atmospheres.</p>
-                            <p data-i18n="about-p2">My goal is to capture your day exactly as it feels—authentic, timeless, and uniquely yours. Let’s create something beautiful together.</p>
+                            <p data-i18n="about-p1">From the very beginning of my photography journey, I wanted to do more than just take photos. I wanted to tell stories through them. So, how would you like your precious moments to be remembered?</p>
+                            <p data-i18n="about-p2">Beautiful colors and poses matter, but what I think about most is how to capture your true self through a story. Not photos that are consumed in the moment and forgotten, but ones you look back at 10 years from now and smile, remembering exactly how that day felt. That is what I aim for. Why not take a moment to think about your story together with me?</p>
                         </div>
                     </div>
                 </div>
@@ -263,6 +284,7 @@
                         <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-fam-loc">1 Location</span></li>
                         <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-fam-fit">Single Outfit</span></li>
                         <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-fam-orig">+300 Originals</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-users text-slate-400 mt-1"></i> <span data-i18n="pkg-fam-people">Up to 5 People</span></li>
                     </ul>
                     <div class="md:w-56 shrink-0">
                         <button onclick="goToBookingAndSelect('Family')" class="block w-full text-center bg-gray-100 text-slate-800 font-medium py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors" data-i18n="pkg-fam-btn">Book Family & Graduation</button>
@@ -274,7 +296,7 @@
                         <div class="flex items-center gap-2 mb-2">
                             <h3 class="text-xl font-bold text-orange-900" data-i18n="promo-header">🎁 LIMITED-TIME PROMOTION</h3>
                         </div>
-                        <p class="text-orange-800 mb-3 font-medium" data-i18n="promo-body">Book a <span class="font-bold">PREMIUM SESSION</span> or higher and receive:</p>
+                        <p class="text-orange-800 mb-3 font-medium" data-i18n="promo-body">Book a Premium Session or higher and receive:</p>
                         <ul class="space-y-2 text-orange-700 text-sm">
                             <li class="flex items-center gap-2"><i class="fas fa-plus text-orange-400"></i> <span data-i18n="promo-li1">Additional Edited Photos (Photographer's choice)</span></li>
                             <li class="flex items-center gap-2"><i class="fas fa-plus text-orange-400"></i> <span data-i18n="promo-li2"><strong>$100 OFF</strong> (If you agree to allow portfolio usage)</span></li>
@@ -313,7 +335,7 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="details-title">The Details</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="details-subtitle">Crucial framework guidelines ensuring artistic integrity and travel expectations.</p>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="details-subtitle">Everything to know before your shoot — policies, travel and FAQs.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -375,8 +397,8 @@
                         
                         <div class="space-y-6 flex-grow text-sm">
                             <div>
-                                <h4 class="text-base font-semibold text-slate-900 mb-1 flex items-center gap-2" data-i18n="det-loc-header">
-                                    <i class="fas fa-location-dot text-slate-400 text-sm"></i> Base Location
+                                <h4 class="text-base font-semibold text-slate-900 mb-1 flex items-center gap-2">
+                                    <i class="fas fa-location-dot text-slate-400 text-sm"></i> <span data-i18n="det-loc-header">Base Location</span>
                                 </h4>
                                 <p class="text-gray-600 font-medium pl-6" data-i18n="det-loc-body">Maribyrnong (VIC 3032)</p>
                             </div>
@@ -453,6 +475,16 @@
                         </details>
                     </div>
                 </div>
+
+                <div class="max-w-3xl mx-auto mt-12 bg-slate-50 border border-gray-200 rounded-2xl p-6 md:p-8 text-center">
+                    <h3 class="text-xl font-bold text-slate-900 mb-1" data-i18n="contact-title">Still have questions?</h3>
+                    <p class="text-sm text-gray-500 mb-5" data-i18n="contact-desc">Ask about locations, travel or anything else — I'm happy to help.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a href="https://www.instagram.com/dear_moment88/" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white text-sm font-medium px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors"><i class="fab fa-instagram"></i> <span data-i18n="contact-ig">Instagram DM</span></a>
+                        <a href="mailto:dearmoment88@gmail.com" class="inline-flex items-center justify-center gap-2 bg-white border border-gray-200 text-slate-800 text-sm font-medium px-5 py-3 rounded-xl hover:bg-gray-100 transition-colors"><i class="far fa-envelope"></i> <span data-i18n="contact-email">Email</span></a>
+                        <a href="tel:+61484873662" class="inline-flex items-center justify-center gap-2 bg-white border border-gray-200 text-slate-800 text-sm font-medium px-5 py-3 rounded-xl hover:bg-gray-100 transition-colors"><i class="fas fa-phone"></i> <span data-i18n="contact-phone">Call / Text</span></a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -489,8 +521,8 @@
                     <!-- STEP 1: CUSTOM CALENDAR -->
                     <div id="step-1-calendar" class="fade-in block">
                         <div class="mb-8 p-5 bg-amber-50 border-l-4 border-amber-500 rounded-r-2xl text-xs text-amber-950 leading-relaxed shadow-xs">
-                            <p class="font-bold text-amber-900 mb-1.5 flex items-center gap-1.5 text-sm" data-i18n="notice-header">
-                                <i class="fas fa-exclamation-circle text-amber-600"></i> IMPORTANT BOOKING NOTICE:
+                            <p class="font-bold text-amber-900 mb-1.5 flex items-center gap-1.5 text-sm">
+                                <i class="fas fa-exclamation-circle text-amber-600"></i> <span data-i18n="notice-header">IMPORTANT BOOKING NOTICE:</span>
                             </p>
                             <p data-i18n="notice-p1">
                                 Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.
@@ -500,11 +532,11 @@
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-xl font-bold text-slate-900" data-i18n="cal-select-date">1. Choose an Available Date</h3>
                             <div class="flex gap-4 items-center">
-                                <button type="button" onclick="changeMonth(-1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                                <button type="button" id="prev-month-btn" onclick="changeMonth(-1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous month">
                                     <i class="fas fa-chevron-left text-slate-600"></i>
                                 </button>
                                 <span id="current-month-display" class="font-bold text-slate-800 min-w-[130px] text-center">Month Year</span>
-                                <button type="button" id="next-month-btn" onclick="changeMonth(1)" class="p-2 hover:bg-gray-100 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                                <button type="button" id="next-month-btn" onclick="changeMonth(1)" aria-label="Next month" class="p-2 hover:bg-gray-100 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
                                     <i class="fas fa-chevron-right text-slate-600"></i>
                                 </button>
                             </div>
@@ -586,8 +618,8 @@
                             </div>
 
                             <div class="bg-gradient-to-r from-amber-50/50 to-orange-50/50 p-5 rounded-2xl border border-orange-100 shadow-xs space-y-3">
-                                <label class="block text-xs font-bold text-orange-950 uppercase tracking-wide flex items-center gap-1.5" data-i18n="promo-card-title">
-                                    <i class="fas fa-gift text-orange-500"></i> Special Promotion Offer
+                                <label class="block text-xs font-bold text-orange-950 uppercase tracking-wide flex items-center gap-1.5">
+                                    <i class="fas fa-gift text-orange-500"></i> <span data-i18n="promo-card-title">Special Promotion Offer</span>
                                 </label>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <label class="relative flex flex-col p-4 bg-white border border-orange-200 rounded-xl cursor-pointer hover:border-orange-400 transition-all shadow-xs">
@@ -604,13 +636,13 @@
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-notes">Desired Location / Vibe & Concept Notes</label>
+                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-notes">Shoot Type & Location</label>
                                 <textarea id="concept-notes" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm resize-none"></textarea>
                             </div>
 
                             <div class="bg-slate-50 p-5 rounded-2xl border border-gray-200 space-y-4">
-                                <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2" data-i18n="sig-header">
-                                    <i class="fas fa-file-signature text-slate-600"></i> Terms & Consent Agreement
+                                <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fas fa-file-signature text-slate-600"></i> <span data-i18n="sig-header">Terms & Consent Agreement</span>
                                 </h4>
                                 <label class="flex items-start gap-3 cursor-pointer">
                                     <input type="checkbox" id="terms-agree" required class="mt-1 w-4 h-4 text-slate-900 bg-white border-gray-300 rounded focus:ring-slate-900">
@@ -639,7 +671,7 @@
                         </div>
                         <h3 class="text-2xl font-bold text-slate-900 mb-2"><span data-i18n="end-locked-in">Details Locked In,</span> <span id="display-fname"></span>!</h3>
                         <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">
-                            <span data-i18n="end-msg1">To complete and secure your reservation on</span> <span id="final-date" class="font-bold text-slate-800"></span>, <span data-i18n="end-msg2">please make a 50% deposit transfer using the credentials below.</span>
+                            <span data-i18n="end-msg1">To complete and secure your reservation on</span> <span id="final-date" class="font-bold text-slate-800"></span>, <span data-i18n="end-msg2">please send a 50% deposit using the payment details below.</span>
                         </p>
 
                         <div class="max-w-md mx-auto bg-amber-50 border border-amber-200 text-amber-900 text-xs rounded-xl p-3.5 mb-6 leading-relaxed flex items-start gap-2.5 text-left">
@@ -698,6 +730,11 @@
                             </div>
                         </div>
 
+                        <div class="max-w-sm mx-auto mb-6">
+                            <a id="email-self-btn" href="#" class="flex items-center justify-center gap-2 w-full bg-slate-900 text-white text-sm font-semibold py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-sm"><i class="far fa-envelope"></i> <span data-i18n="end-email-self">Email these payment details to myself</span></a>
+                            <p class="text-xs text-slate-400 mt-2" data-i18n="end-email-self-hint">Opens your email app with everything filled in — just press send.</p>
+                        </div>
+
                         <div class="text-xs text-slate-500 max-w-sm mx-auto space-y-2 mb-8 leading-relaxed">
                             <p data-i18n="end-desc-notice">⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.</p>
                             <p data-i18n="end-desc-confirm">Once you make the transfer, Yohan will confirm upon validation of bank deposits.</p>
@@ -716,15 +753,15 @@
 
     <footer class="bg-white border-t border-gray-100 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-slate-800 font-bold text-sm tracking-widest mb-3">DEAR-MOMENT</p>
+            <p class="text-slate-800 font-bold text-sm tracking-widest mb-3">Dear Moment</p>
             <div class="text-slate-500 text-xs space-y-1 mb-4">
                 <p>ABN: 90 656 212 080</p>
-                <p>Email: Dearmoment88@gmail.com</p>
-                <p>Phone: 0484873662</p>
+                <p>Email: <a href="mailto:dearmoment88@gmail.com" class="underline underline-offset-2 hover:text-slate-900">dearmoment88@gmail.com</a></p>
+                <p>Phone: <a href="tel:+61484873662" class="underline underline-offset-2 hover:text-slate-900">0484 873 662</a></p>
             </div>
             <div class="flex justify-center space-x-4 mb-4">
-                <a href="https://www.instagram.com/dear_moment88/" target="_blank" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
-                <a href="mailto:dearmoment88@gmail.com" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="far fa-envelope text-lg"></i></a>
+                <a href="https://www.instagram.com/dear_moment88/" target="_blank" rel="noopener" aria-label="Instagram" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="mailto:dearmoment88@gmail.com" aria-label="Email" class="text-slate-400 hover:text-slate-900 transition-colors"><i class="far fa-envelope text-lg"></i></a>
             </div>
             <p class="text-xs text-slate-400">© 2026. All rights reserved.</p>
         </div>
@@ -756,7 +793,7 @@
                 "pkg-standard": "Standard", "pkg-std-time": "1.5 Hours", "pkg-std-photos": "15 Retouched Photos", "pkg-std-loc": "1 Location", "pkg-std-fit": "Single Outfit", "pkg-std-orig": "+500 Originals", "pkg-std-btn": "Book Standard",
                 "pkg-best": "Best Value", "pkg-premium": "Premium", "pkg-prem-time": "2.5 Hours", "pkg-prem-photos": "40 Retouched Photos", "pkg-prem-loc": "Up to 3 Locations", "pkg-prem-fit": "Up to 2 Outfits", "pkg-prem-orig": "+800 Originals", "pkg-prem-btn": "Book Premium",
                 "pkg-deluxe": "Deluxe", "pkg-del-time": "4 Hours", "pkg-del-photos": "60 Retouched Photos", "pkg-del-loc": "Up to 4 Locations", "pkg-del-fit": "Up to 3 Outfits", "pkg-del-orig": "+1500 Originals", "pkg-del-btn": "Book Deluxe",
-                "pkg-fam-badge": "Dedicated Package", "pkg-family": "Family & Graduation", "pkg-fam-time": "1 Hour", "pkg-fam-photos": "10 Retouched Photos", "pkg-fam-loc": "1 Location", "pkg-fam-fit": "Single Outfit", "pkg-fam-orig": "+300 Originals", "pkg-fam-btn": "Book Family & Graduation",
+                "pkg-fam-badge": "Dedicated Package", "pkg-family": "Family & Graduation", "pkg-fam-time": "1 Hour", "pkg-fam-photos": "10 Retouched Photos", "pkg-fam-loc": "1 Location", "pkg-fam-fit": "Single Outfit", "pkg-fam-orig": "+300 Originals", "pkg-fam-people": "Up to 5 People", "pkg-fam-btn": "Book Family & Graduation",
                 "promo-header": "🎁 LIMITED-TIME PROMOTION", "promo-body": "Book a Premium Session or higher and receive:",
                 "promo-li1": "Additional Edited Photos (Photographer's choice)", "promo-li2": "<strong>$100 OFF</strong> (If you agree to allow portfolio usage)", "promo-claim-btn": "Claim Promo",
                 "promo-release-title": "Portfolio Usage Agreement (Model Release)",
@@ -764,7 +801,7 @@
                 "promo-release-li2": "I grant the photographer permission to use the images for personal social media, websites, and promotional portfolios.",
                 "promo-release-li3": "The photographer has the sole right to select images for posting. The model may not request to exclude specific photos from being uploaded.",
                 "promo-release-li4": "Once images are posted, the model cannot request their deletion or removal for personal reasons.",
-                "details-title": "The Details", "details-subtitle": "Crucial framework guidelines ensuring artistic integrity and travel expectations.",
+                "details-title": "The Details", "details-subtitle": "Everything to know before your shoot — policies, travel and FAQs.",
                 "det-policy-title": "Service Policy",
                 "det-retouch-combined": "I focus on enhancing your natural beauty through professional color grading and skin texture refinement. Notice: To preserve your authentic self, I do not offer structural alterations (such as body slimming or facial reshaping).",
                 "det-ref-policy": "I do not take references from other photographers' work. Every photographer has their own unique shooting and editing style. If you are looking for a style that is different from my portfolio, I would kindly recommend finding a photographer whose work more closely matches what you have in mind.",
@@ -780,6 +817,7 @@
                 "det-travel-li1": "<strong>Included:</strong> No travel fee for locations within a 1-hour public transport commute (one-way) from Maribyrnong.",
                 "det-travel-li2": "<strong>Travel Fee:</strong> $50 for each additional hour, or part of an hour, beyond the first hour (e.g., 1 hr 20 min one-way = $50, 2 hr 10 min = $100).",
                 "det-travel-li3": "Locations that are difficult to reach by public transport may not be available for shooting. Please contact me in advance to check.",
+                "contact-title": "Still have questions?", "contact-desc": "Ask about locations, travel or anything else — I'm happy to help.", "contact-ig": "Instagram DM", "contact-email": "Email", "contact-phone": "Call / Text",
                 "faq-title": "Frequently Asked Questions", "faq-subtitle": "Quick answers to the questions we hear most often.",
                 "faq-q1": "How far in advance do I need to book?",
                 "faq-a1": "Any date that is open on the booking calendar can be booked, up to the day before your shoot (same-day bookings are not available). Popular dates, especially weekends, fill up quickly, so booking early is recommended.",
@@ -803,11 +841,12 @@
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package", "lbl-time": "Preferred Shooting Time *", "opt-choose-time": "Select preferred time slot",
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
                 "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have thoroughly read and agree to all the contents shown on this website.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
-                "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please make a 50% deposit transfer using the credentials below.",
+                "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please send a 50% deposit using the payment details below.",
                 "end-deposit-notice": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
                 "end-bank-title": "PayID Transfer (AUS)", "end-payid-label": "PayID (Mobile)", "end-payid-note": "Enter this PayID in your banking app — it will show the name YOHAN YUN before you confirm. If your bank doesn't support PayID, please contact us for account details.", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
                 "end-kr-bank-title": "Korean Bank Transfer", "end-kr-bank-request": "If you'd like to pay into a Korean bank account, please contact us at dearmoment88@gmail.com or via Instagram DM (@dear_moment88) and we'll send you the account details.", "end-scam-notice": "🔒 We will never ask you to send money to a different account after booking. If you receive a message saying our bank details have changed, please check with us before paying.", "end-paypal-title": "PayPal", "end-paypal-email": "PayPal Email",
                 "end-desc-notice": "⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.", "end-desc-confirm": "Once you make the transfer, Yohan will confirm upon validation of bank deposits.", "end-return": "Return to Homepage",
+                "end-email-self": "Email these payment details to myself", "end-email-self-hint": "Opens your email app with everything filled in — just press send.",
                 "end-screenshot-notice": "📸 This page will not be shown again — please take a screenshot of the payment details above before leaving.",
                 "ph-notes": "e.g. Pre-wedding, Engagement, Registry, Couple shoot, etc. / Preferred location (park, beach, city, etc.)", "ph-sig": "Type full name here..."
             },
@@ -822,7 +861,7 @@
                 "card-about-title": "소개", "card-about-desc": "디어모먼트가 지향하는 따뜻한 시선과 가치관을 만나보세요.",
                 "card-pricing-title": "패키지 안내", "card-pricing-desc": "다양한 구성의 패키지와 특별 혜택을 상세히 확인하세요.",
                 "card-details-title": "이용 안내", "card-details-desc": "예약 전에 꼭 확인해야 할 촬영, 후작업 관련 안내사항들입니다.",
-                "card-booking-title": "실시간 예약", "card-booking-desc": "달력에서 일정을 직접 선택하고 간편하게 예약을 시작하세요.",
+                "card-booking-title": "예약 신청", "card-booking-desc": "달력에서 일정을 직접 선택하고 간편하게 예약을 시작하세요.",
                 "about-badge": "포토그래퍼 소개", "about-title": "안녕하세요. 디어모먼트의 포토그래퍼 요한입니다.",
                 "about-p1": "저는 사진을 시작할 때부터 단순히 사진을 찍는 게 아니라 사진에 이야기를 담고 싶었습니다. 여러분은 여러분의 소중한 순간을 어떻게 담고 싶으신가요?",
                 "about-p2": "예쁜 색감, 포즈들도 중요하지만 가장 중요한 건 여러분의 진짜 모습을 어떤 이야기로 담느냐를 항상 생각합니다. 단순히 일시적으로 소비되는 사진이 아닌 10년 그리고 그 이상의 시간이 흐른 후에 여러분이 사진을 다시 보았을 때 웃으며 그 순간을 추억할 수 있는 사진을 담는 게 저의 고민이자 목표입니다. 여러분의 소중한 순간들을 저와 함께 고민해 보시는 건 어떠실까요?",
@@ -830,7 +869,7 @@
                 "pkg-standard": "Standard (스탠다드)", "pkg-std-time": "1.5 시간 촬영", "pkg-std-photos": "정밀 보정본 15장", "pkg-std-loc": "촬영지 1곳 지정", "pkg-std-fit": "단일 의상 구성", "pkg-std-orig": "전체 원본 500장+ 제공", "pkg-std-btn": "스탠다드 신청하기",
                 "pkg-best": "가장 추천하는 구성", "pkg-premium": "Premium (프리미엄)", "pkg-prem-time": "2.5 시간 촬영", "pkg-prem-photos": "정밀 보정본 40장", "pkg-prem-loc": "최대 3개 동선 촬영", "pkg-prem-fit": "의상 2벌 환복 가능", "pkg-prem-orig": "전체 원본 800장+ 제공", "pkg-prem-btn": "프리미엄 신청하기",
                 "pkg-deluxe": "Deluxe (디럭스)", "pkg-del-time": "4 시간 촬영", "pkg-del-photos": "정밀 보정본 60장", "pkg-del-loc": "최대 4개 동선 촬영", "pkg-del-fit": "의상 3벌 환복 가능", "pkg-del-orig": "전체 원본 1500장+ 제공", "pkg-del-btn": "디럭스 신청하기",
-                "pkg-fam-badge": "가족 · 졸업 전용", "pkg-family": "Family & Graduation (가족 · 졸업 스냅)", "pkg-fam-time": "1 시간 촬영", "pkg-fam-photos": "정밀 보정본 10장", "pkg-fam-loc": "촬영지 1곳 지정", "pkg-fam-fit": "단일 의상 구성", "pkg-fam-orig": "전체 원본 300장+ 제공", "pkg-fam-btn": "가족 · 졸업 스냅 신청하기",
+                "pkg-fam-badge": "가족 · 졸업 전용", "pkg-family": "Family & Graduation (가족 · 졸업 스냅)", "pkg-fam-time": "1 시간 촬영", "pkg-fam-photos": "정밀 보정본 10장", "pkg-fam-loc": "촬영지 1곳 지정", "pkg-fam-fit": "단일 의상 구성", "pkg-fam-orig": "전체 원본 300장+ 제공", "pkg-fam-people": "최대 5인까지 촬영", "pkg-fam-btn": "가족 · 졸업 스냅 신청하기",
                 "promo-header": "🎁 시즌 한정 프로모션 혜택", "promo-body": "프리미엄 세션 이상 예약을 신청하시는 모든 분께:",
                 "promo-li1": "포토그래퍼 추천 베스트 소장용 추가 정밀 보정본 증정", "promo-li2": "<strong>100달러 즉시 할인</strong> (완성본의 홍보용 포트폴리오 활용 동의 시)", "promo-claim-btn": "프로모션 적용하여 예약하기",
                 "promo-release-title": "포트폴리오 활용 동의서",
@@ -850,10 +889,11 @@
                 "det-cancel-li1": "예약금은 예약일로부터 3일 이내에 취소하시는 경우에만 100% 환불됩니다. 단, 촬영일까지 7일 미만 남은 시점에는 예약 후 3일 이내라도 환불되지 않습니다. 그 외의 취소는 환불이 불가합니다. (예: 11월 16일 촬영을 10월 1일에 예약 → 10월 4일까지 취소 시 환불 / 11월 12일에 예약 → 환불 불가)",
                 "det-cancel-li2": "일정 변경은 1회에 한해 추가 비용 없이 가능하며, 변경 요청일이 작가의 기존 일정과 겹치지 않아야 합니다. 첫 번째 변경 이후 추가 일정 변경 시 별도 비용이 발생합니다.",
                 "det-cancel-li3": "가벼운 비에는 예정대로 촬영이 진행됩니다. 폭우, 자연재해, 또는 촬영이 불가능한 극단적인 기상 조건의 경우 고객은 환불 또는 일정 변경 중 선택하실 수 있습니다.",
-                "det-travel-title": "Travel", "det-loc-header": "작가 출발 기준지", "det-loc-body": "Maribyrnong (마리비농 3032)", "det-travel-policy-header": "출장 및 이동 비용 정책",
+                "det-travel-title": "출장 안내", "det-loc-header": "작가 출발 기준지", "det-loc-body": "Maribyrnong (마리비농 3032)", "det-travel-policy-header": "출장 및 이동 비용 정책",
                 "det-travel-li1": "<strong>기본 출장 범위:</strong> 마리비농 기점 대중교통 편도 1시간 이내 거리는 출장 비용이 발생하지 않습니다.",
                 "det-travel-li2": "<strong>출장 비용:</strong> 편도 1시간을 초과하면 초과 1시간마다 $50이 추가되며, 1시간 미만의 초과분도 1시간으로 계산합니다. (예: 편도 1시간 20분 = $50, 2시간 10분 = $100)",
                 "det-travel-li3": "대중교통으로 접근이 어려운 지역은 촬영이 힘들 수 있습니다. 미리 문의해 주시기 바랍니다.",
+                "contact-title": "궁금한 점이 있으신가요?", "contact-desc": "촬영 장소, 출장 거리 등 무엇이든 편하게 문의해 주세요.", "contact-ig": "인스타그램 DM", "contact-email": "이메일", "contact-phone": "전화 / 문자",
                 "faq-title": "자주 묻는 질문", "faq-subtitle": "고객님들께서 가장 자주 문의하시는 내용을 모았습니다.",
                 "faq-q1": "예약은 얼마나 미리 해야 하나요?",
                 "faq-a1": "예약 캘린더에서 선택 가능한 날짜라면 촬영 전날까지 언제든 신청하실 수 있습니다. (당일 예약은 불가합니다) 주말 등 인기 날짜는 빨리 마감되니 여유 있게 예약하시길 권장드립니다.",
@@ -867,23 +907,24 @@
                 "faq-a5": "예약금은 예약일로부터 3일 이내에 취소하시는 경우에만 100% 환불되며, 촬영일까지 7일 미만 남은 시점에는 3일 이내라도 환불되지 않습니다. 그 외에는 환불이 불가합니다. 일정 변경은 1회에 한해 무료이며(작가 일정과 겹치지 않는 경우), 추가 변경 시 별도 비용이 발생합니다.",
                 "faq-q6": "얼굴이나 몸매 보정(성형 보정)도 가능한가요?",
                 "faq-a6": "아니요. 보정은 색감, 밝기, 피부 잡티, 헤어 정리 등 자연스러운 범위에서만 진행하며, 신체나 얼굴 형태를 바꾸는 성형 보정은 하지 않습니다.",
-                "book-title": "실시간 촬영 예약 신청", "book-subtitle": "아래 달력에서 촬영이 가능한 날짜를 가볍게 터치해 다음 단계를 진행해 주세요.",
-                "notice-header": "⚠️ 예약 신청 전 필독 주의사항:",
-                "notice-p1": "예약 정보 제출 완료 후, 예약금의 50% 입금 확인 순서대로 촬영 일정이 최종 봉인됩니다. 시스템 신청을 올리셨더라도 입금 승인이 늦어지는 경우 타 대기 고객님께 날짜가 양도될 수 있으니 주의해 주시기 바랍니다.",
+                "book-title": "촬영 예약 신청", "book-subtitle": "아래 달력에서 촬영이 가능한 날짜를 가볍게 터치해 다음 단계를 진행해 주세요.",
+                "notice-header": "예약 전 꼭 확인해 주세요:",
+                "notice-p1": "예약 신청서를 제출하신 뒤 예약금(50%) 입금이 확인된 순서대로 촬영 날짜가 확정됩니다. 신청서를 제출하셨더라도 입금이 늦어지면 먼저 입금하신 다른 고객님께 날짜가 넘어갈 수 있으니 유의해 주세요.",
                 "cal-select-date": "1. 원하는 촬영 날짜를 선택해 주세요", "cal-avail": "촬영 가능 일정", "cal-blocked": "마감 / 예약 불가 일정",
                 "cal-loading": "예약 가능한 날짜를 불러오는 중입니다…",
                 "cal-load-failed": "예약 가능한 날짜를 불러오지 못했습니다. 잠시 후 페이지를 새로고침해 주세요. 계속 문제가 생기면 dearmoment88@gmail.com으로 문의해 주세요.",
-                "form-main-header": "2. 예약 상세 조건 기입 및 동의서 작성", "form-selected-date": "선택하신 일정:",
-                "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요", "lbl-time": "촬영 조율 희망 시간 *", "opt-choose-time": "희망하시는 타임슬롯을 정해주세요",
-                "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "추가 보정 혜택을 수혜받으며, 완성본 사진의 공식 인스타그램 포트폴리오 기재 권한에 동의합니다. (프리미엄, 디럭스 해당)", "promo-no": "🔒 아니오, 비공개 단독 촬영을 진행합니다.", "promo-no-desc": "포트폴리오 등 대외 노출을 일절 금하며, 사적인 단독 보관 요건을 적용합니다. (기본 정상 패키지 단가 적용)",
-                "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "본 웹사이트에 고지된 디어모먼트 촬영 정책, 환불 규정 및 출장 관련 조항을 전부 확인하였으며 전적으로 동의합니다.", "sig-label": "전자 자필 서명 (본 조항에 서약하며 실명을 한글/영문 정자로 온전히 적어주세요) *", "btn-confirm-booking": "예약 내역 승인 및 예약금 송금 정보 확인하기",
-                "end-locked-in": "예약 정보가 안전하게 전달되었습니다,", "end-msg1": "선택하신 소중한 날인", "end-msg2": "에 당신을 뵙기 위해 아래 계좌 정보로 패키지 금액의 50%에 해당하는 예약금을 이체해 주시면 최종 승인 메일이 전송됩니다.",
+                "form-main-header": "2. 예약자 정보 입력 및 약관 동의", "form-selected-date": "선택하신 일정:",
+                "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요", "lbl-time": "희망 촬영 시간 *", "opt-choose-time": "시간을 선택해 주세요",
+                "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "포트폴리오(인스타그램 등)에 사진을 활용하는 것에 동의합니다. 프리미엄·디럭스 패키지에 적용됩니다.", "promo-no": "🔒 아니요, 사진을 공개하지 않겠습니다", "promo-no-desc": "사진을 포트폴리오 등에 공개하지 않습니다. 정상 가격이 적용됩니다.",
+                "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "본 웹사이트에 고지된 디어모먼트 촬영 정책, 환불 규정 및 출장 관련 조항을 전부 확인하였으며 전적으로 동의합니다.", "sig-label": "전자 서명 (동의의 의미로 실명을 적어 주세요) *", "btn-confirm-booking": "예약 신청하고 입금 정보 확인하기",
+                "end-locked-in": "예약 신청이 접수되었습니다,", "end-msg1": "선택하신 촬영일", "end-msg2": "예약을 확정하시려면 아래 정보로 패키지 금액의 50%에 해당하는 예약금을 보내 주세요.",
                 "end-deposit-notice": "입금이 확인되기 전까지 예약 날짜는 확정되지 않습니다. 입금 완료 전에 동일한 날짜에 다른 고객의 예약이 먼저 확정될 경우, 원하시는 날짜를 더 이상 이용하지 못하실 수 있습니다.",
-                "end-bank-title": "호주 PayID 송금", "end-payid-label": "PayID (휴대폰)", "end-payid-note": "은행 앱에서 이 PayID를 입력하면 송금 전에 예금주 이름 YOHAN YUN이 표시됩니다. PayID를 지원하지 않는 은행이라면 연락 주시면 계좌 정보를 안내해 드립니다.", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "송금 예약금 (정확히 50% 금액)",
+                "end-bank-title": "호주 PayID 송금", "end-payid-label": "PayID (휴대폰)", "end-payid-note": "은행 앱에서 이 PayID를 입력하면 송금 전에 예금주 이름 YOHAN YUN이 표시됩니다. PayID를 지원하지 않는 은행이라면 연락 주시면 계좌 정보를 안내해 드립니다.", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "예약금 (50%)",
                 "end-kr-bank-title": "한국 계좌 송금", "end-kr-bank-request": "한국 계좌로 송금을 원하시면 dearmoment88@gmail.com 또는 인스타그램 DM(@dear_moment88)으로 연락 주세요. 계좌 정보를 따로 안내해 드립니다.", "end-scam-notice": "🔒 예약 후 입금 계좌가 바뀌었다고 안내하는 일은 없습니다. 계좌가 변경되었다는 연락을 받으시면 송금 전에 반드시 저희에게 확인해 주세요.", "end-paypal-title": "페이팔 (PayPal)", "end-paypal-email": "페이팔 이메일",
-                "end-desc-notice": "⚠️ 송금 시 타인 확인 오류를 방지하기 위해 보내는 이 표기에 본인 한글 성함을 온전히 입력해 주세요.", 
-                "end-desc-confirm": "실시간 입금 매칭 완료 즉시 고객님의 연락처로 예약을 최종 컨펌후 안내해드립니다",
+                "end-desc-notice": "⚠️ 송금하실 때 메모(Reference)란에 예약자 성함(First & Last Name)을 적어 주세요.", 
+                "end-desc-confirm": "입금이 확인되면 남겨주신 연락처로 예약 확정을 안내해 드립니다.",
                 "end-return": "홈화면으로 돌아가기",
+                "end-email-self": "입금 정보를 내 이메일로 보내기", "end-email-self-hint": "메일 앱이 열리고 내용이 자동으로 채워져요. 보내기만 누르시면 됩니다.",
                 "end-screenshot-notice": "📸 이 화면은 다시 표시되지 않습니다. 페이지를 떠나기 전에 위 입금 정보를 꼭 캡처해 두세요.",
                 "ph-notes": "예) 웨딩 촬영, 결혼 기념, 커플 사진 등 / 원하시는 장소 (공원, 해변, 도심 등)", "ph-sig": "한글/영문 정자 실명을 여기에 입력하세요..."
             }
@@ -891,6 +932,7 @@
 
         function toggleLanguage() {
             currentLang = (currentLang === 'KO') ? 'EN' : 'KO';
+            try { localStorage.setItem('dmLang', currentLang); } catch (e) {}
             setLanguage(currentLang);
         }
 
@@ -1145,6 +1187,9 @@
             if (currentLang === 'KO') { monthDisplay.textContent = `${year}년 ${month + 1}월`; }
             else { monthDisplay.textContent = `${monthNames[month]} ${year}`; }
 
+            const now = new Date();
+            const prevMonthBtn = document.getElementById('prev-month-btn');
+            if (prevMonthBtn) { prevMonthBtn.disabled = (year < now.getFullYear() || (year === now.getFullYear() && month <= now.getMonth())); }
             const nextMonthBtn = document.getElementById('next-month-btn');
             if (nextMonthBtn) { nextMonthBtn.disabled = (year === maxCalendarDate.getFullYear() && month >= maxCalendarDate.getMonth()); }
 
@@ -1183,7 +1228,8 @@
 
         function changeMonth(delta) {
             const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + delta, 1);
-            if (newDate > maxCalendarDate) { return; }
+            const now = new Date();
+            if (newDate > maxCalendarDate || newDate < new Date(now.getFullYear(), now.getMonth(), 1)) { return; }
             currentDate = newDate;
             renderCalendar();
         }
@@ -1325,6 +1371,11 @@
                     document.getElementById('display-fname').textContent = firstName;
                     updateDynamicDepositEstimate();
                     goToStep(3);
+                    document.getElementById('email-self-btn').href = buildSelfEmailLink({
+                        email, date: selectedDate, time: shootingTime,
+                        pkg: document.getElementById('package-select').selectedOptions[0].text,
+                        deposit: document.getElementById('display-deposit-amount').textContent,
+                    });
                 } else {
                     throw new Error('failed');
                 }
@@ -1334,6 +1385,38 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = translations[currentLang]['btn-confirm-booking'];
             });
+        }
+
+        // A mailto link addressed to the client themselves, so they keep the
+        // payment details without relying on a screenshot.
+        function buildSelfEmailLink(d) {
+            const ko = currentLang === 'KO';
+            const subject = ko ? `Dear Moment 예약 입금 정보 (${d.date})` : `Dear Moment booking – payment details (${d.date})`;
+            const lines = ko ? [
+                `촬영일: ${d.date} ${d.time}`,
+                `패키지: ${d.pkg}`,
+                `예약금 (50%): ${d.deposit}`,
+                '',
+                'PayID (휴대폰): 0484 873 662 (예금주 YOHAN YUN)',
+                'PayPal: dearmoment88@gmail.com',
+                '한국 계좌 송금: dearmoment88@gmail.com 또는 인스타그램 DM(@dear_moment88)으로 요청해 주세요.',
+                '',
+                '송금 메모(Reference)에 예약자 성함을 적어 주세요.',
+                '예약금 입금이 확인되면 촬영 날짜가 확정됩니다.',
+            ] : [
+                `Shoot date: ${d.date} ${d.time}`,
+                `Package: ${d.pkg}`,
+                `Deposit (50%): ${d.deposit}`,
+                '',
+                'PayID (mobile): 0484 873 662 (account name YOHAN YUN)',
+                'PayPal: dearmoment88@gmail.com',
+                'Korean bank transfer: request details at dearmoment88@gmail.com or Instagram DM (@dear_moment88).',
+                '',
+                'Please put your first & last name as the transfer reference.',
+                'Your date is confirmed once the deposit is received.',
+            ];
+            const to = d.email.replace(/[?&#\s]/g, '');
+            return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
         }
 
         function copyText(text, btn) {
@@ -1356,8 +1439,9 @@
         }
 
         window.onload = function() {
-            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            setLanguage(browserLang.startsWith('ko') ? 'KO' : 'EN');
+            let savedLang = null;
+            try { savedLang = localStorage.getItem('dmLang'); } catch (e) {}
+            setLanguage(savedLang === 'KO' ? 'KO' : 'EN');
             loadSheetBlockedDates();
         }
     </script>
