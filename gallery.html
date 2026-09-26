@@ -248,12 +248,17 @@
                 const card = document.createElement('div');
                 card.className = 'photo-card fade-in cursor-pointer group';
                 card.style.animationDelay = Math.min(i * 30, 600) + 'ms';
+                // File names come from whichever Drive folder the link points
+                // at, so they are only ever set as text, never parsed as HTML.
                 card.innerHTML =
                     '<div class="aspect-[3/2] bg-gray-200 rounded-lg overflow-hidden">' +
-                        `<img loading="lazy" alt="${p.name}" class="w-full h-full object-cover" onload="this.classList.add('loaded')">` +
+                        '<img loading="lazy" class="w-full h-full object-cover" onload="this.classList.add(\'loaded\')">' +
                     '</div>' +
-                    `<p class="font-mono text-[11px] sm:text-xs text-gray-500 mt-1.5 truncate group-hover:text-slate-900 transition-colors">${p.name}</p>`;
-                card.querySelector('img').src = p.thumbUrl;
+                    '<p class="font-mono text-[11px] sm:text-xs text-gray-500 mt-1.5 truncate group-hover:text-slate-900 transition-colors"></p>';
+                const img = card.querySelector('img');
+                img.alt = p.name;
+                img.src = p.thumbUrl;
+                card.querySelector('p').textContent = p.name;
                 card.addEventListener('click', () => openLightbox(i));
                 frag.appendChild(card);
             });

@@ -351,7 +351,7 @@
                                 <ul class="space-y-2 text-gray-600 font-medium">
                                     <li class="flex items-start gap-2">
                                         <i class="fas fa-circle text-slate-300 mt-1.5 text-xs flex-shrink-0"></i>
-                                        <span data-i18n="det-cancel-li1">A 100% refund of the deposit is available if the booking is canceled within 3 days of making the reservation. Cancellations made after this period are strictly non-refundable.</span>
+                                        <span data-i18n="det-cancel-li1">A 100% refund of the deposit is available if the booking is canceled within 3 days of making the reservation and at least 7 days before the shoot date. All other cancellations are strictly non-refundable.</span>
                                     </li>
                                     <li class="flex items-start gap-2">
                                         <i class="fas fa-circle text-slate-300 mt-1.5 text-xs flex-shrink-0"></i>
@@ -443,7 +443,7 @@
                                 <span data-i18n="faq-q5">Can I cancel or reschedule?</span>
                                 <i class="fas fa-chevron-down text-slate-400 text-xs transition-transform group-open:rotate-180"></i>
                             </summary>
-                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a5">A 100% deposit refund is available if you cancel within 3 days of booking; after that, deposits are non-refundable. Rescheduling is free once (subject to availability), and further changes incur an additional fee.</p>
+                            <p class="px-5 pb-5 text-sm text-gray-600 leading-relaxed" data-i18n="faq-a5">A 100% deposit refund is available if you cancel within 3 days of booking and at least 7 days before the shoot; otherwise, deposits are non-refundable. Rescheduling is free once (subject to availability), and further changes incur an additional fee.</p>
                         </details>
                         <details class="group bg-white border border-gray-200 rounded-xl shadow-sm">
                             <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-slate-900 text-sm list-none">
@@ -514,7 +514,9 @@
                         <div id="calendar-weekdays" class="calendar-grid mb-2 text-center text-xs font-bold text-slate-400 uppercase tracking-wider">
                             <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
                         </div>
-                        <div id="calendar-days" class="calendar-grid"></div>
+                        <div id="calendar-days" class="calendar-grid transition-opacity"></div>
+                        <p id="calendar-loading" class="hidden mt-4 text-sm text-slate-500 text-center" data-i18n="cal-loading">Loading available dates…</p>
+                        <div id="calendar-load-failed" class="hidden mt-4 p-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl leading-relaxed" data-i18n="cal-load-failed">We couldn't load the available dates. Please refresh the page in a moment. If this keeps happening, please contact us at dearmoment88@gmail.com.</div>
 
                         <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-500 border-t border-gray-100 pt-4">
                             <div class="flex items-center gap-1.5">
@@ -791,7 +793,7 @@
                 "det-usage-title": "Usage Rights",
                 "det-usage-body": "The photographer holds the copyright to the images, and the client holds the portrait rights. The photographer will never use the photos for personal or promotional purposes without the client's consent.",
                 "det-cancel-title": "Rescheduling & Cancellation",
-                "det-cancel-li1": "A 100% refund of the deposit is available if the booking is canceled within 3 days of making the reservation. Cancellations made after this period are strictly non-refundable.",
+                "det-cancel-li1": "A 100% refund of the deposit is available if the booking is canceled within 3 days of making the reservation and at least 7 days before the shoot date. All other cancellations are strictly non-refundable.",
                 "det-cancel-li2": "Rescheduling is allowed once at no additional cost, provided the requested new date does not conflict with the photographer's existing schedule. Any further rescheduling after the first change will incur an additional fee.",
                 "det-cancel-li3": "Shoots will proceed as scheduled in light rain. In the event of heavy rain, natural disasters, or extreme weather conditions that make shooting impossible, the client may choose to either receive a refund or reschedule the shoot.",
                 "det-travel-title": "Travel", "det-loc-header": "Base Location", "det-loc-body": "Maribyrnong (VIC 3032)", "det-travel-policy-header": "Travel Policy (One-way)",
@@ -808,13 +810,15 @@
                 "faq-q4": "What if it rains on the day?",
                 "faq-a4": "Shoots proceed as scheduled in light rain. In heavy rain, natural disasters, or extreme weather that makes shooting impossible, you may choose either a refund or a reschedule.",
                 "faq-q5": "Can I cancel or reschedule?",
-                "faq-a5": "A 100% deposit refund is available if you cancel within 3 days of booking; after that, deposits are non-refundable. Rescheduling is free once (subject to availability), and further changes incur an additional fee.",
+                "faq-a5": "A 100% deposit refund is available if you cancel within 3 days of booking and at least 7 days before the shoot; otherwise, deposits are non-refundable. Rescheduling is free once (subject to availability), and further changes incur an additional fee.",
                 "faq-q6": "Can you slim my face or body in retouching?",
                 "faq-a6": "No. Retouching covers color grading, brightness, skin blemishes, and hair — but not structural alterations such as body slimming or facial reshaping, to preserve your authentic self.",
                 "book-title": "Book Your Session", "book-subtitle": "Please select an available date below to proceed with your booking details.",
                 "notice-header": "IMPORTANT BOOKING NOTICE:", 
                 "notice-p1": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
                 "cal-select-date": "1. Choose an Available Date", "cal-avail": "Available Days", "cal-blocked": "Fully Booked / Unavailable",
+                "cal-loading": "Loading available dates…",
+                "cal-load-failed": "We couldn't load the available dates. Please refresh the page in a moment. If this keeps happening, please contact us at dearmoment88@gmail.com.",
                 "form-main-header": "2. Customer Details & Service Terms", "form-selected-date": "Selected Date:",
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package", "lbl-time": "Preferred Shooting Time *", "opt-choose-time": "Select preferred time slot",
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
@@ -863,7 +867,7 @@
                 "det-usage-title": "저작권 및 초상권",
                 "det-usage-body": "사진의 저작권은 작가에게 있으며, 초상권은 고객에게 있습니다. 작가는 고객의 동의 없이 사진을 개인적 또는 홍보 목적으로 절대 사용하지 않습니다.",
                 "det-cancel-title": "일정 변경 & 취소 정책",
-                "det-cancel-li1": "예약 후 3일 이내 취소 시 예약금 100% 환불이 가능합니다. 이후 취소는 환불이 불가합니다.",
+                "det-cancel-li1": "예약 후 3일 이내이면서 촬영일 7일 전까지 취소하시는 경우 예약금 100% 환불이 가능합니다. 그 외의 취소는 환불이 불가합니다.",
                 "det-cancel-li2": "일정 변경은 1회에 한해 추가 비용 없이 가능하며, 변경 요청일이 작가의 기존 일정과 겹치지 않아야 합니다. 첫 번째 변경 이후 추가 일정 변경 시 별도 비용이 발생합니다.",
                 "det-cancel-li3": "가벼운 비에는 예정대로 촬영이 진행됩니다. 폭우, 자연재해, 또는 촬영이 불가능한 극단적인 기상 조건의 경우 고객은 환불 또는 일정 변경 중 선택하실 수 있습니다.",
                 "det-travel-title": "Travel", "det-loc-header": "작가 출발 기준지", "det-loc-body": "Maribyrnong (마리비농 3032)", "det-travel-policy-header": "출장 및 이동 비용 정책",
@@ -880,13 +884,15 @@
                 "faq-q4": "촬영 당일에 비가 오면 어떻게 되나요?",
                 "faq-a4": "가벼운 비에는 예정대로 촬영이 진행됩니다. 폭우, 자연재해 등 촬영이 불가능한 기상 상황에서는 환불 또는 일정 변경 중 선택하실 수 있습니다.",
                 "faq-q5": "취소나 일정 변경이 가능한가요?",
-                "faq-a5": "예약 후 3일 이내 취소 시 예약금 100% 환불이 가능하며, 이후에는 환불이 불가합니다. 일정 변경은 1회에 한해 무료이며(작가 일정과 겹치지 않는 경우), 추가 변경 시 별도 비용이 발생합니다.",
+                "faq-a5": "예약 후 3일 이내이면서 촬영일 7일 전까지 취소하시는 경우 예약금 100% 환불이 가능하며, 그 외에는 환불이 불가합니다. 일정 변경은 1회에 한해 무료이며(작가 일정과 겹치지 않는 경우), 추가 변경 시 별도 비용이 발생합니다.",
                 "faq-q6": "얼굴이나 몸매 보정(성형 보정)도 가능한가요?",
                 "faq-a6": "아니요. 보정은 색감, 밝기, 피부 잡티, 헤어 정리 등 자연스러운 범위에서만 진행하며, 신체나 얼굴 형태를 바꾸는 성형 보정은 하지 않습니다.",
                 "book-title": "실시간 촬영 예약 신청", "book-subtitle": "아래 달력에서 촬영이 가능한 날짜를 가볍게 터치해 다음 단계를 진행해 주세요.",
                 "notice-header": "⚠️ 예약 신청 전 필독 주의사항:",
                 "notice-p1": "예약 정보 제출 완료 후, 예약금의 50% 입금 확인 순서대로 촬영 일정이 최종 봉인됩니다. 시스템 신청을 올리셨더라도 입금 승인이 늦어지는 경우 타 대기 고객님께 날짜가 양도될 수 있으니 주의해 주시기 바랍니다.",
                 "cal-select-date": "1. 원하는 촬영 날짜를 선택해 주세요", "cal-avail": "촬영 가능 일정", "cal-blocked": "마감 / 예약 불가 일정",
+                "cal-loading": "예약 가능한 날짜를 불러오는 중입니다…",
+                "cal-load-failed": "예약 가능한 날짜를 불러오지 못했습니다. 잠시 후 페이지를 새로고침해 주세요. 계속 문제가 생기면 dearmoment88@gmail.com으로 문의해 주세요.",
                 "form-main-header": "2. 예약 상세 조건 기입 및 동의서 작성", "form-selected-date": "선택하신 일정:",
                 "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요", "lbl-time": "촬영 조율 희망 시간 *", "opt-choose-time": "희망하시는 타임슬롯을 정해주세요",
                 "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "추가 보정 혜택을 수혜받으며, 완성본 사진의 공식 인스타그램 포트폴리오 기재 권한에 동의합니다. (프리미엄, 디럭스 해당)", "promo-no": "🔒 아니오, 비공개 단독 촬영을 진행합니다.", "promo-no-desc": "포트폴리오 등 대외 노출을 일절 금하며, 사적인 단독 보관 요건을 적용합니다. (기본 정상 패키지 단가 적용)",
@@ -979,27 +985,45 @@
             return found.sort((a, b) => a.start - b.start);
         }
 
+        // Until the sheet has been read the calendar stays locked: with the
+        // booked dates living only in the sheet, showing it early (or after a
+        // failed load) would present booked dates as available.
+        let blockedDatesStatus = BLOCKED_DATES_SHEET_ID ? 'loading' : 'ready';
+
+        async function fetchSheetText() {
+            for (let attempt = 0; attempt < 3; attempt++) {
+                if (attempt) await new Promise(r => setTimeout(r, 2000));
+                try {
+                    const res = await fetch(`https://docs.google.com/spreadsheets/d/${BLOCKED_DATES_SHEET_ID}/export?format=csv`, { cache: 'no-store' });
+                    if (res.ok && (res.headers.get('content-type') || '').includes('text/csv')) return await res.text();
+                } catch (e) { /* retry */ }
+            }
+            return null;
+        }
+
         async function loadSheetBlockedDates() {
             if (!BLOCKED_DATES_SHEET_ID) return;
-            try {
-                const res = await fetch(`https://docs.google.com/spreadsheets/d/${BLOCKED_DATES_SHEET_ID}/export?format=csv`);
-                if (!res.ok) return;
-                const text = await res.text();
-                const dates = findSheetDates(text);
-                for (let i = 0; i < dates.length; i++) {
-                    let first = dates[i].date, last = first;
-                    const next = dates[i + 1];
-                    if (next && /^\s*[~\-–—]\s*$/.test(text.slice(dates[i].end, next.start))) {
-                        [first, last] = first <= next.date ? [first, next.date] : [next.date, first];
-                        i++;
-                    }
-                    for (let d = new Date(first), n = 0; d <= last && n < 366; d.setDate(d.getDate() + 1), n++) {
-                        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                        if (!bookedDates.includes(key)) bookedDates.push(key);
-                    }
-                }
+            const text = await fetchSheetText();
+            if (text === null) {
+                blockedDatesStatus = 'failed';
                 renderCalendar();
-            } catch (e) { /* sheet unavailable: the list above still applies */ }
+                return;
+            }
+            const dates = findSheetDates(text);
+            for (let i = 0; i < dates.length; i++) {
+                let first = dates[i].date, last = first;
+                const next = dates[i + 1];
+                if (next && /^\s*[~\-–—]\s*$/.test(text.slice(dates[i].end, next.start))) {
+                    [first, last] = first <= next.date ? [first, next.date] : [next.date, first];
+                    i++;
+                }
+                for (let d = new Date(first), n = 0; d <= last && n < 366; d.setDate(d.getDate() + 1), n++) {
+                    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                    if (!bookedDates.includes(key)) bookedDates.push(key);
+                }
+            }
+            blockedDatesStatus = 'ready';
+            renderCalendar();
         }
 
         /* ==========================================================================
@@ -1162,11 +1186,17 @@
                 if (dayDate <= today || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
                     dayButton.disabled = true;
                 } else {
-                    dayButton.onclick = () => selectDate(year, month, i, dayButton);
+                    dayButton.onclick = () => { if (blockedDatesStatus === 'ready') selectDate(year, month, i, dayButton); };
                     if(selectedDateStr === dateCompareKey) { dayButton.classList.add('selected'); }
                 }
                 daysContainer.appendChild(dayButton);
             }
+
+            const ready = blockedDatesStatus === 'ready';
+            daysContainer.classList.toggle('opacity-40', !ready);
+            daysContainer.classList.toggle('pointer-events-none', !ready);
+            document.getElementById('calendar-loading').classList.toggle('hidden', blockedDatesStatus !== 'loading');
+            document.getElementById('calendar-load-failed').classList.toggle('hidden', blockedDatesStatus !== 'failed');
         }
 
         const maxCalendarDate = new Date(2027, 2, 1); // 2027년 3월까지만 표시
