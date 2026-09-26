@@ -982,7 +982,8 @@
                 for (const row of table.rows) {
                     const start = parseSheetDate(row.c[0]);
                     if (!start) continue;
-                    const end = parseSheetDate(row.c[1]) || start;
+                    let end = parseSheetDate(row.c[1]) || start;
+                    if (end < start) end = start;
                     for (let d = new Date(start), n = 0; d <= end && n < 366; d.setDate(d.getDate() + 1), n++) {
                         const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                         if (!bookedDates.includes(key)) bookedDates.push(key);
