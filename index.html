@@ -649,7 +649,7 @@
                         
                         <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 max-w-sm mx-auto text-left mb-6 shadow-sm">
                             <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2 flex justify-between items-center">
-                                <span data-i18n="end-bank-title">Direct Bank Transfer</span>
+                                <span data-i18n="end-bank-title">PayID Transfer (AUS)</span>
                                 <i class="fas fa-university text-slate-400"></i>
                             </h4>
                             <div class="space-y-3.5 text-xs text-slate-800">
@@ -662,17 +662,12 @@
                                     <span class="font-semibold text-slate-900">YOHAN YUN</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <span class="text-slate-500 font-medium">BSB</span>
-                                    <span class="font-bold text-slate-900 tracking-wider flex items-center gap-2">063-010
-                                        <button type="button" onclick="copyText('063010', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy BSB"><i class="far fa-copy"></i></button>
+                                    <span class="text-slate-500 font-medium" data-i18n="end-payid-label">PayID (Mobile)</span>
+                                    <span class="font-bold text-slate-900 tracking-wider flex items-center gap-2">0484 873 662
+                                        <button type="button" onclick="copyText('0484873662', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy PayID"><i class="far fa-copy"></i></button>
                                     </span>
                                 </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-slate-500 font-medium" data-i18n="end-acc-num">Account Number</span>
-                                    <span class="font-bold text-slate-900 tracking-widest flex items-center gap-2">1385 7811
-                                        <button type="button" onclick="copyText('13857811', this)" class="text-slate-400 hover:text-slate-900 transition-colors" aria-label="Copy account number"><i class="far fa-copy"></i></button>
-                                    </span>
-                                </div>
+                                <p class="text-slate-500 leading-relaxed" data-i18n="end-payid-note">Enter this PayID in your banking app — it will show the name YOHAN YUN before you confirm. If your bank doesn't support PayID, please contact us for account details.</p>
                                 <div class="pt-3.5 border-t border-gray-200 flex justify-between items-center">
                                     <span class="font-bold text-slate-900 text-sm" data-i18n="end-deposit-due">Required Deposit (50%)</span>
                                     <span id="display-deposit-amount" class="font-extrabold text-xl text-slate-900">$0.00</span>
@@ -810,7 +805,7 @@
                 "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have thoroughly read and agree to all the contents shown on this website.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
                 "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please make a 50% deposit transfer using the credentials below.",
                 "end-deposit-notice": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
-                "end-bank-title": "Direct Bank Transfer (AUS)", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
+                "end-bank-title": "PayID Transfer (AUS)", "end-payid-label": "PayID (Mobile)", "end-payid-note": "Enter this PayID in your banking app — it will show the name YOHAN YUN before you confirm. If your bank doesn't support PayID, please contact us for account details.", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
                 "end-kr-bank-title": "Korean Bank Transfer", "end-kr-bank-request": "If you'd like to pay into a Korean bank account, please contact us at dearmoment88@gmail.com or via Instagram DM (@dear_moment88) and we'll send you the account details.", "end-scam-notice": "🔒 We will never ask you to send money to a different account after booking. If you receive a message saying our bank details have changed, please check with us before paying.", "end-paypal-title": "PayPal", "end-paypal-email": "PayPal Email",
                 "end-desc-notice": "⚠️ Please specify your <strong>First & Last Name</strong> as the transfer description reference.", "end-desc-confirm": "Once you make the transfer, Yohan will confirm upon validation of bank deposits.", "end-return": "Return to Homepage",
                 "end-screenshot-notice": "📸 This page will not be shown again — please take a screenshot of the payment details above before leaving.",
@@ -884,7 +879,7 @@
                 "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "본 웹사이트에 고지된 디어모먼트 촬영 정책, 환불 규정 및 출장 관련 조항을 전부 확인하였으며 전적으로 동의합니다.", "sig-label": "전자 자필 서명 (본 조항에 서약하며 실명을 한글/영문 정자로 온전히 적어주세요) *", "btn-confirm-booking": "예약 내역 승인 및 예약금 송금 정보 확인하기",
                 "end-locked-in": "예약 정보가 안전하게 전달되었습니다,", "end-msg1": "선택하신 소중한 날인", "end-msg2": "에 당신을 뵙기 위해 아래 계좌 정보로 패키지 금액의 50%에 해당하는 예약금을 이체해 주시면 최종 승인 메일이 전송됩니다.",
                 "end-deposit-notice": "입금이 확인되기 전까지 예약 날짜는 확정되지 않습니다. 입금 완료 전에 동일한 날짜에 다른 고객의 예약이 먼저 확정될 경우, 원하시는 날짜를 더 이상 이용하지 못하실 수 있습니다.",
-                "end-bank-title": "호주 계좌 송금", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "송금 예약금 (정확히 50% 금액)",
+                "end-bank-title": "호주 PayID 송금", "end-payid-label": "PayID (휴대폰)", "end-payid-note": "은행 앱에서 이 PayID를 입력하면 송금 전에 예금주 이름 YOHAN YUN이 표시됩니다. PayID를 지원하지 않는 은행이라면 연락 주시면 계좌 정보를 안내해 드립니다.", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "송금 예약금 (정확히 50% 금액)",
                 "end-kr-bank-title": "한국 계좌 송금", "end-kr-bank-request": "한국 계좌로 송금을 원하시면 dearmoment88@gmail.com 또는 인스타그램 DM(@dear_moment88)으로 연락 주세요. 계좌 정보를 따로 안내해 드립니다.", "end-scam-notice": "🔒 예약 후 입금 계좌가 바뀌었다고 안내하는 일은 없습니다. 계좌가 변경되었다는 연락을 받으시면 송금 전에 반드시 저희에게 확인해 주세요.", "end-paypal-title": "페이팔 (PayPal)", "end-paypal-email": "페이팔 이메일",
                 "end-desc-notice": "⚠️ 송금 시 타인 확인 오류를 방지하기 위해 보내는 이 표기에 본인 한글 성함을 온전히 입력해 주세요.", 
                 "end-desc-confirm": "실시간 입금 매칭 완료 즉시 고객님의 연락처로 예약을 최종 컨펌후 안내해드립니다",
