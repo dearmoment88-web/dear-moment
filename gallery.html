@@ -309,22 +309,47 @@
             if (e.key === 'ArrowLeft') navLightbox(-1);
         });
 
-        // Google Drive "download the file bytes" endpoint.
-        function mediaUrl(id) {
-            return `https://www.googleapis.com/drive/v3/files/${id}?alt=media&key=${API_KEY}`;
+        // Where a photo's original bytes can be fetched from, in order of
+        // preference. The Drive API starts refusing ("automated queries" 403)
+        // after roughly a gigabyte of downloads, so Google's image CDN goes
+        // first; its "=d" option returns the untouched original file
+        // (plain "=s0" can return a re-compressed copy).
+        function photoSources(p) {
+            return [
+                `https://lh3.googleusercontent.com/d/${p.id}=d`,
+                `https://www.googleapis.com/drive/v3/files/${p.id}?alt=media&key=${API_KEY}`,
+            ];
         }
 
-        // Direct in-browser download: fetch the file bytes from the Drive API
-        // and save via a blob, so the visitor never leaves the gallery.
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+        // Fetch one photo's original file, retrying across sources. A result
+        // whose size differs from Drive's recorded size is rejected, so an
+        // error page or a resized copy is never saved as the photo.
+        async function fetchPhotoBlob(p) {
+            for (const wait of [0, 3000, 10000, 30000]) {
+                if (wait) await sleep(wait);
+                for (const url of photoSources(p)) {
+                    try {
+                        const res = await fetch(url);
+                        if (!res.ok) continue;
+                        const blob = await res.blob();
+                        if (p.size && blob.size !== p.size) continue;
+                        return blob;
+                    } catch (e) { /* try the next source */ }
+                }
+            }
+            throw new Error('Could not download ' + p.name);
+        }
+
+        // Direct in-browser download, so the visitor never leaves the gallery.
         async function downloadPhoto(p, btn) {
             if (!p) return;
             if (String(p.id).startsWith('demo')) return;
             const icon = btn ? btn.querySelector('i') : null;
             if (btn) { btn.disabled = true; if (icon) icon.className = 'fa-solid fa-spinner fa-spin mr-1.5'; }
             try {
-                const res = await fetch(mediaUrl(p.id));
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                const blob = await res.blob();
+                const blob = await fetchPhotoBlob(p);
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
@@ -372,23 +397,43 @@
                     return; // user cancelled the save dialog
                 }
                 btn.disabled = true;
+                const warnOnLeave = e => { e.preventDefault(); e.returnValue = ''; };
+                window.addEventListener('beforeunload', warnOnLeave);
+                const failed = [];
                 try {
                     const writable = await handle.createWritable();
                     const { downloadZip } = await import('https://cdn.jsdelivr.net/npm/client-zip@2/index.js');
-                    let done = 0;
+                    // Keep a few photos downloading ahead of the one being
+                    // written, and skip (rather than abort on) any photo that
+                    // still fails after retries.
+                    const AHEAD = 3;
+                    const pending = [];
+                    let next = 0;
+                    const queueNext = () => {
+                        if (next < real.length) pending.push(fetchPhotoBlob(real[next++]).catch(() => null));
+                    };
                     async function* iterate() {
-                        for (const p of real) {
-                            const res = await fetch(mediaUrl(p.id));
-                            if (res.ok) yield { name: p.name, input: res };
-                            setDownloadAllBtn(`<i class="fa-solid fa-spinner fa-spin mr-2"></i>압축 중 ${++done}/${real.length}`);
+                        for (let k = 0; k < AHEAD; k++) queueNext();
+                        for (let i = 0; i < real.length; i++) {
+                            const blob = await pending.shift();
+                            queueNext();
+                            setDownloadAllBtn(`<i class="fa-solid fa-spinner fa-spin mr-2"></i>${i + 1} / ${real.length}`);
+                            if (blob) yield { name: real[i].name, input: blob };
+                            else failed.push(real[i].name);
                         }
                     }
                     await downloadZip(iterate()).body.pipeTo(writable);
                     setDownloadAllBtn('<i class="fa-solid fa-check mr-2"></i>완료 / Done');
                     setTimeout(resetDownloadAllBtn, 4000);
+                    if (failed.length) {
+                        const list = failed.slice(0, 15).join(', ') + (failed.length > 15 ? ` … (+${failed.length - 15})` : '');
+                        alert(`${failed.length} photo(s) could not be downloaded and are missing from the ZIP:\n${list}\n\nPlease download them individually from the gallery, or from Google Drive.\n\n${failed.length}장은 받지 못해 ZIP에서 빠졌습니다. 해당 사진은 갤러리에서 개별로 받거나 구글 드라이브에서 받아 주세요.`);
+                    }
                 } catch (e) {
-                    alert('다운로드 중 문제가 발생했습니다. 다시 시도해 주세요.\nSomething went wrong — please try again.');
+                    alert('The download was interrupted — please try again.\n다운로드가 중단되었습니다. 다시 시도해 주세요.');
                     resetDownloadAllBtn();
+                } finally {
+                    window.removeEventListener('beforeunload', warnOnLeave);
                 }
                 return;
             }
