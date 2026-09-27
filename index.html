@@ -22,7 +22,7 @@
       "image": "https://dearmoment.photography/og-image.png",
       "telephone": "+61 484 873 662",
       "email": "dearmoment88@gmail.com",
-      "priceRange": "$450–$1,350",
+      "priceRange": "$400–$1,350",
       "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressRegion": "VIC", "addressCountry": "AU" },
       "areaServed": "Melbourne",
       "founder": { "@type": "Person", "name": "Yohan Yun" },
@@ -276,7 +276,7 @@
                     <div class="md:w-56 shrink-0">
                         <span class="inline-block text-[11px] font-bold tracking-wide uppercase bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full mb-3" data-i18n="pkg-fam-badge">Dedicated Package</span>
                         <span class="block text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-family">Family & Graduation</span>
-                        <h3 class="text-4xl font-bold text-slate-900 mt-2">$450</h3>
+                        <h3 class="text-4xl font-bold text-slate-900 mt-2">$400</h3>
                     </div>
                     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-slate-600 text-sm flex-grow">
                         <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-fam-time">1 Hour</span></li>
@@ -603,7 +603,7 @@
                                     <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-pkg">Selected Package *</label>
                                     <select id="package-select" required onchange="updateDynamicDepositEstimate()" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
                                         <option value="" disabled selected data-i18n="opt-choose-pkg">Choose a package</option>
-                                        <option value="Family">Family & Graduation ($450)</option>
+                                        <option value="Family">Family & Graduation ($400)</option>
                                         <option value="Standard">Standard ($550)</option>
                                         <option value="Premium">Premium ($800)</option>
                                         <option value="Deluxe">Deluxe ($1,350)</option>
@@ -1304,7 +1304,7 @@
 
             const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
             let finalPrice = 0;
-            if (packageVal === 'Family') finalPrice = 450;
+            if (packageVal === 'Family') finalPrice = 400;
             else if (packageVal === 'Standard') finalPrice = 550;
             else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800; 
             else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350; 
@@ -1327,7 +1327,7 @@
             const promoStatusText = (promoClaim === 'yes') ? 'Yes (Requested $100 Promo Discount)' : 'No (Private Price)';
 
             let finalPrice = 0;
-            if (packageVal === 'Family') finalPrice = 450;
+            if (packageVal === 'Family') finalPrice = 400;
             else if (packageVal === 'Standard') finalPrice = 550;
             else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800;
             else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350;
