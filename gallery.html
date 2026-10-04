@@ -232,7 +232,8 @@
                     downloadUrl: `https://drive.google.com/uc?export=download&id=${f.id}`
                 }));
 
-            photos.reverse(); // newest-named (highest number) first
+            // File-number order (DSCF0001, DSCF0002, ...), numbers compared numerically
+            photos.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
 
             if (photos.length === 0) {
                 showError('이 갤러리에 사진이 없습니다.');
