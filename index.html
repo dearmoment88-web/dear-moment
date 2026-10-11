@@ -184,7 +184,7 @@
                                 <i class="fas fa-calendar-check text-lg"></i>
                             </div>
                             <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="card-booking-title">Book Now</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed" data-i18n="card-booking-desc">Select date, time and secure your session effortlessly.</p>
+                            <p class="text-xs text-gray-600 leading-relaxed" data-i18n="card-booking-desc">Select a date and secure your session effortlessly.</p>
                         </div>
                     </div>
                 </div>
@@ -599,24 +599,16 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-pkg">Selected Package *</label>
-                                    <select id="package-select" required onchange="updateDynamicDepositEstimate()" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
-                                        <option value="" disabled selected data-i18n="opt-choose-pkg">Choose a package</option>
-                                        <option value="Family">Family ($400)</option>
-                                        <option value="Graduation">Graduation ($400)</option>
-                                        <option value="Standard">Standard ($550)</option>
-                                        <option value="Premium">Premium ($800)</option>
-                                        <option value="Deluxe">Deluxe ($1,350)</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-time">Preferred Shooting Time *</label>
-                                    <select id="shooting-time" required class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
-                                        <option value="" disabled selected data-i18n="opt-choose-time">Select preferred time slot</option>
-                                    </select>
-                                </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-pkg">Selected Package *</label>
+                                <select id="package-select" required onchange="updateDynamicDepositEstimate()" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
+                                    <option value="" disabled selected data-i18n="opt-choose-pkg">Choose a package</option>
+                                    <option value="Family">Family ($400)</option>
+                                    <option value="Graduation">Graduation ($400)</option>
+                                    <option value="Standard">Standard ($550)</option>
+                                    <option value="Premium">Premium ($800)</option>
+                                    <option value="Deluxe">Deluxe ($1,350)</option>
+                                </select>
                             </div>
 
                             <div class="bg-gradient-to-r from-amber-50/50 to-orange-50/50 p-5 rounded-2xl border border-orange-100 shadow-xs space-y-3">
@@ -787,7 +779,7 @@
                 "card-about-title": "About Me", "card-about-desc": "Discover my philosophy and approach to photography.",
                 "card-pricing-title": "Pricing", "card-pricing-desc": "Explore packages, inclusions, and special promotions.",
                 "card-details-title": "The Details", "card-details-desc": "Service policies, travel info, and booking guide.",
-                "card-booking-title": "Book Now", "card-booking-desc": "Select date, time and secure your session effortlessly.",
+                "card-booking-title": "Book Now", "card-booking-desc": "Select a date and secure your session effortlessly.",
                 "about-badge": "Your Photographer", "about-title": "Hello. I’m Yohan, the photographer behind Dear Moment.",
                 "about-p1": "From the very beginning of my photography journey, I wanted to do more than just take photos. I wanted to tell stories through them. So, how would you like your precious moments to be remembered?",
                 "about-p2": "Beautiful colors and poses matter, but what I think about most is how to capture your true self through a story. Not photos that are consumed in the moment and forgotten, but ones you look back at 10 years from now and smile, remembering exactly how that day felt. That is what I aim for. Why not take a moment to think about your story together with me?",
@@ -840,7 +832,7 @@
                 "cal-loading": "Loading available dates…",
                 "cal-load-failed": "We couldn't load the available dates. Please refresh the page in a moment. If this keeps happening, please contact us at dearmoment88@gmail.com.",
                 "form-main-header": "2. Customer Details & Service Terms", "form-selected-date": "Selected Date:",
-                "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package", "lbl-time": "Preferred Shooting Time *", "opt-choose-time": "Select preferred time slot",
+                "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package",
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
                 "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have thoroughly read and agree to all the contents shown on this website.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
                 "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please send a 50% deposit using the payment details below.",
@@ -916,7 +908,7 @@
                 "cal-loading": "예약 가능한 날짜를 불러오는 중입니다…",
                 "cal-load-failed": "예약 가능한 날짜를 불러오지 못했습니다. 잠시 후 페이지를 새로고침해 주세요. 계속 문제가 생기면 dearmoment88@gmail.com으로 문의해 주세요.",
                 "form-main-header": "2. 예약자 정보 입력 및 약관 동의", "form-selected-date": "선택하신 일정:",
-                "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요", "lbl-time": "희망 촬영 시간 *", "opt-choose-time": "시간을 선택해 주세요",
+                "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요",
                 "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "포트폴리오(인스타그램 등)에 사진을 활용하는 것에 동의합니다. 프리미엄·디럭스 패키지에 적용됩니다.", "promo-no": "🔒 아니요, 사진을 공개하지 않겠습니다", "promo-no-desc": "사진을 포트폴리오 등에 공개하지 않습니다. 정상 가격이 적용됩니다.",
                 "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "본 웹사이트에 고지된 디어모먼트 촬영 정책, 환불 규정 및 출장 관련 조항을 전부 확인하였으며 전적으로 동의합니다.", "sig-label": "전자 서명 (동의의 의미로 실명을 적어 주세요) *", "btn-confirm-booking": "예약 신청하고 입금 정보 확인하기",
                 "end-locked-in": "예약 신청이 접수되었습니다,", "end-msg1": "선택하신 촬영일", "end-msg2": "예약을 확정하시려면 아래 정보로 패키지 금액의 50%에 해당하는 예약금을 보내 주세요.",
@@ -944,7 +936,6 @@
             document.getElementById('active-lang-label-mobile').textContent = currentLang;
             document.documentElement.lang = (currentLang === 'KO') ? 'ko' : 'en';
             applyTranslations();
-            updateTimeOptions();
             renderCalendar();
             renderReviews();
         }
@@ -1246,8 +1237,6 @@
             const dateObj = new Date(year, month, day, 12, 0, 0);
             selectedDayOfWeek = dateObj.getDay();
 
-            updateTimeOptions(); 
-
             const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             let prettyDateStr = (currentLang === 'KO') ? `${year}년 ${month + 1}월 ${day}일` : `${monthNames[month]} ${day}, ${year}`;
             
@@ -1257,29 +1246,6 @@
             setTimeout(() => { goToStep(2); }, 250);
         }
 
-        function updateTimeOptions() {
-            const selectEl = document.getElementById('shooting-time');
-            if (!selectEl) return;
-            selectEl.innerHTML = '';
-            
-            const placeholderOpt = document.createElement('option');
-            placeholderOpt.value = ""; placeholderOpt.disabled = true; placeholderOpt.selected = true;
-            placeholderOpt.textContent = translations[currentLang]["opt-choose-time"];
-            selectEl.appendChild(placeholderOpt);
-            
-            const allSlots = [
-                { val: "10:00 AM", en: "10:00 AM", ko: "오전 10:00" }, { val: "11:00 AM", en: "11:00 AM", ko: "오전 11:00" },
-                { val: "12:00 PM", en: "12:00 PM", ko: "오후 12:00" }, { val: "1:00 PM", en: "1:00 PM", ko: "오후 1:00" },
-                { val: "2:00 PM", en: "2:00 PM", ko: "오후 2:00" }, { val: "3:00 PM", en: "3:00 PM", ko: "오후 3:00" }
-            ];
-            const thursdaySlots = [{ val: "2:00 PM", en: "2:00 PM", ko: "오후 2:00" }, { val: "3:00 PM", en: "3:00 PM", ko: "오후 3:00" }];
-            
-            const activeSlots = (selectedDayOfWeek === 4) ? thursdaySlots : allSlots;
-            activeSlots.forEach(slot => {
-                const opt = document.createElement('option'); opt.value = slot.val;
-                opt.textContent = (currentLang === 'KO') ? slot.ko : slot.en; selectEl.appendChild(opt);
-            });
-        }
 
         function goToStep(step) {
             document.getElementById('step-1-calendar').classList.add('hidden');
@@ -1322,7 +1288,7 @@
             
             const firstName = document.getElementById('fname').value; const lastName = document.getElementById('lname').value;
             const email = document.getElementById('email').value; const phone = document.getElementById('phone').value;
-            const packageVal = document.getElementById('package-select').value; const shootingTime = document.getElementById('shooting-time').value;
+            const packageVal = document.getElementById('package-select').value;
             const conceptNotes = document.getElementById('concept-notes').value || "None"; const signature = document.getElementById('signature').value;
             const selectedDate = document.getElementById('final-date').textContent;
             const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
@@ -1343,7 +1309,6 @@
 - Contact Email: ${email}
 - Contact Phone: ${phone}
 - Requested Shoot Date: ${selectedDate}
-- Preferred Time Slot: ${shootingTime}
 - Chosen Package Grade: ${packageVal}
 - Applied Promotion Offer: ${promoStatusText}
 - Calculated Session Price: $${finalPrice.toFixed(2)}
@@ -1374,7 +1339,7 @@
                     updateDynamicDepositEstimate();
                     goToStep(3);
                     document.getElementById('email-self-btn').href = buildSelfEmailLink({
-                        email, date: selectedDate, time: shootingTime,
+                        email, date: selectedDate,
                         pkg: document.getElementById('package-select').selectedOptions[0].text,
                         deposit: document.getElementById('display-deposit-amount').textContent,
                     });
@@ -1395,7 +1360,7 @@
             const ko = currentLang === 'KO';
             const subject = ko ? `Dear Moment 예약 입금 정보 (${d.date})` : `Dear Moment booking – payment details (${d.date})`;
             const lines = ko ? [
-                `촬영일: ${d.date} ${d.time}`,
+                `촬영일: ${d.date}`,
                 `패키지: ${d.pkg}`,
                 `예약금 (50%): ${d.deposit}`,
                 '',
@@ -1406,7 +1371,7 @@
                 '송금 메모(Reference)에 예약자 성함을 적어 주세요.',
                 '예약금 입금이 확인되면 촬영 날짜가 확정됩니다.',
             ] : [
-                `Shoot date: ${d.date} ${d.time}`,
+                `Shoot date: ${d.date}`,
                 `Package: ${d.pkg}`,
                 `Deposit (50%): ${d.deposit}`,
                 '',
