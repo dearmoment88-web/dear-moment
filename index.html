@@ -968,6 +968,8 @@
         // Blocked dates are managed in the Google Sheet below (BLOCKED_DATES_SHEET_ID).
         const bookedDates = [];
         const blockedMonths = ['2026-08'];
+        // Every date on or after this one is blocked (YYYY-MM-DD). Set to '' to lift.
+        const bookingCutoffDate = '2026-11-16';
 
         // More blocked dates come from a Google Sheet shared as "anyone with
         // the link can view", so dates can be blocked from the Sheets app
@@ -1201,7 +1203,7 @@
                 const monthStr = String(month + 1).padStart(2, '0'); const dayStr = String(i).padStart(2, '0');
                 const dateCompareKey = `${year}-${monthStr}-${dayStr}`; const monthCompareKey = `${year}-${monthStr}`;
 
-                if (dayDate <= today || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey)) {
+                if (dayDate <= today || bookedDates.includes(dateCompareKey) || blockedMonths.includes(monthCompareKey) || (bookingCutoffDate && dateCompareKey >= bookingCutoffDate)) {
                     dayButton.disabled = true;
                 } else {
                     dayButton.onclick = () => { if (blockedDatesStatus === 'ready') selectDate(year, month, i, dayButton); };
