@@ -83,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link rel="stylesheet" href="tailwind.css?v=3">
+    <link rel="stylesheet" href="tailwind.css?v=4">
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
 
@@ -638,10 +638,22 @@
                                 <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                                     <i class="fas fa-file-signature text-slate-600"></i> <span data-i18n="sig-header">Terms & Consent Agreement</span>
                                 </h4>
+                                <div class="bg-white p-4 rounded-xl border border-gray-200">
+                                    <p class="text-xs font-bold text-slate-900 mb-2"><span data-i18n="terms-sum-title">Key Terms</span> <span class="font-normal text-slate-400">(<span data-i18n="terms-version-label">Version</span> <span class="terms-version"></span>)</span></p>
+                                    <ul id="terms-summary" class="list-disc pl-4 space-y-1.5 text-xs text-slate-600 leading-relaxed">
+                                        <li data-i18n="terms-sum-li1"><strong>Deposit:</strong> A 50% deposit is required. Your date is secured only once the deposit is confirmed.</li>
+                                        <li data-i18n="terms-sum-li2"><strong>Refunds:</strong> The deposit is refundable only if you cancel within 3 days of booking and at least 7 days before the shoot. All other cancellations are non-refundable.</li>
+                                        <li data-i18n="terms-sum-li3"><strong>Rescheduling:</strong> One free reschedule (subject to availability); further changes incur an additional fee. If heavy rain or extreme weather makes shooting impossible, you may choose a refund or a reschedule.</li>
+                                        <li data-i18n="terms-sum-li4"><strong>Travel:</strong> Free within a 1-hour one-way public transport trip from Maribyrnong; $50 for each additional hour or part of an hour, plus Uber fares where public transport is not available.</li>
+                                        <li data-i18n="terms-sum-li5"><strong>Delivery:</strong> Edited photos are delivered via an online gallery within up to 1 month after you select your images. The original gallery is deleted after 2 weeks and the edited gallery after 1 week. Deleted files cannot be recovered.</li>
+                                        <li data-i18n="terms-sum-li6"><strong>Portfolio use:</strong> Your photos are used for promotion only if you claim the $100 portfolio promotion. Once posted, they cannot be removed for personal reasons.</li>
+                                    </ul>
+                                    <p class="text-xs text-slate-500 mt-3"><span data-i18n="terms-full-pre">Full policies:</span> <a href="javascript:void(0)" onclick="showPage('details')" class="underline font-semibold text-slate-900" data-i18n="nav-details">Details</a></p>
+                                </div>
                                 <label class="flex items-start gap-3 cursor-pointer">
                                     <input type="checkbox" id="terms-agree" required class="mt-1 w-4 h-4 text-slate-900 bg-white border-gray-300 rounded focus:ring-slate-900">
                                     <span class="text-xs text-slate-600 leading-relaxed" data-i18n="sig-agree">
-                                        I have thoroughly read and agree to all the contents shown on this website.
+                                        I have read and agree to the Key Terms above and all policies in the Details section of this website.
                                     </span>
                                 </label>
                                 <div class="pt-2">
@@ -834,7 +846,14 @@
                 "form-main-header": "2. Customer Details & Service Terms", "form-selected-date": "Selected Date:",
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package",
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
-                "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have thoroughly read and agree to all the contents shown on this website.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
+                "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
+                "terms-sum-title": "Key Terms", "terms-version-label": "Version", "terms-full-pre": "Full policies:",
+                "terms-sum-li1": "<strong>Deposit:</strong> A 50% deposit is required. Your date is secured only once the deposit is confirmed.",
+                "terms-sum-li2": "<strong>Refunds:</strong> The deposit is refundable only if you cancel within 3 days of booking and at least 7 days before the shoot. All other cancellations are non-refundable.",
+                "terms-sum-li3": "<strong>Rescheduling:</strong> One free reschedule (subject to availability); further changes incur an additional fee. If heavy rain or extreme weather makes shooting impossible, you may choose a refund or a reschedule.",
+                "terms-sum-li4": "<strong>Travel:</strong> Free within a 1-hour one-way public transport trip from Maribyrnong; $50 for each additional hour or part of an hour, plus Uber fares where public transport is not available.",
+                "terms-sum-li5": "<strong>Delivery:</strong> Edited photos are delivered via an online gallery within up to 1 month after you select your images. The original gallery is deleted after 2 weeks and the edited gallery after 1 week. Deleted files cannot be recovered.",
+                "terms-sum-li6": "<strong>Portfolio use:</strong> Your photos are used for promotion only if you claim the $100 portfolio promotion. Once posted, they cannot be removed for personal reasons.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
                 "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please send a 50% deposit using the payment details below.",
                 "end-deposit-notice": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
                 "end-bank-title": "PayID Transfer (AUS)", "end-payid-label": "PayID (Mobile)", "end-payid-note": "Enter this PayID in your banking app — it will show the name YOHAN YUN before you confirm. If your bank doesn't support PayID, please contact us for account details.", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
@@ -910,7 +929,14 @@
                 "form-main-header": "2. 예약자 정보 입력 및 약관 동의", "form-selected-date": "선택하신 일정:",
                 "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요",
                 "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "포트폴리오(인스타그램 등)에 사진을 활용하는 것에 동의합니다. 프리미엄·디럭스 패키지에 적용됩니다.", "promo-no": "🔒 아니요, 사진을 공개하지 않겠습니다", "promo-no-desc": "사진을 포트폴리오 등에 공개하지 않습니다. 정상 가격이 적용됩니다.",
-                "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "본 웹사이트에 고지된 디어모먼트 촬영 정책, 환불 규정 및 출장 관련 조항을 전부 확인하였으며 전적으로 동의합니다.", "sig-label": "전자 서명 (동의의 의미로 실명을 적어 주세요) *", "btn-confirm-booking": "예약 신청하고 입금 정보 확인하기",
+                "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
+                "terms-sum-title": "핵심 약관", "terms-version-label": "버전", "terms-full-pre": "전체 정책:",
+                "terms-sum-li1": "<strong>예약금:</strong> 촬영 금액의 50%를 예약금으로 받으며, 예약금 입금이 확인되어야 일정이 확정됩니다.",
+                "terms-sum-li2": "<strong>환불:</strong> 예약일로부터 3일 이내이면서 촬영일까지 7일 이상 남은 경우에만 예약금이 환불됩니다. 그 외의 취소는 환불되지 않습니다.",
+                "terms-sum-li3": "<strong>일정 변경:</strong> 1회 무료 변경이 가능하며(작가 일정이 비어 있는 경우), 이후 변경 시 추가 비용이 발생합니다. 폭우나 악천후로 촬영이 불가능한 경우 환불 또는 일정 변경 중 선택할 수 있습니다.",
+                "terms-sum-li4": "<strong>출장:</strong> 마리비농 기준 대중교통 편도 1시간 이내는 무료이며, 초과 시 1시간마다(1시간 미만도 1시간으로 계산) $50이 추가됩니다. 대중교통으로 갈 수 없는 장소는 우버 요금이 별도로 청구됩니다.",
+                "terms-sum-li5": "<strong>전달:</strong> 보정본은 사진 선택 후 최대 1개월 이내에 온라인 갤러리로 전달됩니다. 원본 갤러리는 2주, 보정본 갤러리는 1주 후 삭제되며 삭제된 파일은 복구할 수 없습니다.",
+                "terms-sum-li6": "<strong>포트폴리오 활용:</strong> 100달러 포트폴리오 프로모션을 선택한 경우에만 사진이 홍보에 사용되며, 게시된 후에는 개인적인 사유로 삭제를 요청할 수 없습니다.", "sig-label": "전자 서명 (동의의 의미로 실명을 적어 주세요) *", "btn-confirm-booking": "예약 신청하고 입금 정보 확인하기",
                 "end-locked-in": "예약 신청이 접수되었습니다,", "end-msg1": "선택하신 촬영일", "end-msg2": "예약을 확정하시려면 아래 정보로 패키지 금액의 50%에 해당하는 예약금을 보내 주세요.",
                 "end-deposit-notice": "입금이 확인되기 전까지 예약 날짜는 확정되지 않습니다. 입금 완료 전에 동일한 날짜에 다른 고객의 예약이 먼저 확정될 경우, 원하시는 날짜를 더 이상 이용하지 못하실 수 있습니다.",
                 "end-bank-title": "호주 PayID 송금", "end-payid-label": "PayID (휴대폰)", "end-payid-note": "은행 앱에서 이 PayID를 입력하면 송금 전에 예금주 이름 YOHAN YUN이 표시됩니다. PayID를 지원하지 않는 은행이라면 연락 주시면 계좌 정보를 안내해 드립니다.", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "예약금 (50%)",
@@ -970,6 +996,8 @@
         const blockedMonths = ['2026-08'];
         // Every date on or after this one is blocked (YYYY-MM-DD). Set to '' to lift.
         const bookingCutoffDate = '';
+        // Update this date whenever the Key Terms or policies change; it is shown above the consent checkbox and sent with each booking
+        const TERMS_VERSION = '2026-10-26';
 
         // More blocked dates come from a Google Sheet shared as "anyone with
         // the link can view", so dates can be blocked from the Sheets app
@@ -1302,6 +1330,11 @@
             else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800;
             else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350;
 
+            // Record exactly which terms the client saw and when they agreed
+            const agreedAt = new Date();
+            const agreedAtMelbourne = agreedAt.toLocaleString('en-AU', { timeZone: 'Australia/Melbourne', dateStyle: 'full', timeStyle: 'long' });
+            const termsShown = [...document.querySelectorAll('#terms-summary li')].map(li => `  * ${li.textContent.trim()}`).join('\n');
+
             const targetEmail = "dearmoment88@gmail.com";
             const emailSubject = `[Dear Moment Booking] - ${firstName} ${lastName} (${selectedDate})`;
             
@@ -1316,7 +1349,14 @@
 - Calculated Session Price: $${finalPrice.toFixed(2)}
 - 50% Required Deposit Rate: $${(finalPrice / 2).toFixed(2)}
 - Concept & Landmark Notes: ${conceptNotes}
-- Digital Legal Signature: ${signature}`;
+- Digital Legal Signature: ${signature}
+
+Terms Agreement Record:
+- Terms Version Agreed: ${TERMS_VERSION}
+- Agreed At: ${agreedAtMelbourne} (Melbourne) / ${agreedAt.toISOString()} (UTC)
+- Page Language: ${currentLang}
+- Key Terms Shown to Client:
+${termsShown}`;
 
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.disabled = true;
@@ -1408,6 +1448,7 @@
         }
 
         window.onload = function() {
+            document.querySelectorAll('.terms-version').forEach(el => { el.textContent = TERMS_VERSION; });
             let savedLang = null;
             try { savedLang = localStorage.getItem('dmLang'); } catch (e) {}
             setLanguage(savedLang === 'KO' ? 'KO' : 'EN');
