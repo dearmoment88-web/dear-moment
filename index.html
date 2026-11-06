@@ -83,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link rel="stylesheet" href="tailwind.css?v=4">
+    <link rel="stylesheet" href="tailwind.css?v=5">
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
 
@@ -220,6 +220,27 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="pricing-title">Investment & Packages</h2>
+                </div>
+
+                <div id="anniversary-card" class="max-w-5xl mx-auto mb-12 bg-white rounded-2xl p-8 border border-rose-200 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row md:items-center gap-8">
+                    <div class="md:w-56 shrink-0">
+                        <span class="inline-block text-[11px] font-bold tracking-wide uppercase bg-rose-50 text-rose-700 px-2.5 py-1 rounded-full mb-3" data-i18n="pkg-anniv-badge">1 Spot Only</span>
+                        <span class="block text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-anniv">1st Anniversary Special</span>
+                        <h3 class="text-4xl font-bold text-slate-900 mt-2">$450</h3>
+                    </div>
+                    <div class="flex-grow">
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-slate-600 text-sm">
+                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-anniv-time">1 Hour</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-anniv-photos">10 Retouched Photos</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-anniv-orig">+300 Originals</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-calendar text-slate-400 mt-1"></i> <span data-i18n="pkg-anniv-dates">November & December shoots only</span></li>
+                            <li class="flex items-start gap-3 sm:col-span-2"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-anniv-loc">1 location: Fitzroy Gardens, Flinders Street Station or Parliament House</span></li>
+                        </ul>
+                        <p class="mt-5 text-sm text-rose-700 font-medium flex items-start gap-2"><i class="fas fa-circle-exclamation mt-0.5 flex-shrink-0"></i> <span data-i18n="pkg-anniv-note">Only one spot is available. Once it is booked, this special offer is no longer valid.</span></p>
+                    </div>
+                    <div class="md:w-56 shrink-0">
+                        <button onclick="goToBookingAndSelect('Anniversary')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 px-4 rounded-lg hover:bg-slate-800 transition-colors" data-i18n="pkg-anniv-btn">Book the Special</button>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
@@ -861,6 +882,9 @@
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
                 "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
                 "terms-sum-title": "Key Terms",
+                "pkg-anniv-badge": "1 Spot Only", "pkg-anniv": "1st Anniversary Special", "pkg-anniv-time": "1 Hour", "pkg-anniv-photos": "10 Retouched Photos", "pkg-anniv-orig": "+300 Originals",
+                "pkg-anniv-dates": "November & December shoots only", "pkg-anniv-loc": "1 location: Fitzroy Gardens, Flinders Street Station or Parliament House",
+                "pkg-anniv-note": "Only one spot is available. Once it is booked, this special offer is no longer valid.", "pkg-anniv-btn": "Book the Special",
                 "anniv-date-note": "The 1st Anniversary Special is available for November and December shoots only.", "lbl-anniv-location": "Special Location *", "opt-choose-location": "Choose a location",
                 "anniv-desc": "1-hour shoot · 10 retouched photos · 300+ originals. Only these 3 locations are available for this special.", "terms-version-label": "Version", "terms-full-pre": "Full policies:",
                 "terms-sum-li1": "<strong>Deposit:</strong> A 50% deposit is required. Your date is secured only once the deposit is confirmed.",
@@ -946,6 +970,9 @@
                 "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "포트폴리오(인스타그램 등)에 사진을 활용하는 것에 동의합니다. 프리미엄·디럭스 패키지에 적용됩니다.", "promo-no": "🔒 아니요, 사진을 공개하지 않겠습니다", "promo-no-desc": "사진을 포트폴리오 등에 공개하지 않습니다. 정상 가격이 적용됩니다.",
                 "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
                 "terms-sum-title": "핵심 약관",
+                "pkg-anniv-badge": "단 1자리", "pkg-anniv": "1주년 스페셜", "pkg-anniv-time": "1시간", "pkg-anniv-photos": "보정본 10장", "pkg-anniv-orig": "원본 300장 이상",
+                "pkg-anniv-dates": "11월·12월 촬영만 가능", "pkg-anniv-loc": "장소 1곳: Fitzroy Gardens, Flinders Street Station, Parliament House 중 선택",
+                "pkg-anniv-note": "단 1자리만 운영합니다. 예약이 완료되는 즉시 이 스페셜 오퍼는 더 이상 유효하지 않습니다.", "pkg-anniv-btn": "스페셜 예약하기",
                 "anniv-date-note": "1주년 스페셜은 11월·12월 촬영만 가능합니다.", "lbl-anniv-location": "스페셜 촬영 장소 *", "opt-choose-location": "장소를 선택해 주세요",
                 "anniv-desc": "1시간 촬영 · 보정본 10장 · 원본 300장 이상. 이 스페셜은 아래 3곳에서만 촬영 가능합니다.", "terms-version-label": "버전", "terms-full-pre": "전체 정책:",
                 "terms-sum-li1": "<strong>예약금:</strong> 촬영 금액의 50%를 예약금으로 받으며, 예약금 입금이 확인되어야 일정이 확정됩니다.",
@@ -1314,6 +1341,7 @@
             const select = document.getElementById('package-select');
             const dateOk = !!selectedDateStr && ANNIVERSARY_SPECIAL_MONTHS.includes(selectedDateStr.slice(0, 7));
             option.hidden = !ANNIVERSARY_SPECIAL_OPEN;
+            document.getElementById('anniversary-card').classList.toggle('hidden', !ANNIVERSARY_SPECIAL_OPEN);
             option.disabled = !ANNIVERSARY_SPECIAL_OPEN || !dateOk;
             document.getElementById('anniversary-unavailable-note').classList.toggle('hidden', !ANNIVERSARY_SPECIAL_OPEN || dateOk);
             if (option.disabled && select.value === 'Anniversary') select.value = '';
