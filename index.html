@@ -608,7 +608,20 @@
                                     <option value="Standard">Standard ($550)</option>
                                     <option value="Premium">Premium ($800)</option>
                                     <option value="Deluxe">Deluxe ($1,350)</option>
+                                    <option value="Anniversary" id="anniversary-option">1st Anniversary Special ($450)</option>
                                 </select>
+                                <p id="anniversary-unavailable-note" class="hidden text-xs text-slate-500 mt-1" data-i18n="anniv-date-note">The 1st Anniversary Special is available for November and December shoots only.</p>
+                            </div>
+
+                            <div id="anniversary-location-wrap" class="hidden">
+                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-anniv-location">Special Location *</label>
+                                <select id="anniversary-location" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
+                                    <option value="" disabled selected data-i18n="opt-choose-location">Choose a location</option>
+                                    <option value="Fitzroy Gardens">Fitzroy Gardens</option>
+                                    <option value="Flinders Street Station">Flinders Street Station</option>
+                                    <option value="Parliament House">Parliament House</option>
+                                </select>
+                                <p class="text-xs text-slate-500 mt-1" data-i18n="anniv-desc">1-hour shoot · 10 retouched photos · 300+ originals. Only these 3 locations are available for this special.</p>
                             </div>
 
                             <div class="bg-gradient-to-r from-amber-50/50 to-orange-50/50 p-5 rounded-2xl border border-orange-100 shadow-xs space-y-3">
@@ -847,7 +860,9 @@
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package",
                 "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
                 "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
-                "terms-sum-title": "Key Terms", "terms-version-label": "Version", "terms-full-pre": "Full policies:",
+                "terms-sum-title": "Key Terms",
+                "anniv-date-note": "The 1st Anniversary Special is available for November and December shoots only.", "lbl-anniv-location": "Special Location *", "opt-choose-location": "Choose a location",
+                "anniv-desc": "1-hour shoot · 10 retouched photos · 300+ originals. Only these 3 locations are available for this special.", "terms-version-label": "Version", "terms-full-pre": "Full policies:",
                 "terms-sum-li1": "<strong>Deposit:</strong> A 50% deposit is required. Your date is secured only once the deposit is confirmed.",
                 "terms-sum-li2": "<strong>Refunds:</strong> Cancel within 3 days of booking for a full deposit refund; after that, the deposit is non-refundable. If your shoot is less than a week away, no refund is available even within those 3 days. (e.g., booked on 1 Oct → cancel by 4 Oct for a refund.)",
                 "terms-sum-li3": "<strong>Rescheduling:</strong> One free reschedule (subject to availability); further changes incur an additional fee. If heavy rain or extreme weather makes shooting impossible, you can reschedule free of charge.",
@@ -930,7 +945,9 @@
                 "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요",
                 "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "포트폴리오(인스타그램 등)에 사진을 활용하는 것에 동의합니다. 프리미엄·디럭스 패키지에 적용됩니다.", "promo-no": "🔒 아니요, 사진을 공개하지 않겠습니다", "promo-no-desc": "사진을 포트폴리오 등에 공개하지 않습니다. 정상 가격이 적용됩니다.",
                 "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
-                "terms-sum-title": "핵심 약관", "terms-version-label": "버전", "terms-full-pre": "전체 정책:",
+                "terms-sum-title": "핵심 약관",
+                "anniv-date-note": "1주년 스페셜은 11월·12월 촬영만 가능합니다.", "lbl-anniv-location": "스페셜 촬영 장소 *", "opt-choose-location": "장소를 선택해 주세요",
+                "anniv-desc": "1시간 촬영 · 보정본 10장 · 원본 300장 이상. 이 스페셜은 아래 3곳에서만 촬영 가능합니다.", "terms-version-label": "버전", "terms-full-pre": "전체 정책:",
                 "terms-sum-li1": "<strong>예약금:</strong> 촬영 금액의 50%를 예약금으로 받으며, 예약금 입금이 확인되어야 일정이 확정됩니다.",
                 "terms-sum-li2": "<strong>환불:</strong> 예약 후 3일 이내에 취소하시면 예약금이 전액 환불되며, 그 이후에는 환불되지 않습니다. 단, 촬영일까지 1주일이 안 남은 경우에는 3일 이내라도 환불되지 않습니다. (예: 10월 1일에 예약 → 10월 4일까지 취소 시 환불)",
                 "terms-sum-li3": "<strong>일정 변경:</strong> 1회 무료 변경이 가능하며(작가 일정이 비어 있는 경우), 이후 변경 시 추가 비용이 발생합니다. 폭우나 악천후로 촬영이 불가능한 경우 무료로 일정 변경이 가능합니다.",
@@ -998,6 +1015,9 @@
         const bookingCutoffDate = '';
         // Update this date whenever the Key Terms or policies change; it is shown above the consent checkbox and sent with each booking
         const TERMS_VERSION = '2026-10-26';
+        // 1st Anniversary Special: one spot only — set to false once it is booked
+        const ANNIVERSARY_SPECIAL_OPEN = true;
+        const ANNIVERSARY_SPECIAL_MONTHS = ['2026-11', '2026-12'];
 
         // More blocked dates come from a Google Sheet shared as "anyone with
         // the link can view", so dates can be blocked from the Sheets app
@@ -1272,6 +1292,7 @@
             
             document.getElementById('display-selected-date').textContent = prettyDateStr;
             document.getElementById('final-date').textContent = prettyDateStr;
+            refreshAnniversaryOption();
             
             setTimeout(() => { goToStep(2); }, 250);
         }
@@ -1287,13 +1308,30 @@
             else if (step === 3) { document.getElementById('step-3-deposit').classList.remove('hidden'); progressBar.style.width = '100%'; }
         }
 
+        // The special is offered only while the spot is open and only for Nov/Dec dates
+        function refreshAnniversaryOption() {
+            const option = document.getElementById('anniversary-option');
+            const select = document.getElementById('package-select');
+            const dateOk = !!selectedDateStr && ANNIVERSARY_SPECIAL_MONTHS.includes(selectedDateStr.slice(0, 7));
+            option.hidden = !ANNIVERSARY_SPECIAL_OPEN;
+            option.disabled = !ANNIVERSARY_SPECIAL_OPEN || !dateOk;
+            document.getElementById('anniversary-unavailable-note').classList.toggle('hidden', !ANNIVERSARY_SPECIAL_OPEN || dateOk);
+            if (option.disabled && select.value === 'Anniversary') select.value = '';
+            updateDynamicDepositEstimate();
+        }
+
         function updateDynamicDepositEstimate() {
             const packageVal = document.getElementById('package-select').value;
+
+            const isAnniversary = packageVal === 'Anniversary';
+            const locationSelect = document.getElementById('anniversary-location');
+            document.getElementById('anniversary-location-wrap').classList.toggle('hidden', !isAnniversary);
+            locationSelect.required = isAnniversary;
 
             const promoYesInput = document.querySelector('input[name="promo-claim"][value="yes"]');
             const promoNoInput = document.querySelector('input[name="promo-claim"][value="no"]');
             const promoYesLabel = promoYesInput.closest('label');
-            const noPromo = (packageVal === 'Standard' || packageVal === 'Family' || packageVal === 'Graduation');
+            const noPromo = (packageVal === 'Standard' || packageVal === 'Family' || packageVal === 'Graduation' || packageVal === 'Anniversary');
             promoYesInput.disabled = noPromo;
             if (noPromo && promoYesInput.checked) promoNoInput.checked = true;
             promoYesLabel.classList.toggle('opacity-40', noPromo);
@@ -1303,6 +1341,7 @@
             const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
             let finalPrice = 0;
             if (packageVal === 'Family' || packageVal === 'Graduation') finalPrice = 400;
+            else if (packageVal === 'Anniversary') finalPrice = 450;
             else if (packageVal === 'Standard') finalPrice = 550;
             else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800; 
             else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350; 
@@ -1326,6 +1365,7 @@
 
             let finalPrice = 0;
             if (packageVal === 'Family' || packageVal === 'Graduation') finalPrice = 400;
+            else if (packageVal === 'Anniversary') finalPrice = 450;
             else if (packageVal === 'Standard') finalPrice = 550;
             else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800;
             else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350;
@@ -1344,7 +1384,7 @@
 - Contact Email: ${email}
 - Contact Phone: ${phone}
 - Requested Shoot Date: ${selectedDate}
-- Chosen Package Grade: ${packageVal}
+- Chosen Package Grade: ${packageVal}${packageVal === 'Anniversary' ? ` (1st Anniversary Special: 1 hr, 10 retouched, 300+ originals)\n- Special Location: ${document.getElementById('anniversary-location').value}` : ''}
 - Applied Promotion Offer: ${promoStatusText}
 - Calculated Session Price: $${finalPrice.toFixed(2)}
 - 50% Required Deposit Rate: $${(finalPrice / 2).toFixed(2)}
@@ -1449,6 +1489,7 @@ ${termsShown}`;
 
         window.onload = function() {
             document.querySelectorAll('.terms-version').forEach(el => { el.textContent = TERMS_VERSION; });
+            refreshAnniversaryOption();
             let savedLang = null;
             try { savedLang = localStorage.getItem('dmLang'); } catch (e) {}
             setLanguage(savedLang === 'KO' ? 'KO' : 'EN');
