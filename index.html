@@ -315,42 +315,6 @@
                     </div>
                 </div>
 
-                <div class="max-w-4xl mx-auto bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="text-xl font-bold text-orange-900" data-i18n="promo-header">🎁 LIMITED-TIME PROMOTION</h3>
-                        </div>
-                        <p class="text-orange-800 mb-3 font-medium" data-i18n="promo-body">Book a Premium Session or higher and receive:</p>
-                        <ul class="space-y-2 text-orange-700 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-plus text-orange-400"></i> <span data-i18n="promo-li1">Additional Edited Photos (Photographer's choice)</span></li>
-                            <li class="flex items-center gap-2"><i class="fas fa-plus text-orange-400"></i> <span data-i18n="promo-li2"><strong>$100 OFF</strong> (If you agree to allow portfolio usage)</span></li>
-                        </ul>
-                    </div>
-                    <div class="shrink-0 w-full md:w-auto">
-                        <button onclick="goToBookingAndSelect('Premium')" class="w-full md:w-auto bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-sm" data-i18n="promo-claim-btn">Claim Promo</button>
-                    </div>
-                </div>
-                <div class="mt-6 border-t border-orange-200 pt-5">
-                    <p class="text-sm font-semibold text-orange-900 mb-3" data-i18n="promo-release-title">Portfolio Usage Agreement (Model Release)</p>
-                    <ul class="space-y-2 text-sm text-orange-800">
-                        <li class="flex items-start gap-2">
-                            <span class="font-bold text-orange-400 mt-0.5">1.</span>
-                            <span data-i18n="promo-release-li1">I acknowledge that the photographer holds full copyright to all images taken during the session.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="font-bold text-orange-400 mt-0.5">2.</span>
-                            <span data-i18n="promo-release-li2">I grant the photographer permission to use the images for personal social media, websites, and promotional portfolios.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 flex-shrink-0"></i>
-                            <span data-i18n="promo-release-li3">The photographer has the sole right to select images for posting. The model may not request to exclude specific photos from being uploaded.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-exclamation-triangle text-orange-500 mt-0.5 flex-shrink-0"></i>
-                            <span data-i18n="promo-release-li4">Once images are posted, the model cannot request their deletion or removal for personal reasons.</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </section>
 
@@ -647,24 +611,6 @@
                                 <p class="text-xs text-slate-500 mt-1" data-i18n="anniv-desc">1-hour shoot · 10 retouched photos · 300+ originals. Pre-wedding & couple shoots only. Only these 2 locations are available for this special.</p>
                             </div>
 
-                            <div class="bg-gradient-to-r from-amber-50/50 to-orange-50/50 p-5 rounded-2xl border border-orange-100 shadow-xs space-y-3">
-                                <label class="block text-xs font-bold text-orange-950 uppercase tracking-wide flex items-center gap-1.5">
-                                    <i class="fas fa-gift text-orange-500"></i> <span data-i18n="promo-card-title">Special Promotion Offer</span>
-                                </label>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <label class="relative flex flex-col p-4 bg-white border border-orange-200 rounded-xl cursor-pointer hover:border-orange-400 transition-all shadow-xs">
-                                        <input type="radio" name="promo-claim" value="yes" onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
-                                        <span class="block text-sm font-bold text-slate-900 pr-6" data-i18n="promo-yes">🎁 Yes, Claim $100 OFF</span>
-                                        <span class="block text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="promo-yes-desc">Agree to allow portfolio usage. Applies to Premium or Deluxe package.</span>
-                                    </label>
-                                    <label class="relative flex flex-col p-4 bg-white border border-gray-200 rounded-xl cursor-pointer hover:border-slate-400 transition-all shadow-xs">
-                                        <input type="radio" name="promo-claim" value="no" checked onchange="updateDynamicDepositEstimate()" class="absolute top-4 right-4 text-slate-900 focus:ring-slate-900">
-                                        <span class="block text-sm font-bold text-slate-900 pr-6" data-i18n="promo-no">🔒 No, Keep Private</span>
-                                        <span class="block text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="promo-no-desc">Keep photos confidential. Regular package price applies.</span>
-                                    </label>
-                                </div>
-                            </div>
-
                             <div>
                                 <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-notes">Shoot Type & Location</label>
                                 <textarea id="concept-notes" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm resize-none"></textarea>
@@ -682,7 +628,6 @@
                                         <li data-i18n="terms-sum-li3"><strong>Rescheduling:</strong> One free reschedule (subject to availability); further changes incur an additional fee. If heavy rain or extreme weather makes shooting impossible, you can reschedule free of charge.</li>
                                         <li data-i18n="terms-sum-li4"><strong>Travel:</strong> Free within a 1-hour one-way public transport trip from Maribyrnong; $50 for each additional hour or part of an hour, plus Uber fares where public transport is not available.</li>
                                         <li data-i18n="terms-sum-li5"><strong>Delivery:</strong> Edited photos are delivered via an online gallery within up to 1 month after you select your images. The original gallery is deleted after 2 weeks and the edited gallery after 1 week. Deleted files cannot be recovered.</li>
-                                        <li data-i18n="terms-sum-li6"><strong>Portfolio use:</strong> Your photos are used for promotion only if you claim the $100 portfolio promotion. Once posted, they cannot be removed for personal reasons.</li>
                                     </ul>
                                     <p class="text-xs text-slate-500 mt-3"><span data-i18n="terms-full-pre">Full policies:</span> <a href="javascript:void(0)" onclick="showPage('details')" class="underline font-semibold text-slate-900" data-i18n="nav-details">Details</a></p>
                                 </div>
@@ -836,13 +781,9 @@
                 "pkg-best": "Best Value", "pkg-premium": "Premium", "pkg-prem-time": "2.5 Hours", "pkg-prem-photos": "40 Retouched Photos", "pkg-prem-loc": "Up to 3 Locations", "pkg-prem-fit": "Up to 2 Outfits", "pkg-prem-orig": "+800 Originals", "pkg-prem-btn": "Book Premium",
                 "pkg-deluxe": "Deluxe", "pkg-del-time": "4 Hours", "pkg-del-photos": "60 Retouched Photos", "pkg-del-loc": "Up to 4 Locations", "pkg-del-fit": "Up to 3 Outfits", "pkg-del-orig": "+1500 Originals", "pkg-del-btn": "Book Deluxe",
                 "pkg-fam-badge": "Choose One", "pkg-family": "Family, Graduation or Maternity", "pkg-fam-time": "1 Hour", "pkg-fam-photos": "10 Retouched Photos", "pkg-fam-loc": "1 Location", "pkg-fam-fit": "Single Outfit", "pkg-fam-orig": "+300 Originals", "pkg-fam-note": "One shoot: family, graduation or maternity", "pkg-fam-btn": "Book Family Shoot", "pkg-grad-btn": "Book Graduation Shoot", "pkg-mat-btn": "Book Maternity Shoot",
-                "promo-header": "🎁 LIMITED-TIME PROMOTION", "promo-body": "Book a Premium Session or higher and receive:",
-                "promo-li1": "Additional Edited Photos (Photographer's choice)", "promo-li2": "<strong>$100 OFF</strong> (If you agree to allow portfolio usage)", "promo-claim-btn": "Claim Promo",
-                "promo-release-title": "Portfolio Usage Agreement (Model Release)",
-                "promo-release-li1": "I acknowledge that the photographer holds full copyright to all images taken during the session.",
-                "promo-release-li2": "I grant the photographer permission to use the images for personal social media, websites, and promotional portfolios.",
-                "promo-release-li3": "The photographer has the sole right to select images for posting. The model may not request to exclude specific photos from being uploaded.",
-                "promo-release-li4": "Once images are posted, the model cannot request their deletion or removal for personal reasons.",
+                
+                
+                
                 "details-title": "The Details", "details-subtitle": "Everything to know before your shoot — policies, travel and FAQs.",
                 "det-policy-title": "Service Policy",
                 "det-retouch-combined": "I focus on enhancing your natural beauty through professional color grading and skin texture refinement. Notice: To preserve your authentic self, I do not offer structural alterations (such as body slimming or facial reshaping).",
@@ -881,7 +822,6 @@
                 "cal-load-failed": "We couldn't load the available dates. Please refresh the page in a moment. If this keeps happening, please contact us at dearmoment88@gmail.com.",
                 "form-main-header": "2. Customer Details & Service Terms", "form-selected-date": "Selected Date:",
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package",
-                "promo-card-title": "Special Promotion Offer", "promo-yes": "🎁 Yes, Claim $100 OFF", "promo-yes-desc": "Agree to allow portfolio usage. Applies to Premium or Deluxe package.", "promo-no": "🔒 No, Keep Private", "promo-no-desc": "Keep photos confidential. Regular package price applies.",
                 "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
                 "terms-sum-title": "Key Terms",
                 "pkg-anniv-badge": "Limited Spots", "pkg-anniv": "1st Anniversary Special", "pkg-anniv-time": "1 Hour", "pkg-anniv-photos": "10 Retouched Photos", "pkg-anniv-orig": "+300 Originals",
@@ -893,8 +833,7 @@
                 "terms-sum-li2": "<strong>Refunds:</strong> Cancel within 3 days of booking for a full deposit refund; after that, the deposit is non-refundable. If your shoot is less than a week away, no refund is available even within those 3 days. (e.g., booked on 1 Oct → cancel by 4 Oct for a refund.)",
                 "terms-sum-li3": "<strong>Rescheduling:</strong> One free reschedule (subject to availability); further changes incur an additional fee. If heavy rain or extreme weather makes shooting impossible, you can reschedule free of charge.",
                 "terms-sum-li4": "<strong>Travel:</strong> Free within a 1-hour one-way public transport trip from Maribyrnong; $50 for each additional hour or part of an hour, plus Uber fares where public transport is not available.",
-                "terms-sum-li5": "<strong>Delivery:</strong> Edited photos are delivered via an online gallery within up to 1 month after you select your images. The original gallery is deleted after 2 weeks and the edited gallery after 1 week. Deleted files cannot be recovered.",
-                "terms-sum-li6": "<strong>Portfolio use:</strong> Your photos are used for promotion only if you claim the $100 portfolio promotion. Once posted, they cannot be removed for personal reasons.", "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
+                "terms-sum-li5": "<strong>Delivery:</strong> Edited photos are delivered via an online gallery within up to 1 month after you select your images. The original gallery is deleted after 2 weeks and the edited gallery after 1 week. Deleted files cannot be recovered.",  "sig-label": "Digital Signature (Type your full legal name to agree) *", "btn-confirm-booking": "Confirm Details & Show Deposit Account",
                 "end-locked-in": "Details Locked In,", "end-msg1": "To complete and secure your reservation on", "end-msg2": "please send a 50% deposit using the payment details below.",
                 "end-deposit-notice": "Please be aware that your requested date will not be secured until the deposit is confirmed. If another client books the same date before your payment is completed, your preferred date may no longer be available.",
                 "end-bank-title": "PayID Transfer (AUS)", "end-payid-label": "PayID (Mobile)", "end-payid-note": "Enter this PayID in your banking app — it will show the name YOHAN YUN before you confirm. If your bank doesn't support PayID, please contact us for account details.", "end-bank-name": "Bank", "end-acc-owner": "Account Name", "end-acc-num": "Account Number", "end-deposit-due": "Required Deposit (50%)",
@@ -924,13 +863,9 @@
                 "pkg-best": "가장 추천하는 구성", "pkg-premium": "Premium (프리미엄)", "pkg-prem-time": "2.5 시간 촬영", "pkg-prem-photos": "정밀 보정본 40장", "pkg-prem-loc": "최대 3개 동선 촬영", "pkg-prem-fit": "의상 2벌 환복 가능", "pkg-prem-orig": "전체 원본 800장+ 제공", "pkg-prem-btn": "프리미엄 신청하기",
                 "pkg-deluxe": "Deluxe (디럭스)", "pkg-del-time": "4 시간 촬영", "pkg-del-photos": "정밀 보정본 60장", "pkg-del-loc": "최대 4개 동선 촬영", "pkg-del-fit": "의상 3벌 환복 가능", "pkg-del-orig": "전체 원본 1500장+ 제공", "pkg-del-btn": "디럭스 신청하기",
                 "pkg-fam-badge": "하나만 선택", "pkg-family": "가족·졸업·만삭 스냅", "pkg-fam-time": "1 시간 촬영", "pkg-fam-photos": "정밀 보정본 10장", "pkg-fam-loc": "촬영지 1곳 지정", "pkg-fam-fit": "단일 의상 구성", "pkg-fam-orig": "전체 원본 300장+ 제공", "pkg-fam-note": "가족·졸업·만삭 중 택 1 촬영", "pkg-fam-btn": "가족 스냅 신청하기", "pkg-grad-btn": "졸업 스냅 신청하기", "pkg-mat-btn": "만삭 스냅 신청하기",
-                "promo-header": "🎁 시즌 한정 프로모션 혜택", "promo-body": "프리미엄 세션 이상 예약을 신청하시는 모든 분께:",
-                "promo-li1": "포토그래퍼 추천 베스트 소장용 추가 정밀 보정본 증정", "promo-li2": "<strong>100달러 즉시 할인</strong> (완성본의 홍보용 포트폴리오 활용 동의 시)", "promo-claim-btn": "프로모션 적용하여 예약하기",
-                "promo-release-title": "포트폴리오 활용 동의서",
-                "promo-release-li1": "촬영 세션 중 촬영된 모든 사진의 저작권은 작가에게 있음을 인정합니다.",
-                "promo-release-li2": "작가가 해당 사진을 개인 SNS, 웹사이트 및 홍보용 포트폴리오에 사용하는 것에 동의합니다.",
-                "promo-release-li3": "게시할 사진의 선택권은 작가에게 있으며, 특정 사진의 업로드 제외를 요청할 수 없습니다.",
-                "promo-release-li4": "사진이 게시된 이후에는 개인적인 사유로 삭제 또는 내림을 요청할 수 없습니다.",
+                
+                
+                
                 "details-title": "이용 정책 및 상세 안내", "details-subtitle": "서로의 소중한 시간과 창작의 가치를 지키기 위한 약속입니다.",
                 "det-policy-title": "서비스 정책",
                 "det-retouch-combined": "사진을 어색해하지 않는 선에서의 보정을 추구합니다. 정밀보정본은 색감, 밝기, 수평, 피부 잡티 등 인위적이지 않은 한에서 보정을 하며 얼굴 특정 부위 혹은 신체 특정부위를 줄이거나 키우는 성형보정은 하지 않습니다. 이부분 꼭 유의해주시길 바랍니다.",
@@ -969,7 +904,6 @@
                 "cal-load-failed": "예약 가능한 날짜를 불러오지 못했습니다. 잠시 후 페이지를 새로고침해 주세요. 계속 문제가 생기면 dearmoment88@gmail.com으로 문의해 주세요.",
                 "form-main-header": "2. 예약자 정보 입력 및 약관 동의", "form-selected-date": "선택하신 일정:",
                 "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요",
-                "promo-card-title": "한정 시즌 혜택 적용", "promo-yes": "🎁 예, 100달러 즉시 할인을 적용합니다.", "promo-yes-desc": "포트폴리오(인스타그램 등)에 사진을 활용하는 것에 동의합니다. 프리미엄·디럭스 패키지에 적용됩니다.", "promo-no": "🔒 아니요, 사진을 공개하지 않겠습니다", "promo-no-desc": "사진을 포트폴리오 등에 공개하지 않습니다. 정상 가격이 적용됩니다.",
                 "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
                 "terms-sum-title": "핵심 약관",
                 "pkg-anniv-badge": "한정 수량", "pkg-anniv": "1주년 스페셜", "pkg-anniv-time": "1시간", "pkg-anniv-photos": "보정본 10장", "pkg-anniv-orig": "원본 300장 이상",
@@ -981,8 +915,7 @@
                 "terms-sum-li2": "<strong>환불:</strong> 예약 후 3일 이내에 취소하시면 예약금이 전액 환불되며, 그 이후에는 환불되지 않습니다. 단, 촬영일까지 1주일이 안 남은 경우에는 3일 이내라도 환불되지 않습니다. (예: 10월 1일에 예약 → 10월 4일까지 취소 시 환불)",
                 "terms-sum-li3": "<strong>일정 변경:</strong> 1회 무료 변경이 가능하며(작가 일정이 비어 있는 경우), 이후 변경 시 추가 비용이 발생합니다. 폭우나 악천후로 촬영이 불가능한 경우 무료로 일정 변경이 가능합니다.",
                 "terms-sum-li4": "<strong>출장:</strong> 마리비농 기준 대중교통 편도 1시간 이내는 무료이며, 초과 시 1시간마다(1시간 미만도 1시간으로 계산) $50이 추가됩니다. 대중교통으로 갈 수 없는 장소는 우버 요금이 별도로 청구됩니다.",
-                "terms-sum-li5": "<strong>전달:</strong> 보정본은 사진 선택 후 최대 1개월 이내에 온라인 갤러리로 전달됩니다. 원본 갤러리는 2주, 보정본 갤러리는 1주 후 삭제되며 삭제된 파일은 복구할 수 없습니다.",
-                "terms-sum-li6": "<strong>포트폴리오 활용:</strong> 100달러 포트폴리오 프로모션을 선택한 경우에만 사진이 홍보에 사용되며, 게시된 후에는 개인적인 사유로 삭제를 요청할 수 없습니다.", "sig-label": "전자 서명 (동의의 의미로 실명을 적어 주세요) *", "btn-confirm-booking": "예약 신청하고 입금 정보 확인하기",
+                "terms-sum-li5": "<strong>전달:</strong> 보정본은 사진 선택 후 최대 1개월 이내에 온라인 갤러리로 전달됩니다. 원본 갤러리는 2주, 보정본 갤러리는 1주 후 삭제되며 삭제된 파일은 복구할 수 없습니다.",  "sig-label": "전자 서명 (동의의 의미로 실명을 적어 주세요) *", "btn-confirm-booking": "예약 신청하고 입금 정보 확인하기",
                 "end-locked-in": "예약 신청이 접수되었습니다,", "end-msg1": "선택하신 촬영일", "end-msg2": "예약을 확정하시려면 아래 정보로 패키지 금액의 50%에 해당하는 예약금을 보내 주세요.",
                 "end-deposit-notice": "입금이 확인되기 전까지 예약 날짜는 확정되지 않습니다. 입금 완료 전에 동일한 날짜에 다른 고객의 예약이 먼저 확정될 경우, 원하시는 날짜를 더 이상 이용하지 못하실 수 있습니다.",
                 "end-bank-title": "호주 PayID 송금", "end-payid-label": "PayID (휴대폰)", "end-payid-note": "은행 앱에서 이 PayID를 입력하면 송금 전에 예금주 이름 YOHAN YUN이 표시됩니다. PayID를 지원하지 않는 은행이라면 연락 주시면 계좌 정보를 안내해 드립니다.", "end-bank-name": "은행명", "end-acc-owner": "예금주 명", "end-acc-num": "계좌 번호", "end-deposit-due": "예약금 (50%)",
@@ -1043,7 +976,7 @@
         // Every date on or after this one is blocked (YYYY-MM-DD). Set to '' to lift.
         const bookingCutoffDate = '';
         // Update this date whenever the Key Terms or policies change; it is shown above the consent checkbox and sent with each booking
-        const TERMS_VERSION = '2026-10-26';
+        const TERMS_VERSION = '2026-11-16';
         // 1st Anniversary Special: limited spots — stays open until Yohan says to end it
         const ANNIVERSARY_SPECIAL_OPEN = true;
         const ANNIVERSARY_SPECIAL_MONTHS = ['2026-11', '2026-12'];
@@ -1358,23 +1291,12 @@
             document.getElementById('anniversary-location-wrap').classList.toggle('hidden', !isAnniversary);
             locationSelect.required = isAnniversary;
 
-            const promoYesInput = document.querySelector('input[name="promo-claim"][value="yes"]');
-            const promoNoInput = document.querySelector('input[name="promo-claim"][value="no"]');
-            const promoYesLabel = promoYesInput.closest('label');
-            const noPromo = (packageVal === 'Standard' || packageVal === 'Family' || packageVal === 'Graduation' || packageVal === 'Maternity' || packageVal === 'Anniversary');
-            promoYesInput.disabled = noPromo;
-            if (noPromo && promoYesInput.checked) promoNoInput.checked = true;
-            promoYesLabel.classList.toggle('opacity-40', noPromo);
-            promoYesLabel.classList.toggle('pointer-events-none', noPromo);
-            promoYesLabel.classList.toggle('grayscale', noPromo);
-
-            const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
             let finalPrice = 0;
             if (packageVal === 'Family' || packageVal === 'Graduation' || packageVal === 'Maternity') finalPrice = 400;
             else if (packageVal === 'Anniversary') finalPrice = 450;
             else if (packageVal === 'Standard') finalPrice = 550;
-            else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800; 
-            else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350; 
+            else if (packageVal === 'Premium') finalPrice = 800;
+            else if (packageVal === 'Deluxe') finalPrice = 1350;
 
             document.getElementById('display-deposit-amount').textContent = `$${(finalPrice / 2).toFixed(2)}`;
         }
@@ -1390,15 +1312,13 @@
             const packageVal = document.getElementById('package-select').value;
             const conceptNotes = document.getElementById('concept-notes').value || "None"; const signature = document.getElementById('signature').value;
             const selectedDate = document.getElementById('final-date').textContent;
-            const promoClaim = document.querySelector('input[name="promo-claim"]:checked')?.value;
-            const promoStatusText = (promoClaim === 'yes') ? 'Yes (Requested $100 Promo Discount)' : 'No (Private Price)';
 
             let finalPrice = 0;
             if (packageVal === 'Family' || packageVal === 'Graduation' || packageVal === 'Maternity') finalPrice = 400;
             else if (packageVal === 'Anniversary') finalPrice = 450;
             else if (packageVal === 'Standard') finalPrice = 550;
-            else if (packageVal === 'Premium') finalPrice = (promoClaim === 'yes') ? 700 : 800;
-            else if (packageVal === 'Deluxe') finalPrice = (promoClaim === 'yes') ? 1250 : 1350;
+            else if (packageVal === 'Premium') finalPrice = 800;
+            else if (packageVal === 'Deluxe') finalPrice = 1350;
 
             // Record exactly which terms the client saw and when they agreed
             const agreedAt = new Date();
@@ -1415,7 +1335,6 @@
 - Contact Phone: ${phone}
 - Requested Shoot Date: ${selectedDate}
 - Chosen Package Grade: ${packageVal}${packageVal === 'Anniversary' ? ` (1st Anniversary Special: 1 hr, 10 retouched, 300+ originals)\n- Special Location: ${document.getElementById('anniversary-location').value}` : ''}
-- Applied Promotion Offer: ${promoStatusText}
 - Calculated Session Price: $${finalPrice.toFixed(2)}
 - 50% Required Deposit Rate: $${(finalPrice / 2).toFixed(2)}
 - Concept & Landmark Notes: ${conceptNotes}
