@@ -574,8 +574,8 @@
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-notes">Shoot Type & Location</label>
-                                <textarea id="concept-notes" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm resize-none"></textarea>
+                                <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-notes">Shoot Type & Location *</label>
+                                <textarea id="concept-notes" rows="3" required class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm resize-none"></textarea>
                             </div>
 
                             <div class="bg-slate-50 p-5 rounded-2xl border border-gray-200 space-y-4">
@@ -795,7 +795,7 @@
                 "lbl-start-time": "Preferred Start Time *", "ph-start-time": "e.g. 10:30 AM",
                 "time-note": "Please choose a start time within your selected time window. It will be confirmed after booking.",
                 "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package",
-                "lbl-notes": "Shoot Type & Location", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
+                "lbl-notes": "Shoot Type & Location *", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
                 "terms-sum-title": "Key Terms",
                 
                 "terms-version-label": "Version", "terms-full-pre": "Full policies:",
@@ -880,7 +880,7 @@
                 "lbl-start-time": "원하시는 시작 시간 *", "ph-start-time": "예) 오전 10:30",
                 "time-note": "선택하신 시간대 안에서 시작 시간을 적어 주세요. 예약 후 확정해 드립니다.",
                 "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요",
-                "lbl-notes": "촬영 종류 및 장소", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
+                "lbl-notes": "촬영 종류 및 장소 *", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
                 "terms-sum-title": "핵심 약관",
                 
                 "terms-version-label": "버전", "terms-full-pre": "전체 정책:",
@@ -1268,7 +1268,7 @@
             const firstName = document.getElementById('fname').value; const lastName = document.getElementById('lname').value;
             const email = document.getElementById('email').value; const phone = document.getElementById('phone').value;
             const packageVal = document.getElementById('package-select').value;
-            const conceptNotes = document.getElementById('concept-notes').value || "None"; const signature = document.getElementById('signature').value;
+            const conceptNotes = document.getElementById('concept-notes').value.trim(); const signature = document.getElementById('signature').value;
             const selectedDate = document.getElementById('final-date').textContent;
 
             let finalPrice = 0;
