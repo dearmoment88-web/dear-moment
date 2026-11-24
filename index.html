@@ -83,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link rel="stylesheet" href="tailwind.css?v=9">
+    <link rel="stylesheet" href="tailwind.css?v=10">
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
 
@@ -225,7 +225,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
                     <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
                         <div class="mb-6">
-                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-1h">2 Hours</span>
+                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-1h">Moment</span>
                             <h3 class="text-4xl font-bold text-slate-900 mt-2">$650</h3>
                         </div>
                         <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
@@ -235,12 +235,12 @@
                             <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-fit">Single Outfit (No Outfit Change)</span></li>
                             <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-orig">+800 Originals</span></li>
                         </ul>
-                        <button onclick="goToBookingAndSelect('2 Hours')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-1h-btn">Book 2 Hours</button>
+                        <button onclick="goToBookingAndSelect('Moment')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-1h-btn">Book Moment</button>
                     </div>
 
                     <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
                         <div class="mb-6">
-                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-std">3 Hours</span>
+                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-std">Story</span>
                             <h3 class="text-4xl font-bold text-slate-900 mt-2">$1,200</h3>
                         </div>
                         <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
@@ -250,7 +250,26 @@
                             <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-fit">1 Outfit Change</span></li>
                             <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-std-orig">+1300 Originals</span></li>
                         </ul>
-                        <button onclick="goToBookingAndSelect('3 Hours')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-std-btn">Book 3 Hours</button>
+                        <button onclick="goToBookingAndSelect('Story')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-std-btn">Book Story</button>
+                    </div>
+                </div>
+
+                <div class="max-w-3xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fas fa-wand-magic-sparkles text-slate-400"></i> <span data-i18n="pr-retouch-title">Retouching</span></h3>
+                        <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> <span data-i18n="pr-retouch-yes"><strong>Included:</strong> Color, brightness, straightening and skin blemishes, kept natural.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-xmark text-rose-600 mt-1"></i> <span data-i18n="pr-retouch-no"><strong>Not included:</strong> Face or body reshaping (making any part slimmer, smaller or bigger).</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-xmark text-rose-600 mt-1"></i> <span data-i18n="pr-retouch-ref"><strong>No outside references:</strong> I edit in my own style only, not other photographers' styles.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm">
+                        <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fas fa-images text-slate-400"></i> <span data-i18n="pr-delivery-title">Photo Delivery</span></h3>
+                        <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
+                            <li class="flex items-start gap-3"><span class="font-bold text-slate-400 w-4 shrink-0">1</span> <span data-i18n="pr-delivery-1"><strong>Originals:</strong> Sent via an online gallery so you can pick your photos for retouching. <strong>Deleted after 2 weeks.</strong></span></li>
+                            <li class="flex items-start gap-3"><span class="font-bold text-slate-400 w-4 shrink-0">2</span> <span data-i18n="pr-delivery-2"><strong>Retouched photos:</strong> Delivered within 1 month of your selection. <strong>Deleted after 1 week.</strong></span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-triangle-exclamation text-amber-500 mt-1 w-4 shrink-0"></i> <span data-i18n="pr-delivery-warn">Deleted files cannot be recovered. Please download them as soon as you receive each link.</span></li>
+                        </ul>
                     </div>
                 </div>
 
@@ -552,8 +571,8 @@
                                 <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-pkg">Selected Package *</label>
                                 <select id="package-select" required onchange="updateDynamicDepositEstimate()" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
                                     <option value="" disabled selected data-i18n="opt-choose-pkg">Choose a package</option>
-                                    <option value="2 Hours">2 Hours ($650)</option>
-                                    <option value="3 Hours">3 Hours ($1,200)</option>
+                                    <option value="Moment">Moment – 2 Hours ($650)</option>
+                                    <option value="Story">Story – 3 Hours ($1,200)</option>
                                 </select>
                             </div>
 
@@ -723,8 +742,14 @@
                 "about-p1": "From the very beginning of my photography journey, I wanted to do more than just take photos. I wanted to tell stories through them. So, how would you like your precious moments to be remembered?",
                 "about-p2": "Beautiful colors and poses matter, but what I think about most is how to capture your true self through a story. Not photos that are consumed in the moment and forgotten, but ones you look back at 10 years from now and smile, remembering exactly how that day felt. That is what I aim for. Why not take a moment to think about your story together with me?",
                 "pricing-title": "Investment & Packages",
-                "pkg-1h": "2 Hours", "pkg-1h-time": "2 Hours", "pkg-1h-photos": "25 Retouched Photos", "pkg-1h-loc": "2 Locations", "pkg-1h-fit": "Single Outfit (No Outfit Change)", "pkg-1h-orig": "+800 Originals", "pkg-1h-btn": "Book 2 Hours",
-                "pkg-std": "3 Hours", "pkg-std-time": "3 Hours", "pkg-std-photos": "60 Retouched Photos", "pkg-std-loc": "3 Locations", "pkg-std-fit": "1 Outfit Change", "pkg-std-orig": "+1300 Originals", "pkg-std-btn": "Book 3 Hours",
+                "pkg-1h": "Moment", "pkg-1h-time": "2 Hours", "pkg-1h-photos": "25 Retouched Photos", "pkg-1h-loc": "2 Locations", "pkg-1h-fit": "Single Outfit (No Outfit Change)", "pkg-1h-orig": "+800 Originals", "pkg-1h-btn": "Book Moment",
+                "pr-retouch-title": "Retouching", "pr-retouch-yes": "<strong>Included:</strong> Color, brightness, straightening and skin blemishes, kept natural.",
+                "pr-retouch-no": "<strong>Not included:</strong> Face or body reshaping (making any part slimmer, smaller or bigger).",
+                "pr-retouch-ref": "<strong>No outside references:</strong> I edit in my own style only, not other photographers' styles.",
+                "pr-delivery-title": "Photo Delivery", "pr-delivery-1": "<strong>Originals:</strong> Sent via an online gallery so you can pick your photos for retouching. <strong>Deleted after 2 weeks.</strong>",
+                "pr-delivery-2": "<strong>Retouched photos:</strong> Delivered within 1 month of your selection. <strong>Deleted after 1 week.</strong>",
+                "pr-delivery-warn": "Deleted files cannot be recovered. Please download them as soon as you receive each link.",
+                "pkg-std": "Story", "pkg-std-time": "3 Hours", "pkg-std-photos": "60 Retouched Photos", "pkg-std-loc": "3 Locations", "pkg-std-fit": "1 Outfit Change", "pkg-std-orig": "+1300 Originals", "pkg-std-btn": "Book Story",
                 "pkg-info-types": "<strong>Available shoots:</strong> Pre-wedding, registry wedding, couple, maternity and graduation photos.",
                 "pkg-info-not": "<strong>Not available:</strong> Family photos and wedding ceremony (wedding day) coverage.", 
                 "details-title": "The Details", "details-subtitle": "Everything to know before your shoot — policies, travel and FAQs.",
@@ -804,8 +829,14 @@
                 "about-p1": "저는 사진을 시작할 때부터 단순히 사진을 찍는 게 아니라 사진에 이야기를 담고 싶었습니다. 여러분은 여러분의 소중한 순간을 어떻게 담고 싶으신가요?",
                 "about-p2": "예쁜 색감, 포즈들도 중요하지만 가장 중요한 건 여러분의 진짜 모습을 어떤 이야기로 담느냐를 항상 생각합니다. 단순히 일시적으로 소비되는 사진이 아닌 10년 그리고 그 이상의 시간이 흐른 후에 여러분이 사진을 다시 보았을 때 웃으며 그 순간을 추억할 수 있는 사진을 담는 게 저의 고민이자 목표입니다. 여러분의 소중한 순간들을 저와 함께 고민해 보시는 건 어떠실까요?",
                 "pricing-title": "패키지 및 구성 안내",
-                "pkg-1h": "2시간 패키지", "pkg-1h-time": "2 시간 촬영", "pkg-1h-photos": "정밀 보정본 25장", "pkg-1h-loc": "촬영지 2곳", "pkg-1h-fit": "단일 의상 (환복 불가)", "pkg-1h-orig": "전체 원본 800장+ 제공", "pkg-1h-btn": "2시간 패키지 신청하기",
-                "pkg-std": "3시간 패키지", "pkg-std-time": "3 시간 촬영", "pkg-std-photos": "정밀 보정본 60장", "pkg-std-loc": "촬영지 3곳", "pkg-std-fit": "환복 1회 가능", "pkg-std-orig": "전체 원본 1300장+ 제공", "pkg-std-btn": "3시간 패키지 신청하기",
+                "pkg-1h": "모먼트", "pkg-1h-time": "2 시간 촬영", "pkg-1h-photos": "정밀 보정본 25장", "pkg-1h-loc": "촬영지 2곳", "pkg-1h-fit": "단일 의상 (환복 불가)", "pkg-1h-orig": "전체 원본 800장+ 제공", "pkg-1h-btn": "모먼트 신청하기",
+                "pr-retouch-title": "보정 안내", "pr-retouch-yes": "<strong>보정 범위:</strong> 색감, 밝기, 수평, 피부 잡티를 자연스러운 선에서 보정합니다.",
+                "pr-retouch-no": "<strong>보정 불가:</strong> 얼굴이나 신체 특정 부위를 줄이거나 키우는 성형 보정은 하지 않습니다.",
+                "pr-retouch-ref": "<strong>레퍼런스 불가:</strong> 다른 작가의 사진 스타일은 참고하지 않으며, 제 스타일로만 보정합니다.",
+                "pr-delivery-title": "사진 전달", "pr-delivery-1": "<strong>원본:</strong> 온라인 갤러리로 보내드리며, 여기서 보정할 사진을 골라 주세요. <strong>2주 후 삭제됩니다.</strong>",
+                "pr-delivery-2": "<strong>보정본:</strong> 사진 선택 후 최대 1개월 이내에 전달됩니다. <strong>1주 후 삭제됩니다.</strong>",
+                "pr-delivery-warn": "삭제된 파일은 복구할 수 없으니, 링크를 받으시면 바로 다운로드해 주세요.",
+                "pkg-std": "스토리", "pkg-std-time": "3 시간 촬영", "pkg-std-photos": "정밀 보정본 60장", "pkg-std-loc": "촬영지 3곳", "pkg-std-fit": "환복 1회 가능", "pkg-std-orig": "전체 원본 1300장+ 제공", "pkg-std-btn": "스토리 신청하기",
                 "pkg-info-types": "<strong>촬영 가능:</strong> 프리웨딩, 레지스트리 웨딩, 커플, 만삭, 졸업 사진",
                 "pkg-info-not": "<strong>촬영 불가:</strong> 가족 사진과 웨딩 본식 촬영은 진행하지 않습니다.", 
                 "details-title": "이용 정책 및 상세 안내", "details-subtitle": "서로의 소중한 시간과 창작의 가치를 지키기 위한 약속입니다.",
@@ -1218,8 +1249,8 @@
             const packageVal = document.getElementById('package-select').value;
 
             let finalPrice = 0;
-            if (packageVal === '2 Hours') finalPrice = 650;
-            else if (packageVal === '3 Hours') finalPrice = 1200;
+            if (packageVal === 'Moment') finalPrice = 650;
+            else if (packageVal === 'Story') finalPrice = 1200;
 
             document.getElementById('display-deposit-amount').textContent = `$${(finalPrice / 2).toFixed(2)}`;
         }
@@ -1237,8 +1268,8 @@
             const selectedDate = document.getElementById('final-date').textContent;
 
             let finalPrice = 0;
-            if (packageVal === '2 Hours') finalPrice = 650;
-            else if (packageVal === '3 Hours') finalPrice = 1200;
+            if (packageVal === 'Moment') finalPrice = 650;
+            else if (packageVal === 'Story') finalPrice = 1200;
 
             // Record exactly which terms the client saw and when they agreed
             const agreedAt = new Date();
