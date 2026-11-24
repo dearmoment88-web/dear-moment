@@ -83,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link rel="stylesheet" href="tailwind.css?v=8">
+    <link rel="stylesheet" href="tailwind.css?v=9">
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
 
@@ -222,53 +222,39 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="pricing-title">Investment & Packages</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
                     <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
                         <div class="mb-6">
-                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-1h">1 Hour</span>
-                            <h3 class="text-4xl font-bold text-slate-900 mt-2">$450</h3>
+                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-1h">2 Hours</span>
+                            <h3 class="text-4xl font-bold text-slate-900 mt-2">$650</h3>
                         </div>
                         <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
-                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-time">1 Hour</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-photos">15 Retouched Photos</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-loc">1 Location</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-fit">Single Outfit</span></li>
-                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-orig">+300 Originals</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-time">2 Hours</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-photos">25 Retouched Photos</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-loc">2 Locations</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-fit">Single Outfit (No Outfit Change)</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-1h-orig">+800 Originals</span></li>
                         </ul>
-                        <button onclick="goToBookingAndSelect('1 Hour')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-1h-btn">Book 1 Hour</button>
+                        <button onclick="goToBookingAndSelect('2 Hours')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-1h-btn">Book 2 Hours</button>
                     </div>
 
                     <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
                         <div class="mb-6">
-                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-std">1.5 Hours</span>
-                            <h3 class="text-4xl font-bold text-slate-900 mt-2">$550</h3>
+                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-std">3 Hours</span>
+                            <h3 class="text-4xl font-bold text-slate-900 mt-2">$1,200</h3>
                         </div>
                         <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
-                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-std-time">1.5 Hours</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-std-photos">20 Retouched Photos</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-loc">1 Location</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-fit">Single Outfit</span></li>
-                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-std-orig">+500 Originals</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-std-time">3 Hours</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-camera-retro text-slate-400 mt-1"></i> <span data-i18n="pkg-std-photos">60 Retouched Photos</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-loc">3 Locations</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-tshirt text-slate-400 mt-1"></i> <span data-i18n="pkg-std-fit">1 Outfit Change</span></li>
+                            <li class="flex items-start gap-3"><i class="far fa-images text-slate-400 mt-1"></i> <span data-i18n="pkg-std-orig">+1300 Originals</span></li>
                         </ul>
-                        <button onclick="goToBookingAndSelect('1.5 Hours')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-std-btn">Book 1.5 Hours</button>
-                    </div>
-
-                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
-                        <div class="mb-6">
-                            <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-addon">Add-ons</span>
-                            <h3 class="text-4xl font-bold text-slate-900 mt-2" data-i18n="pkg-addon-price">Custom</h3>
-                        </div>
-                        <ul class="space-y-4 mb-8 text-slate-600 flex-grow text-sm">
-                            <li class="flex items-start gap-3"><i class="far fa-clock text-slate-400 mt-1"></i> <span data-i18n="pkg-addon-time">Extra Time</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span data-i18n="pkg-addon-loc">Extra Locations</span></li>
-                            <li class="flex items-start gap-3"><i class="far fa-comments text-slate-400 mt-1"></i> <span data-i18n="pkg-addon-quote">Price confirmed after we chat</span></li>
-                            <li class="flex items-start gap-3"><i class="far fa-credit-card text-slate-400 mt-1"></i> <span data-i18n="pkg-addon-deposit">Deposit paid after confirmation</span></li>
-                        </ul>
-                        <button onclick="goToBookingAndSelect('Add-ons')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-addon-btn">Request Add-ons</button>
+                        <button onclick="goToBookingAndSelect('3 Hours')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-std-btn">Book 3 Hours</button>
                     </div>
                 </div>
 
-                <div class="max-w-5xl mx-auto bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="max-w-3xl mx-auto bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
                     <ul class="space-y-4 text-sm text-slate-600">
                         <li class="flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> <span data-i18n="pkg-info-types"><strong>Available shoots:</strong> Pre-wedding, registry wedding, couple, maternity and graduation photos.</span></li>
                         <li class="flex items-start gap-3"><i class="fas fa-xmark text-rose-600 mt-1"></i> <span data-i18n="pkg-info-not"><strong>Not available:</strong> Family photos and wedding ceremony (wedding day) coverage.</span></li>
@@ -566,11 +552,9 @@
                                 <label class="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wide" data-i18n="lbl-pkg">Selected Package *</label>
                                 <select id="package-select" required onchange="updateDynamicDepositEstimate()" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none transition-all text-sm bg-white">
                                     <option value="" disabled selected data-i18n="opt-choose-pkg">Choose a package</option>
-                                    <option value="1 Hour">1 Hour ($450)</option>
-                                    <option value="1.5 Hours">1.5 Hours ($550)</option>
-                                    <option value="Add-ons" data-i18n="opt-addon">Add-ons (Custom quote)</option>
+                                    <option value="2 Hours">2 Hours ($650)</option>
+                                    <option value="3 Hours">3 Hours ($1,200)</option>
                                 </select>
-                                <p id="addon-hint" class="hidden text-xs text-slate-500 mt-1" data-i18n="addon-hint">Please describe the package and add-ons you'd like (e.g. 1.5 hours + 30 extra minutes, 2 locations) in Shoot Type &amp; Location below. I'll confirm the price before you pay the deposit.</p>
                             </div>
 
                             <div>
@@ -622,11 +606,6 @@
                         <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">
                             <span data-i18n="end-msg1">To complete and secure your reservation on</span> <span id="final-date" class="font-bold text-slate-800"></span>, <span data-i18n="end-msg2">please send a 50% deposit using the payment details below.</span>
                         </p>
-
-                        <div id="addon-request-notice" class="hidden max-w-md mx-auto bg-sky-50 border border-sky-200 text-sky-900 text-xs rounded-xl p-3.5 mb-4 leading-relaxed flex items-start gap-2.5 text-left">
-                            <i class="fas fa-info-circle text-sm mt-0.5 shrink-0 text-sky-500"></i>
-                            <p data-i18n="addon-request-notice">Your add-on request has been sent. I'll contact you to confirm the details and total price. Please send the deposit only after we've confirmed everything.</p>
-                        </div>
 
                         <div class="max-w-md mx-auto bg-amber-50 border border-amber-200 text-amber-900 text-xs rounded-xl p-3.5 mb-6 leading-relaxed flex items-start gap-2.5 text-left">
                             <i class="fas fa-exclamation-circle text-sm mt-0.5 shrink-0 text-amber-500"></i>
@@ -744,11 +723,10 @@
                 "about-p1": "From the very beginning of my photography journey, I wanted to do more than just take photos. I wanted to tell stories through them. So, how would you like your precious moments to be remembered?",
                 "about-p2": "Beautiful colors and poses matter, but what I think about most is how to capture your true self through a story. Not photos that are consumed in the moment and forgotten, but ones you look back at 10 years from now and smile, remembering exactly how that day felt. That is what I aim for. Why not take a moment to think about your story together with me?",
                 "pricing-title": "Investment & Packages",
-                "pkg-1h": "1 Hour", "pkg-1h-time": "1 Hour", "pkg-1h-photos": "15 Retouched Photos", "pkg-1h-loc": "1 Location", "pkg-1h-fit": "Single Outfit", "pkg-1h-orig": "+300 Originals", "pkg-1h-btn": "Book 1 Hour",
-                "pkg-std": "1.5 Hours", "pkg-std-time": "1.5 Hours", "pkg-std-photos": "20 Retouched Photos", "pkg-std-loc": "1 Location", "pkg-std-fit": "Single Outfit", "pkg-std-orig": "+500 Originals", "pkg-std-btn": "Book 1.5 Hours",
+                "pkg-1h": "2 Hours", "pkg-1h-time": "2 Hours", "pkg-1h-photos": "25 Retouched Photos", "pkg-1h-loc": "2 Locations", "pkg-1h-fit": "Single Outfit (No Outfit Change)", "pkg-1h-orig": "+800 Originals", "pkg-1h-btn": "Book 2 Hours",
+                "pkg-std": "3 Hours", "pkg-std-time": "3 Hours", "pkg-std-photos": "60 Retouched Photos", "pkg-std-loc": "3 Locations", "pkg-std-fit": "1 Outfit Change", "pkg-std-orig": "+1300 Originals", "pkg-std-btn": "Book 3 Hours",
                 "pkg-info-types": "<strong>Available shoots:</strong> Pre-wedding, registry wedding, couple, maternity and graduation photos.",
                 "pkg-info-not": "<strong>Not available:</strong> Family photos and wedding ceremony (wedding day) coverage.", 
-                
                 "details-title": "The Details", "details-subtitle": "Everything to know before your shoot — policies, travel and FAQs.",
                 "det-policy-title": "Service Policy",
                 "det-retouch-combined": "I focus on enhancing your natural beauty through professional color grading and skin texture refinement. Notice: To preserve your authentic self, I do not offer structural alterations (such as body slimming or facial reshaping).",
@@ -789,15 +767,12 @@
                 "lbl-fname": "First Name *", "lbl-lname": "Last Name *", "lbl-email": "Email Address *", "lbl-phone": "Phone Number *", "lbl-time": "Preferred Time *", "opt-choose-time": "Choose a time",
                 "opt-time-1": "10:00 AM – 12:00 PM (Best for city shoots)", "opt-time-2": "2:00 PM – 4:00 PM (Best for city shoots)", "opt-time-3": "5:00 PM – 7:30 PM (Best for garden shoots)",
                 
-                "pkg-addon": "Add-ons", "pkg-addon-price": "Custom", "pkg-addon-time": "Extra Time", "pkg-addon-loc": "Extra Locations", "pkg-addon-quote": "Price confirmed after we chat", "pkg-addon-deposit": "Deposit paid after confirmation", "pkg-addon-btn": "Request Add-ons",
-                "opt-addon": "Add-ons (Custom quote)", "addon-hint": "Please describe the package and add-ons you'd like (e.g. 1.5 hours + 30 extra minutes, 2 locations) in Shoot Type & Location below. I'll confirm the price before you pay the deposit.",
-                "addon-request-notice": "Your add-on request has been sent. I'll contact you to confirm the details and total price. Please send the deposit only after we've confirmed everything.", "deposit-tbc": "To be confirmed",
+                
                 "lbl-start-time": "Preferred Start Time *", "ph-start-time": "e.g. 10:30 AM",
                 "time-note": "Please choose a start time within your selected time window. It will be confirmed after booking.",
                 "lbl-pkg": "Selected Package *", "opt-choose-pkg": "Choose a package",
                 "lbl-notes": "Shoot Type & Location *", "sig-header": "Terms & Consent Agreement", "sig-agree": "I have read and agree to the Key Terms above and all policies in the Details section of this website.",
                 "terms-sum-title": "Key Terms",
-                
                 "terms-version-label": "Version", "terms-full-pre": "Full policies:",
                 "terms-sum-li1": "<strong>Deposit:</strong> A 50% deposit is required. Your date is secured only once the deposit is confirmed.",
                 "terms-sum-li2": "<strong>Refunds:</strong> Cancel within 3 days of booking for a full deposit refund; after that, the deposit is non-refundable. If your shoot is less than a week away, no refund is available even within those 3 days. (e.g., booked on 1 Oct → cancel by 4 Oct for a refund.)",
@@ -829,11 +804,10 @@
                 "about-p1": "저는 사진을 시작할 때부터 단순히 사진을 찍는 게 아니라 사진에 이야기를 담고 싶었습니다. 여러분은 여러분의 소중한 순간을 어떻게 담고 싶으신가요?",
                 "about-p2": "예쁜 색감, 포즈들도 중요하지만 가장 중요한 건 여러분의 진짜 모습을 어떤 이야기로 담느냐를 항상 생각합니다. 단순히 일시적으로 소비되는 사진이 아닌 10년 그리고 그 이상의 시간이 흐른 후에 여러분이 사진을 다시 보았을 때 웃으며 그 순간을 추억할 수 있는 사진을 담는 게 저의 고민이자 목표입니다. 여러분의 소중한 순간들을 저와 함께 고민해 보시는 건 어떠실까요?",
                 "pricing-title": "패키지 및 구성 안내",
-                "pkg-1h": "1시간 패키지", "pkg-1h-time": "1 시간 촬영", "pkg-1h-photos": "정밀 보정본 15장", "pkg-1h-loc": "촬영지 1곳 지정", "pkg-1h-fit": "단일 의상 구성", "pkg-1h-orig": "전체 원본 300장+ 제공", "pkg-1h-btn": "1시간 패키지 신청하기",
-                "pkg-std": "1.5시간 패키지", "pkg-std-time": "1.5 시간 촬영", "pkg-std-photos": "정밀 보정본 20장", "pkg-std-loc": "촬영지 1곳 지정", "pkg-std-fit": "단일 의상 구성", "pkg-std-orig": "전체 원본 500장+ 제공", "pkg-std-btn": "1.5시간 패키지 신청하기",
+                "pkg-1h": "2시간 패키지", "pkg-1h-time": "2 시간 촬영", "pkg-1h-photos": "정밀 보정본 25장", "pkg-1h-loc": "촬영지 2곳", "pkg-1h-fit": "단일 의상 (환복 불가)", "pkg-1h-orig": "전체 원본 800장+ 제공", "pkg-1h-btn": "2시간 패키지 신청하기",
+                "pkg-std": "3시간 패키지", "pkg-std-time": "3 시간 촬영", "pkg-std-photos": "정밀 보정본 60장", "pkg-std-loc": "촬영지 3곳", "pkg-std-fit": "환복 1회 가능", "pkg-std-orig": "전체 원본 1300장+ 제공", "pkg-std-btn": "3시간 패키지 신청하기",
                 "pkg-info-types": "<strong>촬영 가능:</strong> 프리웨딩, 레지스트리 웨딩, 커플, 만삭, 졸업 사진",
                 "pkg-info-not": "<strong>촬영 불가:</strong> 가족 사진과 웨딩 본식 촬영은 진행하지 않습니다.", 
-                
                 "details-title": "이용 정책 및 상세 안내", "details-subtitle": "서로의 소중한 시간과 창작의 가치를 지키기 위한 약속입니다.",
                 "det-policy-title": "서비스 정책",
                 "det-retouch-combined": "사진을 어색해하지 않는 선에서의 보정을 추구합니다. 정밀보정본은 색감, 밝기, 수평, 피부 잡티 등 인위적이지 않은 한에서 보정을 하며 얼굴 특정 부위 혹은 신체 특정부위를 줄이거나 키우는 성형보정은 하지 않습니다. 이부분 꼭 유의해주시길 바랍니다.",
@@ -874,15 +848,12 @@
                 "lbl-fname": "이름 (First Name) *", "lbl-lname": "성 (Last Name) *", "lbl-email": "이메일 주소 *", "lbl-phone": "휴대전화 연락처 *", "lbl-time": "촬영 시간대 선택 *", "opt-choose-time": "시간대를 선택해 주세요",
                 "opt-time-1": "오전 10:00 – 오후 12:00 (시티 촬영 추천)", "opt-time-2": "오후 2:00 – 오후 4:00 (시티 촬영 추천)", "opt-time-3": "오후 5:00 – 오후 7:30 (가든 촬영 추천)",
                 
-                "pkg-addon": "추가 옵션", "pkg-addon-price": "맞춤 상담", "pkg-addon-time": "촬영 시간 추가", "pkg-addon-loc": "촬영 장소 추가", "pkg-addon-quote": "상담 후 가격 확정", "pkg-addon-deposit": "확정 후 예약금 입금", "pkg-addon-btn": "추가 옵션 요청하기",
-                "opt-addon": "추가 옵션 (맞춤 견적)", "addon-hint": "원하시는 패키지와 추가 옵션을 아래 '촬영 종류 및 장소'에 적어 주세요. (예: 1.5시간 + 30분 추가, 장소 2곳) 예약금 입금 전에 가격을 확정해 드립니다.",
-                "addon-request-notice": "추가 옵션 요청이 접수되었습니다. 세부 내용과 총 금액을 확인해 연락드릴게요. 모든 내용이 확정된 후에 예약금을 보내 주세요.", "deposit-tbc": "추후 안내",
+                
                 "lbl-start-time": "원하시는 시작 시간 *", "ph-start-time": "예) 오전 10:30",
                 "time-note": "선택하신 시간대 안에서 시작 시간을 적어 주세요. 예약 후 확정해 드립니다.",
                 "lbl-pkg": "패키지 등급 선택 *", "opt-choose-pkg": "구성을 선택해 주세요",
                 "lbl-notes": "촬영 종류 및 장소 *", "sig-header": "최종 이용 약관 승인", "sig-agree": "위 핵심 약관과 본 웹사이트 '이용 안내'에 고지된 모든 정책을 확인하였으며 이에 동의합니다.",
                 "terms-sum-title": "핵심 약관",
-                
                 "terms-version-label": "버전", "terms-full-pre": "전체 정책:",
                 "terms-sum-li1": "<strong>예약금:</strong> 촬영 금액의 50%를 예약금으로 받으며, 예약금 입금이 확인되어야 일정이 확정됩니다.",
                 "terms-sum-li2": "<strong>환불:</strong> 예약 후 3일 이내에 취소하시면 예약금이 전액 환불되며, 그 이후에는 환불되지 않습니다. 단, 촬영일까지 1주일이 안 남은 경우에는 3일 이내라도 환불되지 않습니다. (예: 10월 1일에 예약 → 10월 4일까지 취소 시 환불)",
@@ -929,7 +900,6 @@
             if (notesTextarea) { notesTextarea.placeholder = dict["ph-notes"] || ""; }
             const startTimeInput = document.getElementById('start-time');
             if (startTimeInput) { startTimeInput.placeholder = dict["ph-start-time"] || ""; }
-            if (document.getElementById('package-select').value === 'Add-ons') { updateDynamicDepositEstimate(); }
 
             const sigInput = document.getElementById('signature');
             if (sigInput) { sigInput.placeholder = dict["ph-sig"] || ""; }
@@ -1247,16 +1217,11 @@
         function updateDynamicDepositEstimate() {
             const packageVal = document.getElementById('package-select').value;
 
-            const isAddons = packageVal === 'Add-ons';
-            document.getElementById('addon-hint').classList.toggle('hidden', !isAddons);
-            document.getElementById('addon-request-notice').classList.toggle('hidden', !isAddons);
-
             let finalPrice = 0;
-            if (packageVal === '1 Hour') finalPrice = 450;
-            else if (packageVal === '1.5 Hours') finalPrice = 550;
+            if (packageVal === '2 Hours') finalPrice = 650;
+            else if (packageVal === '3 Hours') finalPrice = 1200;
 
-            // Add-ons are quoted after a chat, so there is no deposit amount yet
-            document.getElementById('display-deposit-amount').textContent = isAddons ? translations[currentLang]['deposit-tbc'] : `$${(finalPrice / 2).toFixed(2)}`;
+            document.getElementById('display-deposit-amount').textContent = `$${(finalPrice / 2).toFixed(2)}`;
         }
 
         /* ==========================================================================
@@ -1272,8 +1237,8 @@
             const selectedDate = document.getElementById('final-date').textContent;
 
             let finalPrice = 0;
-            if (packageVal === '1 Hour') finalPrice = 450;
-            else if (packageVal === '1.5 Hours') finalPrice = 550;
+            if (packageVal === '2 Hours') finalPrice = 650;
+            else if (packageVal === '3 Hours') finalPrice = 1200;
 
             // Record exactly which terms the client saw and when they agreed
             const agreedAt = new Date();
@@ -1292,8 +1257,8 @@
 - Preferred Time: ${document.getElementById('time-select').value}
 - Preferred Start Time: ${document.getElementById('start-time').value}
 - Chosen Package Grade: ${packageVal}
-- Calculated Session Price: ${packageVal === 'Add-ons' ? 'Custom quote — to be confirmed with the client (see notes)' : `$${finalPrice.toFixed(2)}`}
-- 50% Required Deposit Rate: ${packageVal === 'Add-ons' ? 'To be confirmed after the quote' : `$${(finalPrice / 2).toFixed(2)}`}
+- Calculated Session Price: $${finalPrice.toFixed(2)}
+- 50% Required Deposit Rate: $${(finalPrice / 2).toFixed(2)}
 - Concept & Landmark Notes: ${conceptNotes}
 - Digital Legal Signature: ${signature}
 
