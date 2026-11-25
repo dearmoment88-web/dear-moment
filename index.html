@@ -83,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link rel="stylesheet" href="tailwind.css?v=12">
+    <link rel="stylesheet" href="tailwind.css?v=11">
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen bg-slate-50">
 
@@ -222,12 +222,12 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-i18n="pricing-title">Investment & Packages</h2>
                 </div>
 
-                <div class="max-w-6xl mx-auto mb-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                <div class="max-w-3xl mx-auto mb-10 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
                     <div class="bg-emerald-50 border border-emerald-100 text-emerald-900 rounded-xl px-4 py-3 flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> <span data-i18n="pkg-info-types"><strong>Available shoots:</strong> Pre-wedding, registry wedding, couple, maternity and graduation photos.</span></div>
                     <div class="bg-rose-50 border border-rose-100 text-rose-900 rounded-xl px-4 py-3 flex items-start gap-3"><i class="fas fa-xmark text-rose-600 mt-1"></i> <span data-i18n="pkg-info-not"><strong>Not available:</strong> Family photos and wedding ceremony (wedding day) coverage.</span></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
                     <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-md transition-shadow">
                         <div class="mb-6">
                             <span class="text-sm font-semibold text-slate-500 tracking-wider uppercase" data-i18n="pkg-1h">Moment</span>
@@ -257,8 +257,10 @@
                         </ul>
                         <button onclick="goToBookingAndSelect('Story')" class="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors mt-auto" data-i18n="pkg-std-btn">Book Story</button>
                     </div>
+                </div>
 
-                    <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm flex flex-col">
+                <div class="max-w-3xl mx-auto mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm">
                         <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fas fa-wand-magic-sparkles text-slate-400"></i> <span data-i18n="pr-retouch-title">Retouching</span></h3>
                         <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
                             <li class="flex items-start gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i> <span data-i18n="pr-retouch-yes"><strong>Included:</strong> Color, brightness, straightening and skin blemishes, kept natural.</span></li>
@@ -267,7 +269,7 @@
                             <li class="flex items-start gap-3"><i class="far fa-envelope text-slate-400 mt-1"></i> <span data-i18n="pr-retouch-other"><strong>Other edits:</strong> Not sure if an edit is possible? Please ask me by <a href="mailto:dearmoment88@gmail.com" class="underline font-semibold text-slate-900">email</a>. If you need appearance retouching, please contact a professional retouching service. I"m happy to recommend one.</span></li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm flex flex-col">
+                    <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm">
                         <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fas fa-images text-slate-400"></i> <span data-i18n="pr-delivery-title">Photo Delivery</span></h3>
                         <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
                             <li class="flex items-start gap-3"><span class="font-bold text-slate-400 w-4 shrink-0">1</span> <span data-i18n="pr-delivery-1"><strong>Originals:</strong> Sent via an online gallery so you can pick your photos for retouching. <strong>Deleted after 2 weeks.</strong></span></li>
@@ -276,6 +278,7 @@
                         </ul>
                     </div>
                 </div>
+
 
             </div>
         </section>
