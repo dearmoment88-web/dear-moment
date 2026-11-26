@@ -1119,6 +1119,11 @@
             if (pushHistory && !(history.state && history.state.page === pageId)) {
                 try { history.pushState({ page: pageId }, '', '#' + pageId); } catch (e) {}
             }
+            // 다른 페이지에서 예약 페이지로 다시 들어오면 항상 캘린더(1단계)부터 보여줌 (예약 완료 화면은 유지)
+            const bookingPage = document.getElementById('booking');
+            const step3 = document.getElementById('step-3-deposit');
+            if (pageId === 'booking' && bookingPage && bookingPage.classList.contains('hidden') && step3 && step3.classList.contains('hidden')) { goToStep(1); }
+
             const pages = document.querySelectorAll('.page-view');
             pages.forEach(page => { page.classList.add('hidden'); page.classList.remove('block', 'flex'); });
 
